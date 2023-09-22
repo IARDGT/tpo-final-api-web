@@ -17,8 +17,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Home from "./Pages/Home";
-import Catalogo from "./Pages/Catalogo";
+import { Home } from "./Pages/Home";
+import { Catalogo } from "./Pages/Catalogo";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

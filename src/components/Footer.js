@@ -10,34 +10,34 @@ export const Footer = () => {
     return (
       <footer>
         <hr className="mt-5 mb-4" />
-        <div class="container mx-auto">
-          <div class="row">
-            <div class="col d-flex justify-content-center">
+        <div className="container mx-auto">
+          <div className="row">
+            <div className="col d-flex justify-content-center">
               <a href="/">
                 <img src={ require('../assets/logo.png') } alt="Logo" width="30" height="24"></img>
               </a>
             </div>
-            <div class="col-8 d-flex justify-content-center">
-              <ul class="nav">
-                <li class="nav-item"><a href="#" class="nav-link px-2">Inicio</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2">¿Quienes Somos?</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2">Encontrá tu clase</a></li>
+            <div className="col-8 d-flex justify-content-center">
+              <ul className="nav">
+                <li className="nav-item"><a href="#" className="nav-link px-2">Inicio</a></li>
+                <li className="nav-item"><a href="#" className="nav-link px-2">¿Quienes Somos?</a></li>
+                <li className="nav-item"><a href="#" className="nav-link px-2">Encontrá tu clase</a></li>
               </ul>
             </div>
-            <div class="col d-flex justify-content-center">
-              <ul class="nav">
-              <li class="nav-item">
-                    <a href="#" class="btn btn-outline-dark btn-circle social-fb">
+            <div className="col d-flex justify-content-center">
+              <ul className="nav">
+              <li className="nav-item">
+                    <a href="#" className="btn btn-outline-dark btn-circle social-fb">
                         <FontAwesomeIcon icon={faFacebook} />
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="btn btn-outline-dark btn-circle social-ig">
+                <li className="nav-item">
+                    <a href="#" className="btn btn-outline-dark btn-circle social-ig">
                         <FontAwesomeIcon icon={faInstagram} />
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="btn btn-outline-dark btn-circle social-tw">
+                <li className="nav-item">
+                    <a href="#" className="btn btn-outline-dark btn-circle social-tw">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
                 </li>
@@ -50,4 +50,4 @@ export const Footer = () => {
     );
   };
   
-export default Footer;
+//export default Footer;

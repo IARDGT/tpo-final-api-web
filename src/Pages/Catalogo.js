@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar"
+import { Navbar } from "../components/Navbar"
 
-export default function Catalogo() {
+export const Catalogo = () => {
     return (
         <>
             <Navbar />
