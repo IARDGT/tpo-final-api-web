@@ -19,6 +19,7 @@ import {
 } from "react-router-dom";
 import { Home } from "./Pages/Home";
 import { Catalogo } from "./Pages/Catalogo";
+import { Login } from "./Pages/Login";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,6 +28,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="catalogo" element={<Catalogo />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
