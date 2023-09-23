@@ -2,10 +2,6 @@ import * as React from 'react';
 import './Login.css';
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export const Login = () => {
     return (
