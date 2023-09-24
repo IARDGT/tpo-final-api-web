@@ -20,6 +20,7 @@ import {
 import { Home } from "./Pages/Home";
 import { Catalogo } from "./Pages/Catalogo";
 import { Login } from "./Pages/Login";
+import { Register } from "./Pages/Register";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,6 +30,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="catalogo" element={<Catalogo />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

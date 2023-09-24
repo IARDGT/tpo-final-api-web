@@ -7,12 +7,9 @@ import { UserIcon } from './UserIcon';
 
 export const Navbar = () => {
 
-  const [auth, setAuth] = useState(true);
-
-
+  const [auth, setAuth] = useState(false);
 
   /*   const [anchorEl, setAnchorEl] = useState(null);
-  
   
     const handleMenu = (event) => {
       setAnchorEl(event.currentTarget);

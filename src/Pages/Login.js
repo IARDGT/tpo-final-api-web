@@ -12,14 +12,10 @@ export const Login = () => {
            {/* <img src={require('../assets/login_img2.jpg')} className="img-fluid" alt="Sample image" />  */}
            <h2>¡Bienvenido de nuevo!</h2>
            <p>
-              Si eres uno de nuestros valiosos profesores, estás a solo
-              un paso de comenzar a impartir clases. Inicia sesión en
-              tu cuenta para acceder a todas las herramientas y
-              recursos que necesitas para conectar con estudiantes y
-              compartir tus conocimientos de manera efectiva. ¡Es
-              hora de inspirar y empoderar a tus alumnos a través de
-              nuestra plataforma! Haz clic en 'Iniciar sesión' y
-              comienza tu próxima sesión de enseñanza."
+              Si eres uno de nuestros valiosos profesores, estás a solo un paso de comenzar a impartir clases. Inicia sesión en
+              tu cuenta para acceder a todas las herramientas y recursos que necesitas para conectar con estudiantes y
+              compartir tus conocimientos de manera efectiva. ¡Es hora de inspirar y empoderar a tus alumnos a través de
+              nuestra plataforma! Haz clic en 'Iniciar sesión' y comienza tu próxima sesión de enseñanza."
             </p>
         </div>
         <div className="col-lg-5 d-flex justify-content-center">
@@ -42,7 +38,7 @@ export const Login = () => {
 
             <div className="js mt-4 pt-2">
               <button type="button" className="btn btn-primary btn-lg">Continuar</button>
-              <p className="small fw-bold mt-2 pt-1 mb-4">¿No tenés una cuenta? <a href="#!"
+              <p className="small fw-bold mt-2 pt-1 mb-4">¿No tenés una cuenta? <a href="/register"
                   className="link-danger">¡Registrate!</a></p>
             </div>
 
