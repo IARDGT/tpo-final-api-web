@@ -21,6 +21,7 @@ import { Home } from "./Pages/Home";
 import { Catalogo } from "./Pages/Catalogo";
 import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
+import { CrearClase } from './Pages/CrearClase';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +32,7 @@ root.render(
         <Route path="catalogo" element={<Catalogo />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="crear-clase" element={<CrearClase />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
