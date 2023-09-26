@@ -7,7 +7,7 @@ import { UserIcon } from './UserIcon';
 
 export const Navbar = () => {
 
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(false);
 
 
 
