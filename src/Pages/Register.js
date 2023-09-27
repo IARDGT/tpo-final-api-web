@@ -46,7 +46,6 @@ export const Register = () => {
       </div>
       <h2>Pasos para iniciar tus clases</h2>
 
-      <Footer />
     </>
     );
   };
