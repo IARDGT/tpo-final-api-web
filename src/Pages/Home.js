@@ -1,7 +1,9 @@
-import { Footer } from "../components/Footer";
+import { ListaClases } from "../components/ListaClases";
 import { Navbar } from "../components/Navbar";
 import { Search } from "../components/Search";
+import Comentario from "../components/Comentario";
 
+import "../components/Home.css";
 
 
 export const Home = () => {
@@ -9,8 +11,10 @@ export const Home = () => {
         <>
             <Navbar />
             <div
-                style={{ maxWidth: "75%",
-                         margin: "auto" }}>
+                style={{
+                    maxWidth: "75%",
+                    margin: "auto"
+                }}>
                 <div>
                     <h1>Encuentra tu clase ideal,
                         con tu profesor ideal.</h1>
@@ -61,94 +65,49 @@ export const Home = () => {
                     </div>
                 </div>
                 <div>
-                    <ul className="list-group list-group-horizontal" style={{ border: "0px" }}>
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul className="list-group list-group-horizontal-sm">
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="list-group-item">
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                    <h2>Aqui te mostramos algunas de nuestras clases</h2>
+                    <h3>En línea o presencial, elige entre más de 100 clases disponibles.</h3>
+                    <ListaClases cantidad={ 4 } />
+                    <ListaClases cantidad={ 4 } />
                 </div>
-                <h1>Home</h1>
+                <div>
+                    <h2>Comentarios de Nuestros Alumnos</h2>
+                    <div className="grid2x2">
+                        <div className="box box1">
+                            <Comentario />
+                        </div>
+                        <div className="box box2">
+                            <Comentario />
+                        </div>
+                        <div className="box box3">
+                            <Comentario />
+                        </div>
+                        <div className="box box4">
+                            <Comentario />
+                        </div>
+                    </div>
+                </div>
+                <h2>¡Convertite en Profesor!</h2>
+                <div className="grid2x2">
+                    <div className="box box1">
+                        <h3>Unite a nuestra comunidad de enseñanza y comparte tu conocimiento con el mundo.</h3>
+                    </div>
+                    <div className="box box2 d-flex flex-row mb-1">
+                        <button type="button" className="btn btn-primary" style={{ marginLeft: 10 + 'px', marginRight: 10 + 'px', width: "150px", height: "50px" }}>Join us</button>
+                        <button type="button" className="btn btn-outline-primary" style={{ marginLeft: 10 + 'px', marginRight: 10 + 'px', width: "150px", height: "50px" }}>Contact us</button>
+                    </div>
+                </div>
+                <div>
+                    <h2>Empresas que nos recomiendan</h2>
+                    <div className="d-flex flex-row mb-1">
+                        <img src="..." className="img-fluid rounded-start" alt="..." />
+                        <img src="..." className="img-fluid rounded-start" alt="..." />
+                        <img src="..." className="img-fluid rounded-start" alt="..." />
+                        <img src="..." className="img-fluid rounded-start" alt="..." />
+                        <img src="..." className="img-fluid rounded-start" alt="..." />
+                    </div>
+                </div>
             </div>
-            <Footer />
         </>
     )
 }
