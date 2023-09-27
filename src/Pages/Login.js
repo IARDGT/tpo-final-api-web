@@ -45,7 +45,6 @@ export const Login = () => {
           </form>
         </div>
       </div>
-      <Footer />
     </>
     );
   };

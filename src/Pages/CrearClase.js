@@ -1,4 +1,3 @@
-import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
@@ -109,7 +108,6 @@ export const CrearClase = () => {
                 <button type="button" className="btn btn-primary btn-lg mt-3">Crear Clase</button>
             </div>
         </div>
-        <Footer />
         </>
     )
 }

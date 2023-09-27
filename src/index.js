@@ -23,6 +23,10 @@ import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
 import { CrearClase } from './Pages/CrearClase';
 import { VerClase } from './Pages/VerClase';
+import { ContratarClase } from './Pages/ContratarClase';
+import { VerClaseContratada } from './Pages/VerClaseContratada';
+import { Footer } from './components/Footer';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -35,7 +39,10 @@ root.render(
         <Route path="register" element={<Register />} />
         <Route path="crear-clase" element={<CrearClase />} />
         <Route path="ver-clase" element={<VerClase />} />
+        <Route path="contratar-clase" element={<ContratarClase />} />
+        <Route path="ver-clase-contratada" element={<VerClaseContratada />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );

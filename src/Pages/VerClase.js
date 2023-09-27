@@ -30,7 +30,6 @@ export const VerClase = () => {
         <Comentario/>
         <Comentario/>
         <Comentario/>
-        <Footer />
         </>
     )
 }
