@@ -3,6 +3,7 @@ import { Navbar } from '../components/Navbar';
 import './Login.css';
 
 export const Login = () => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
@@ -15,7 +16,10 @@ export const Login = () => {
   return (
     <>
     <Navbar />
-    <div className="row d-flex mx-5 justify-content-center align-items-center border border-dark">
+    <div className="row d-flex mx-5 justify-content-center align-items-center border border-dark" style={{
+                    maxWidth: "75%",
+                    margin: "auto"
+                }}>
       <div className="col-lg-7 ">
           {/* <img src={require('../assets/login_img2.jpg')} className="img-fluid" alt="Sample image" />  */}
           <h2>¡Bienvenido de nuevo!</h2>

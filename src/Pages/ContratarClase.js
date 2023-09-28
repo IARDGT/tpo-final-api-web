@@ -5,7 +5,10 @@ export const ContratarClase = () => {
     return (
         <>
         <Navbar />
-        <div className="row d-flex mx-5 my-2 py-2 justify-content-center align-items-center">
+        <div className="row d-flex mx-5 my-2 py-2 justify-content-center align-items-center" style={{
+                    maxWidth: "75%",
+                    margin: "auto"
+                }}>
             <div className="col-lg-6">
                 <h2>Nombre de la clase</h2>
                 <p>

@@ -6,7 +6,10 @@ export const VerClase = () => {
     return (
         <>
         <Navbar />
-        <div className="row d-flex mx-5 my-2 py-5 justify-content-center align-items-start">
+        <div className="row d-flex mx-5 my-2 py-5 justify-content-center align-items-start" style={{
+                    maxWidth: "75%",
+                    margin: "auto"
+                }}>
             <div className="col-lg-6 order-2 order-lg-1">
                 <h2>Titulo de la Clase</h2>
                 <h5><span>Nombre del profesor</span></h5>
