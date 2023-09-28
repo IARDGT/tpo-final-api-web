@@ -25,6 +25,8 @@ import { CrearClase } from './Pages/CrearClase';
 import { VerClase } from './Pages/VerClase';
 import { ContratarClase } from './Pages/ContratarClase';
 import { VerClaseContratada } from './Pages/VerClaseContratada';
+import { ListaClases } from './Pages/ListaClases';
+import { ListaClasesContratadas } from './Pages/ListaClasesContratadas';
 import { Footer } from './components/Footer';
 
 
@@ -41,6 +43,8 @@ root.render(
         <Route path="ver-clase" element={<VerClase />} />
         <Route path="contratar-clase" element={<ContratarClase />} />
         <Route path="ver-clase-contratada" element={<VerClaseContratada />} />
+        <Route path="lista-clases" element={<ListaClases />} />
+        <Route path="lista-clases-contratadas" element={<ListaClasesContratadas />} />
       </Routes>
       <Footer />
     </BrowserRouter>
