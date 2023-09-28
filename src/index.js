@@ -44,7 +44,7 @@ root.render(
         <Route path="contratar-clase" element={<ContratarClase />} />
         <Route path="ver-clase-contratada" element={<VerClaseContratada />} />
         <Route path="mis-clases" element={<ListaClasesProfesor />} />
-        <Route path="lista-clase-contratada" element={<ListaClasesContratadas />} />
+        <Route path="lista-clases-contratada" element={<ListaClasesContratadas />} />
       </Routes>
       <Footer />
     </BrowserRouter>

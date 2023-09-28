@@ -2,7 +2,7 @@ import { Filtros } from "../components/Filtros"
 import { ListaClases } from "../components/ListaClases"
 import { Navbar } from "../components/Navbar"
 
-import "../components/Catalogo.css";
+import "./style/Catalogo.css";
 
 export const Catalogo = () => {
     return (

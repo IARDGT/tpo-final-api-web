@@ -30,9 +30,9 @@ export const VerClase = () => {
 
             </div>
         </div>
-        <Comentario/>
-        <Comentario/>
-        <Comentario/>
+        <Comentario editar={ true }/>
+        <Comentario editar={ true }/>
+        <Comentario editar={ true }/>
         </>
     )
 }
