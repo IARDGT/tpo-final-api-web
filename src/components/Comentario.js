@@ -1,8 +1,8 @@
-import { useState } from 'react';
 
-export const Comentario = () => {
 
-    const [auth, setAuth] = useState(true);
+export const Comentario = ({editar}) => {
+
+    
 
     return (
         <div class="card mx-5 my-2 px-3">
@@ -15,7 +15,7 @@ export const Comentario = () => {
                 </div>
                 {
                     
-                    auth && <input className="react-switch-checkbox" id={`react-switch-new`} type="checkbox" />
+                    editar && <input className="react-switch-checkbox" id={`react-switch-new`} type="checkbox" />
                 }
             </div>
         </div>

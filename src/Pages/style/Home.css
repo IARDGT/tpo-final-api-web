@@ -1,0 +1,67 @@
+.grid2x2 {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .grid2x2 > div {
+    display: flex; 
+    flex-basis: calc(50% - 40px);  
+    justify-content: center;
+    flex-direction: column;
+  }
+  .grid2x2 > div > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  
+  .box { margin: 20px; }
+
+  .home-vitrina {
+    background-image: url("/src/assets/home_img.jpg");
+    background-size: cover;
+    height: 600px;
+    position: relative;
+  }
+
+  .content-vitrina {
+    color: white;
+    margin: 0px 40px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 680px;
+  }
+
+  .content-vitrina > form > button {
+    color: white;
+    border: 1px solid white;
+  }
+
+  .content-vitrina > form > button:hover {
+    color: green;
+    background-color: white;
+    border: 1px solid white;
+  }
+
+  .pasos-home > .card .w-76 .mb-3{
+    border: 0px;
+  }
+
+  .clases-home, .registrar-home {
+    background-color: #F5F5F5;
+  }
+
+  .clases-home > h2, h3, .registrar-home > h2 {
+    padding: 15px;
+  }
+
+  .pasos-home > h2, .clases-home > h2, h3 {
+    text-align: center;
+  }
+
+  @media screen {
+    
+  }
