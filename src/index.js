@@ -26,6 +26,8 @@ import { VerClase } from './Pages/VerClase';
 import { ContratarClase } from './Pages/ContratarClase';
 import { VerClaseContratada } from './Pages/VerClaseContratada';
 import { Footer } from './components/Footer';
+import { ListaClasesProfesor } from './Pages/ListaClasesProfesor';
+import { ListaClasesContratadas } from './Pages/ListaClasesContratadas';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -41,6 +43,8 @@ root.render(
         <Route path="ver-clase" element={<VerClase />} />
         <Route path="contratar-clase" element={<ContratarClase />} />
         <Route path="ver-clase-contratada" element={<VerClaseContratada />} />
+        <Route path="mis-clases" element={<ListaClasesProfesor />} />
+        <Route path="lista-clase-contratada" element={<ListaClasesContratadas />} />
       </Routes>
       <Footer />
     </BrowserRouter>

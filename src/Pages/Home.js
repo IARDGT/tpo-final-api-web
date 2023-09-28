@@ -67,8 +67,8 @@ export const Home = () => {
                 <div>
                     <h2>Aqui te mostramos algunas de nuestras clases</h2>
                     <h3>En línea o presencial, elige entre más de 100 clases disponibles.</h3>
-                    <ListaClases cantidad={ 4 } />
-                    <ListaClases cantidad={ 4 } />
+                    <ListaClases cantidad={ 4 } misClase={ false } urlClase="ver-clase" />
+                    <ListaClases cantidad={ 4 } misClase={ false } urlClase="ver-clase" />
                 </div>
                 <div>
                     <h2>Comentarios de Nuestros Alumnos</h2>

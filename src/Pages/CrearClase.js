@@ -23,7 +23,10 @@ export const CrearClase = () => {
     return (
         <>
         <Navbar />
-        <div className="row d-flex mx-5 my-2 py-2 justify-content-center align-items-center">
+        <div className="row d-flex mx-5 my-2 py-2 justify-content-center align-items-center" style={{
+                    maxWidth: "75%",
+                    margin: "auto"
+                }}>
             <div className="col-lg-6 order-2 order-lg-1">
                 <h2>Crear un clase</h2>
                 <p>

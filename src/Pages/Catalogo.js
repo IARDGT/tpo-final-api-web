@@ -14,7 +14,7 @@ export const Catalogo = () => {
                     margin: "auto"
                 }}>
                 <Filtros categoria={ "Matemáticas" } />
-                <ListaClases cantidad={16} />
+                <ListaClases cantidad={16} urlClase="ver-clase" />
             </div>
         </>
     )
