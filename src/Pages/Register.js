@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Navbar } from '../components/Navbar';
 import { PasosClase } from '../components/PasosClase';
 import './style/Register.css';
 
@@ -17,7 +16,6 @@ export const Register = () => {
 
   return (
     <>
-      <Navbar />
       <div className="signup-container">
         <div className="row d-flex justify-content-center align-items-center border rounded ">
           <div className="col-lg-7 signup-vitrina text-white">

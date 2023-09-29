@@ -28,12 +28,14 @@ import { VerClaseContratada } from './Pages/VerClaseContratada';
 import { Footer } from './components/Footer';
 import { ListaClasesProfesor } from './Pages/ListaClasesProfesor';
 import { ListaClasesContratadas } from './Pages/ListaClasesContratadas';
+import { Navbar } from "./components/Navbar"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter >
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="catalogo" element={<Catalogo />} />

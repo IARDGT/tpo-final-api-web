@@ -1,11 +1,9 @@
-import { Navbar } from "../components/Navbar";
 import './style/ContratarClase.css';
 
 export const VerClaseContratada = () => {
 
     return (
         <>
-            <Navbar />
             <div className="contratar-clase-container">
                 <div className="row d-flex mx-2 my-2 justify-content-center align-items-center" >
                     <div className="col-lg-7">
@@ -16,7 +14,7 @@ export const VerClaseContratada = () => {
                         </p>
                     </div>
                     <div className="col-lg-5 justify-content-center">
-                        <div class="card-img-top d-flex justify-content-center align-items-center">
+                        <div className="card-img-top d-flex justify-content-center align-items-center">
                             <img
                                 id="cardImage"
                                 src={require('../assets/guitarra.jpg')}
@@ -58,18 +56,18 @@ export const VerClaseContratada = () => {
                                     value="Horario" disabled readonly />
                             </div>
 
-                            <textarea class="form-control form-control-lg mb-3" value="Descripción" disabled readonly></textarea>
+                            <textarea className="form-control form-control-lg mb-3" value="Descripción" disabled readonly></textarea>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">
+                            <div className="form-check">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label" for="flexCheckDefault">
                                     Aceptar términos y condiciones
                                 </label>
                             </div>
 
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-primary me-md-2" type="button">Confirmar Clase</button>
-                                <button class="btn btn-warning" type="button">Cancelar Clase</button>
+                            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button className="btn btn-primary me-md-2" type="button">Confirmar Clase</button>
+                                <button className="btn btn-warning" type="button">Cancelar Clase</button>
                             </div>
 
 

@@ -1,21 +1,25 @@
 import { useState } from 'react';
-import { Navbar } from '../components/Navbar';
 import './style/Login.css';
 
-export const Login = () => {
+import { conectarse } from "../helpers/login"
+
+export const Login = ({autenticado}) => {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
 
   const handleSubmit = (e) => {
+    /* e.preventDefault();
+    alert([email]); */
     e.preventDefault();
-    alert([email]);
+    conectarse(autenticado);
+    console.log(login);
+    
   }
 
   return (
     <>
-      <Navbar />
       <div className="row d-flex justify-content-center border rounded login-container" >
         <div className="col-lg-7 login-vitrina text-white" >
           <h2>¡Bienvenido de nuevo!</h2>
@@ -56,7 +60,7 @@ export const Login = () => {
 
             <div className="js mt-4 pt-2">
               <button type="submit" className="btn btn-primary btn-lg"
-                onClick={(e) => handleSubmit(e)}> Continuar</button>
+                onClick={(e) => handleSubmit(e)}>Continuar</button>
 
               <p className="small fw-bold mt-2 pt-1 mb-4">¿No tenés una cuenta? <a href="/register"
                 className="link-danger">¡Registrate!</a></p>
