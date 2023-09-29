@@ -1,20 +1,16 @@
 import { ListaClases } from "../components/ListaClases";
 import { Navbar } from "../components/Navbar";
 
+import "./style/ListaClasesProfesor.css";
+
 export const ListaClasesContratadas = () => {
 
     return (
         <>
-        <Navbar />
-        <div className="container" style={{
-                    maxWidth: "75%",
-                    margin: "auto"
-                }}>
-            <ListaClases cantidad={3} misClase={ true } urlClase="ver-clase-contratada" />
-        </div>
-
-
-
+            <Navbar />
+            <div className="lista-clases-profesor-conteiner">
+                <ListaClases cantidad={3} misClase={true} urlClase="ver-clase-contratada" />
+            </div>
         </>
     )
 }

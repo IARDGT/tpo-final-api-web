@@ -1,0 +1,19 @@
+.ver-clases-conteiner {
+    max-width: 75%;
+    margin: auto;
+  }
+
+@media screen and (max-width: 1080px) {
+    .ver-clases-conteiner {
+      max-width: 100%;
+      margin: 0px;
+    }
+
+    .ver-clases-content-1, .ver-clases-conteiner>div>div{
+        padding: 10px!important;
+    }
+
+    .ver-clases-content-2, .ver-clases-content-2>div{
+        padding: 10px
+    }
+}

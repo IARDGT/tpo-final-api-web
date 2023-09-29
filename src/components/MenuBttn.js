@@ -9,7 +9,7 @@ export const MenuBttn = () => {
                 <a className="nav-link " href="mis-clases">Mis Clases</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link " href="lista-clase-contratada">Clases Contratadas</a>
+                <a className="nav-link " href="lista-clases-contratada">Clases Contratadas</a>
             </li>
             <li className="nav-item">
                 <a className="nav-link " href="crear-clase">Crear Clase</a>

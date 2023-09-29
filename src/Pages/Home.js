@@ -11,15 +11,11 @@ export const Home = () => {
     return (
         <>
             <Navbar />
-            <div
-                style={{
-                    maxWidth: "75%",
-                    margin: "auto"
-                }}>
+            <div className="home-conteiner">
                 <div className="home-vitrina">
                     <div className="content-vitrina">
                         <h1 >Encuentra tu clase ideal,
-                            con tu profesor ideal.</h1>
+                            con tu profesor ideal</h1>
                         <Search />
                     </div>
                 </div>
@@ -27,23 +23,22 @@ export const Home = () => {
                 <div className="clases-home">
                     <h2>Aqui te mostramos algunas de nuestras clases</h2>
                     <h3>En línea o presencial, elige entre más de 100 clases disponibles.</h3>
-                    <ListaClases cantidad={4} misClase={false} urlClase="ver-clase" />
-                    <ListaClases cantidad={4} misClase={false} urlClase="ver-clase" />
+                    <ListaClases cantidad={8} misClase={false} urlClase="ver-clase" />
                 </div>
-                <div>
+                <div className="comentarios-home">
                     <h2>Comentarios de Nuestros Alumnos</h2>
                     <div className="grid2x2">
                         <div className="box box1">
-                            <Comentario editar={false} />
+                            <Comentario editar={false} className="comentario-home" />
                         </div>
                         <div className="box box2">
-                            <Comentario editar={false} />
+                            <Comentario editar={false} className="comentario-home" />
                         </div>
                         <div className="box box3">
-                            <Comentario editar={false} />
+                            <Comentario editar={false} className="comentario-home" />
                         </div>
                         <div className="box box4">
-                            <Comentario editar={false} />
+                            <Comentario editar={false} className="comentario-home" />
                         </div>
                     </div>
                 </div>
@@ -59,14 +54,14 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="logo-empresas">
                     <h2>Empresas que nos recomiendan</h2>
-                    <div className="d-flex flex-row mb-1">
-                        <img src="..." className="img-fluid rounded-start" alt="..." />
-                        <img src="..." className="img-fluid rounded-start" alt="..." />
-                        <img src="..." className="img-fluid rounded-start" alt="..." />
-                        <img src="..." className="img-fluid rounded-start" alt="..." />
-                        <img src="..." className="img-fluid rounded-start" alt="..." />
+                    <div className="d-flex flex-row mb-1 lista-logos">
+                        <img src={require('../assets/logo_mercadolibre.png')}  className="img-fluid rounded-start" alt="..." />
+                        <img src={require('../assets/logo_santander.png')}  className="img-fluid rounded-start" alt="..." />
+                        <img src={require('../assets/logo_accenture.png')}  className="img-fluid rounded-start" alt="..." />
+                        <img src={require('../assets/logo_rappi.png')}  className="img-fluid rounded-start" alt="..." />
+                        <img src={require('../assets/logo_netflix.png')}  className="img-fluid rounded-start" alt="..." />
                     </div>
                 </div>
             </div>
