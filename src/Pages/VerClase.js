@@ -8,7 +8,7 @@ export const VerClase = () => {
     return (
         <>
             <Navbar />
-            <div className="ver-clases-conteiner">
+            <div className="ver-clases-container">
                 <div className="row d-flex mx-5 my-2 py-5 justify-content-center align-items-start ver-clases-content-1" >
                     <div className="col-lg-6 order-2 order-lg-1">
                         <h2>Titulo de la Clase</h2>

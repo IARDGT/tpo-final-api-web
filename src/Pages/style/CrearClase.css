@@ -1,14 +1,15 @@
-.catalago-container {
+.crear-clase-container {
     max-width: 75%;
     margin: auto;
 }
 
-.btn-secondary {
-    margin: 10px
+.img-fluid {
+    height: 300px;
+
 }
 
 @media screen and (max-width: 1080px) {
-    .catalago-container {
+    .crear-clase-container {
         max-width: 100%;
         margin: 0px;
     }

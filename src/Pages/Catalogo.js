@@ -8,7 +8,7 @@ export const Catalogo = () => {
     return (
         <>
             <Navbar />
-            <div className="catalago-conteiner">
+            <div className="catalago-container">
                 <Filtros categoria={ "Matemáticas" } />
                 <ListaClases cantidad={16} urlClase="ver-clase" />
             </div>

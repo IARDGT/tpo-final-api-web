@@ -8,7 +8,7 @@ export const ListaClasesContratadas = () => {
     return (
         <>
             <Navbar />
-            <div className="lista-clases-profesor-conteiner">
+            <div className="lista-clases-profesor-container">
                 <ListaClases cantidad={3} misClase={true} urlClase="ver-clase-contratada" />
             </div>
         </>

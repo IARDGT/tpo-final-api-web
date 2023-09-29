@@ -1,4 +1,4 @@
-.home-conteiner {
+.home-container {
   max-width: 75%;
   margin: auto;
 }
@@ -110,7 +110,7 @@ h3 {
 
 
 @media screen and (max-width: 1080px) {
-  .home-conteiner {
+  .home-container {
     max-width: 100%;
     margin: 0px;
   }

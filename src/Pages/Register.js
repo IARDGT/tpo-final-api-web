@@ -18,11 +18,8 @@ export const Register = () => {
   return (
     <>
       <Navbar />
-      <div style={{
-        maxWidth: "75%",
-        margin: "auto"
-      }}>
-        <div className="row d-flex justify-content-center align-items-center border rounded">
+      <div className="signup-container">
+        <div className="row d-flex justify-content-center align-items-center border rounded ">
           <div className="col-lg-7 signup-vitrina text-white">
             {/* <img src={require('../assets/login_img2.jpg')} className="img-fluid" alt="Sample image" />  */}
             <h2>¡Comparte al mundo tu conocimiento!</h2>
