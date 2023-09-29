@@ -1,67 +1,189 @@
-.grid2x2 {
-    min-height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  .grid2x2 > div {
-    display: flex; 
-    flex-basis: calc(50% - 40px);  
-    justify-content: center;
-    flex-direction: column;
-  }
-  .grid2x2 > div > div {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-  }
-  
-  .box { margin: 20px; }
+.home-conteiner {
+  max-width: 75%;
+  margin: auto;
+}
 
-  .home-vitrina {
-    background-image: url("/src/assets/home_img.jpg");
-    background-size: cover;
-    height: 600px;
-    position: relative;
+.grid2x2 {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.grid2x2>div {
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: column;
+}
+
+.grid2x2>div>div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.box {
+  margin: 20px;
+}
+
+.home-vitrina {
+  background-image: url("/src/assets/home_img.jpg");
+  background-size: cover;
+  height: 600px;
+  position: relative;
+}
+
+.content-vitrina {
+  color: white;
+  margin: 0px 40px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 680px;
+}
+
+.content-vitrina>form>button {
+  color: white;
+  border: 1px solid white;
+}
+
+.content-vitrina>form>button:hover {
+  color: green;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.card-container-home {
+  border: 0px;
+  max-height: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.card-content-home {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 60%;
+}
+
+.img-pasos-home {
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clases-home,
+.registrar-home {
+  background-color: #F5F5F5;
+}
+
+.clases-home>h2,
+h3,
+.registrar-home>h2 {
+  padding: 15px;
+}
+
+.pasos-home>h2,
+.clases-home>h2,
+h3 {
+  text-align: center;
+}
+
+.logo-empresas>div>img {
+  height: 130px;
+  margin: auto;
+}
+
+.pasos-home,
+.clases-home,
+.comentarios-home,
+.registrar-home,
+.logo-empresas {
+  padding: 20px;
+  margin: 20px;
+}
+
+
+@media screen and (max-width: 1080px) {
+  .home-conteiner {
+    max-width: 100%;
+    margin: 0px;
+  }
+
+  .pasos-home,
+  .clases-home,
+  .comentarios-home,
+  .registrar-home,
+  .logo-empresas {
+    padding: 20px;
+    margin: 0px;
   }
 
   .content-vitrina {
-    color: white;
-    margin: 0px 40px;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 680px;
+    width: 90%;
+    margin: 0px 5%;
   }
 
-  .content-vitrina > form > button {
-    color: white;
-    border: 1px solid white;
+  .content-vitrina>form>button {
+    color: black;
+    border: 1px solid black;
   }
 
-  .content-vitrina > form > button:hover {
-    color: green;
-    background-color: white;
-    border: 1px solid white;
+  .card-container-home {
+    height: auto;
+    position: static;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .pasos-home > .card .w-76 .mb-3{
-    border: 0px;
+  .card-content-home {
+    position: static;
+    transform: none;
+    text-align: center;
+    width: 100%;
+    align-self: flex-end;
   }
 
-  .clases-home, .registrar-home {
-    background-color: #F5F5F5;
+  .col-md-4 {
+    width: 140px;
+    margin: auto;
   }
 
-  .clases-home > h2, h3, .registrar-home > h2 {
-    padding: 15px;
+  .card-reverse {
+    display: flex;
+    flex-direction: column-reverse;
   }
 
-  .pasos-home > h2, .clases-home > h2, h3 {
+  .col-reverse {
+    order: -1;
+  }
+
+  .grid2x2>div {
+    flex-basis: auto;
+  }
+
+  .mx-5 {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  .comentarios-home>h2, .registrar-home>h2, .logo-empresas>h2{
     text-align: center;
   }
 
-  @media screen {
-    
+  .lista-logos{
+    flex-wrap: wrap;
   }
+
+  .logo-empresas>div>img{
+    height: 150px;
+    padding: auto;
+  }
+}

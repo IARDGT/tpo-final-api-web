@@ -15,7 +15,7 @@ export const ClaseItem = ({ title, name, url, imgUrl, misClase, urlClase }) => {
             }
             {
                 misClase &&
-                <div className="card mb-3" style={{maxWidth: "45%", margin: "10px"}}>
+                <div className="card mb-3 card-lista-clases-contratadas">
                     <div className="row g-0">
                         <div className="col-md-4">
                             <img src={require('../assets/clases.jpg')} className="img-fluid rounded-start" alt="..." />

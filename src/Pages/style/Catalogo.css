@@ -1,3 +1,25 @@
+.catalago-conteiner {
+    max-width: 75%;
+    margin: auto;
+  }
+
 .btn-secondary {
     margin: 10px
+}
+
+@media screen and (max-width: 1080px) {
+    .catalago-conteiner {
+      max-width: 100%;
+      margin: 0px;
+    }
+
+    .filtros {
+        margin: 15px;
+    }
+
+    .filtros-botones{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

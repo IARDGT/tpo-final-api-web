@@ -1,0 +1,25 @@
+.lista-clases-profesor-conteiner {
+    max-width: 75%;
+    margin: auto;
+}
+
+.card-lista-clases-contratadas {
+    max-width: 45%;
+    margin: 10px;
+}
+
+@media screen and (max-width: 1080px) {
+    .lista-clases-profesor-conteiner {
+        max-width: 100%;
+        margin: 0px;
+    }
+
+    .card-lista-clases-contratadas {
+        margin: 15px auto;
+        max-width: 100%;
+    }
+
+    .col-md-4 {
+        width: 100%;
+    }
+}

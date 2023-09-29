@@ -8,11 +8,7 @@ export const Catalogo = () => {
     return (
         <>
             <Navbar />
-            <div
-                style={{
-                    maxWidth: "75%",
-                    margin: "auto"
-                }}>
+            <div className="catalago-conteiner">
                 <Filtros categoria={ "Matemáticas" } />
                 <ListaClases cantidad={16} urlClase="ver-clase" />
             </div>
