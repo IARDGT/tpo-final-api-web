@@ -16,10 +16,7 @@ export const Login = () => {
   return (
     <>
       <Navbar />
-      <div className="row d-flex my-5 justify-content-center border rounded" style={{
-        maxWidth: "75%",
-        margin: "auto"
-      }}>
+      <div className="row d-flex justify-content-center border rounded login-container" >
         <div className="col-lg-7 login-vitrina text-white" >
           <h2>¡Bienvenido de nuevo!</h2>
           <p>

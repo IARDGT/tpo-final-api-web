@@ -1,15 +1,16 @@
 import { Navbar } from "../components/Navbar";
+import './style/ContratarClase.css';
 
 export const VerClaseContratada = () => {
 
     return (
         <>
             <Navbar />
-            <div style={{ maxWidth: "75%", margin: "auto" }}>
+            <div className="contratar-clase-container">
                 <div className="row d-flex mx-2 my-2 justify-content-center align-items-center" >
                     <div className="col-lg-7">
                         <h2>Nombre de la clase</h2>
-                        <p>
+                        <p> 
                             Instrucciones de como inscribirse a la clase Lorem ipsum dolor sit amet, consectetur
                             adipiscing elit, sed do eiusmod tempor incididunt ut labore
                         </p>
@@ -21,7 +22,7 @@ export const VerClaseContratada = () => {
                                 src={require('../assets/guitarra.jpg')}
                                 className="img-fluid"
                                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'cover' }}
-                                alt="Imagen representativa de la clase a crear."
+                                alt="Imagen representativa de la clase a contratar."
                             />
                         </div>
                     </div>

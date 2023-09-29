@@ -1,6 +1,7 @@
 import { Navbar } from "../components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import "./style/CrearClase.css";
 
 
 export const CrearClase = () => {
@@ -21,9 +22,9 @@ export const CrearClase = () => {
     return (
         <>
             <Navbar />
-            <div style={{ maxWidth: "75%", margin: "auto" }}>
+            <div className="crear-clase-container ">
                 <div className="row d-flex my-2 py-2 justify-content-center align-items-center" >
-                    <div className="col-lg-6 justify-content-center order-2 order-lg-1">
+                    <div className="col-lg-6 justify-content-center order-2 order-lg-1 px-5 px-lg-0">
 
                         <h2>Crear una clase</h2>
                         <p>
@@ -67,7 +68,6 @@ export const CrearClase = () => {
                                     id="cardImage"
                                     src={require('../assets/guitarra.jpg')}
                                     className="img-fluid"
-                                    style={{ maxWidth: '100%', height: '20rem', objectFit: 'fill' }}
                                     alt="Imagen representativa de la clase a crear."
                                 />
 
@@ -94,22 +94,25 @@ export const CrearClase = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-12 order-3 form-outline mb-3">
+                    <div className="px-5 px-lg-0 order-3 ">
+
+
+                    <div className="col-lg-12 form-outline mb-3">
                         <h4 className="d-flex my-3">Descripción de la clase:</h4>
                         <textarea class="form-control form-control-lg" placeholder="Descripción"></textarea>
                     </div>
 
-                    <div class="col-6 order-4 form-check">
+                    <div class="col-6 form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                             <label class="form-check-label" for="flexCheckDefault">
                                 Aceptar términos y condiciones
                             </label>
                     </div>
-                    <div class="col-6 order-5 d-grid gap-2 d-md-flex justify-content-md-end">
+                    <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
                         <button class="btn btn-primary me-md-2" type="button">Crear Clase</button>
                     </div>
                 </div>
-
+                </div>
 
             </div>
 

@@ -11,7 +11,7 @@ export const Home = () => {
     return (
         <>
             <Navbar />
-            <div className="home-conteiner">
+            <div className="home-container">
                 <div className="home-vitrina">
                     <div className="content-vitrina">
                         <h1 >Encuentra tu clase ideal,
