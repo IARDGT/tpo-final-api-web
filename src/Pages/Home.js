@@ -1,5 +1,4 @@
 import { ListaClases } from "../components/ListaClases";
-import { Navbar } from "../components/Navbar";
 import { Search } from "../components/Search";
 import { Comentario } from "../components/Comentario";
 import { PasosClase } from "../components/PasosClase";
@@ -10,7 +9,6 @@ import "./style/Home.css";
 export const Home = () => {
     return (
         <>
-            <Navbar />
             <div className="home-container">
                 <div className="home-vitrina">
                     <div className="content-vitrina">

@@ -1,11 +1,9 @@
-import { Navbar } from "../components/Navbar";
 import './style/ContratarClase.css';
 
 export const ContratarClase = () => {
 
     return (
         <>
-            <Navbar />
             <div className="contratar-clase-container">
                 <div className="row d-flex mx-2 my-2 justify-content-center align-items-center" >
                     <div className="col-lg-7">
@@ -16,7 +14,7 @@ export const ContratarClase = () => {
                         </p>
                     </div>
                     <div className="col-lg-5 justify-content-center">
-                        <div class="card-img-top d-flex justify-content-center align-items-center">
+                        <div className="card-img-top d-flex justify-content-center align-items-center">
                             <img
                                 id="cardImage"
                                 src={require('../assets/guitarra.jpg')}
@@ -57,11 +55,11 @@ export const ContratarClase = () => {
                                     <input type="text" id="formHorario" className="form-control form-control-lg"
                                         placeholder="Horario" />
                                 </div>
-                                <textarea class="form-control form-control-lg mb-3" placeholder="Descripción"></textarea>
+                                <textarea className="form-control form-control-lg mb-3" placeholder="Descripción"></textarea>
 
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" for="flexCheckDefault">
                                         Aceptar términos y condiciones
                                     </label>
                                 </div>
