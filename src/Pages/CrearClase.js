@@ -36,22 +36,22 @@ export const CrearClase = () => {
                             <h4 className="d-flex mt-4">Datos de la clase:</h4>
 
                             <div className="form-outline mb-3">
-                                <input type="email" id="formEmail" className="form-control form-control-lg"
+                                <input type="text" id="formEmail" className="form-control form-control-lg"
                                     placeholder="Nombre" />
                             </div>
 
                             <div className="form-outline mb-3">
-                                <input type="password" id="formPassword" className="form-control form-control-lg"
+                                <input type="text" id="formPassword" className="form-control form-control-lg"
                                     placeholder="Categoria" />
                             </div>
 
                             <div className="form-outline mb-3">
-                                <input type="password" id="formPassword" className="form-control form-control-lg"
+                                <input type="text" id="formPassword" className="form-control form-control-lg"
                                     placeholder="Nivel" />
                             </div>
 
                             <div className="form-outline mb-3">
-                                <input type="password" id="formPassword" className="form-control form-control-lg"
+                                <input type="text" id="formPassword" className="form-control form-control-lg"
                                     placeholder="Objetivo" />
                             </div>
 
@@ -107,7 +107,9 @@ export const CrearClase = () => {
                             </label>
                     </div>
                     <div className="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button className="btn btn-primary me-md-2" type="button">Crear Clase</button>
+                        <button className="btn btn-primary me-md-2" type="button"
+                            //disabled={isSubmitDisabled}
+                        >Crear Clase</button>
                     </div>
                 </div>
                 </div>
