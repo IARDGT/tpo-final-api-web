@@ -6,7 +6,7 @@
         "category": "Matemática",
         "description": "Introducción a conceptos fundamentales como números, operaciones básicas y geometría. Enfoque en ejercicios prácticos y resolución de problemas simples. Diseñada para establecer una base sólida en matemáticas y fomentar la confianza en estudiantes principiantes.",
         "price": 2000,
-        "commentId": []
+        "commentId": ["5d5e8537-fed4-46cc-b27e-710db8fcce4a", "3fdaeaaa-d879-4e0c-b452-7b4c040b74f4"]
     },
     {
         "id": 2,
@@ -57,10 +57,10 @@
         "id": 7,
         "title": "Castellano Basico",
         "profesorName": "María",
-        "category": "Literatura",
+        "category": "Idiomas",
         "description": "Introducción a la apreciación literaria, explorando géneros, autores y conceptos clave. Lectura y análisis de obras clásicas y contemporáneas para fomentar la comprensión y el amor por la literatura. Desarrollo de habilidades de lectura crítica y expresión escrita básica.",
         "price": 2800,
-        "commentId": []
+        "commentId": ["b7f26fce-0024-460d-8331-81ecea194809"]
     },
     {
         "id": 8,
@@ -78,7 +78,7 @@
         "category": "Cocina",
         "description": "Inmersión en la cocina experimental y científica, explorando técnicas vanguardistas como esferificación y gelificación. Creación de platos sorprendentes con ingredientes inusuales y presentaciones innovadoras. Comprender los principios químicos detrás de la cocina molecular y su aplicación en la gastronomía de vanguardia.",
         "price": 12000,
-        "commentId": []
+        "commentId": ["a85786d8-d006-490e-8e18-22aef50d8257", "23abecba-3ce5-477a-9453-e5d27dd846f4"]
     },
     {
         "id": 10,
@@ -96,7 +96,7 @@
         "category": "Arte y Danza",
         "description": "Exploración de técnicas avanzadas de fotografía digital, como la composición, la iluminación y la postproducción. Práctica con equipos profesionales y edición de imágenes para lograr fotografías de alta calidad. Desarrollo de habilidades creativas y narrativas visuales en la fotografía.",
         "price": 6000,
-        "commentId": []
+        "commentId": ["fab692f0-fb34-4f6d-9033-861e87823f24"]
     },
     {
         "id": 12,
@@ -114,7 +114,7 @@
         "category": "Deporte",
         "description": "Práctica de yoga para mejorar la flexibilidad, el equilibrio y la salud física y mental. Introducción a técnicas de meditación y mindfulness para reducir el estrés y mejorar la concentración. Promoción del bienestar integral a través de la armonización del cuerpo y la mente.",
         "price": 7000,
-        "commentId": []
+        "commentId": ["1c9211d9-472c-4eea-894c-913b96da7462"]
     },
     {
         "id": 14,
