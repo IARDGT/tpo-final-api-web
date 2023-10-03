@@ -9,7 +9,7 @@ export const Catalogo = () => {
         <>
             <div className="catalago-container">
                 <Filtros categoria={ "Matemáticas" } />
-                <ListaClases cantidad={16} urlClase="ver-clase" />
+                <ListaClases cantidadMax={16} urlClase="ver-clase" />
             </div>
         </>
     )
