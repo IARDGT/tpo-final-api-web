@@ -1,33 +1,39 @@
 import { useState } from "react";
 import { ClaseItem } from "./ClaseItem";
+import data from "../helpers/clases-test.json"
 
 
-export const ListaClases = ({ cantidad, misClase, urlClase }) => {
+export const ListaClases = ({ cantidadMax, misClase, urlClase }) => {
 
     const contenido = [];
 
-    const repetir = (cantidad) => {
-        for (let i = 0; i < cantidad; i++) {
-            contenido.push(<ClaseItem title="Titulo Clase" name="Nombre y Apellido del Profesor" url="..." imgUrl="..." misClase={ misClase } urlClase={ urlClase } /* key={ clase.id } */ />);
+    const repetir = () => {
+        {
+            data.map(clase => {
+                contenido.push(<ClaseItem
+                    title={clase.title}
+                    profesorName={clase.profesorName}
+                    category={clase.category}
+                    price={clase.price}
+                    commentId={clase.commentId}
+                    url="..."
+                    imgUrl="..."
+                    misClase={misClase}
+                    urlClase={urlClase}
+                    key={clase.id}
+                />
+                )
+            })
         }
     }
 
-    repetir(cantidad);
+    repetir();
 
     return (
         <>
-            {
-                !misClase &&
-                <div style={{ border: "0px", display: "flex", margin: "15px", flexWrap: "wrap" }}>
-                    {contenido}
-                </div>
-            }
-            {
-                misClase &&
-                <div style={{ border: "0px", margin: "15px", display: "flex", flexWrap: "wrap" }}>
-                    {contenido}
-                </div>
-            }
+            <div style={{ border: "0px", display: "flex", margin: "15px", flexWrap: "wrap" }}>
+                {contenido.slice(0, cantidadMax)}
+            </div>
         </>
     )
 }

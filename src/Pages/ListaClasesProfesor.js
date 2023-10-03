@@ -7,7 +7,7 @@ export const ListaClasesProfesor = () => {
     return (
         <>
             <div className="lista-clases-profesor-container">
-                <ListaClases cantidad={7} misClase={ true } urlClase="ver-clase" />
+                <ListaClases cantidadMax={7} misClase={ true } urlClase="ver-clase" />
             </div>
         </>
     )

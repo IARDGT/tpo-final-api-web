@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "title": "Matemática Para Principiantes",
+        "profesorName": "Juan",
+        "category": "Matemática",
+        "description": "Introducción a conceptos fundamentales como números, operaciones básicas y geometría. Enfoque en ejercicios prácticos y resolución de problemas simples. Diseñada para establecer una base sólida en matemáticas y fomentar la confianza en estudiantes principiantes.",
+        "price": 2000,
+        "commentId": []
+    },
+    {
+        "id": 2,
+        "title": "Guitarra",
+        "profesorName": "María",
+        "category": "Música",
+        "description": "Aprendizaje de técnicas básicas de guitarra, incluyendo acordes, rasgueos y digitación. Exploración de diferentes estilos musicales y repertorio variado. Desarrollo de habilidades para tocar melodías y acompañamientos, ideal para principiantes que desean tocar la guitarra.",
+        "price": 4000,
+        "commentId": []
+    },
+    {
+        "id": 3,
+        "title": "Dibujo",
+        "profesorName": "Carlos",
+        "category": "Arte y Danza",
+        "description": "Aprendizaje de técnicas avanzadas de dibujo, enfocándose en la captura de detalles minuciosos y la creación de ilusiones ópticas de realismo. Uso de diferentes materiales artísticos, como lápices de grafito, carboncillo y técnicas de sombreado. Exploración de la anatomía, texturas y proporciones para lograr obras de arte que parecen fotografías en su nivel de detalle y precisión.",
+        "price": 1500,
+        "commentId": []
+    },
+    {
+        "id": 4,
+        "title": "Matemática Intermedia",
+        "profesorName": "Juan",
+        "category": "Matemática",
+        "description": "Exploración de conceptos matemáticos más avanzados, como álgebra, trigonometría y geometría euclidiana. Enfoque en resolución de ecuaciones, funciones, y aplicaciones prácticas de las matemáticas. Preparación para niveles académicos superiores, proporcionando un conocimiento sólido en matemáticas intermedias.",
+        "price": 3500,
+        "commentId": []
+    },
+    {
+        "id": 5,
+        "title": "Matemática Avanzada",
+        "profesorName": "Juan",
+        "category": "Matemática",
+        "description": "Profundización en conceptos avanzados como cálculo, álgebra lineal, teoría de números y estadísticas avanzadas. Aplicación de matemáticas en problemas de alto nivel, modelado matemático y teoría matemática avanzada. Diseñada para estudiantes con una sólida base matemática que buscan explorar conceptos más complejos y desafiantes.",
+        "price": 5000,
+        "commentId": []
+    },
+    {
+        "id": 6,
+        "title": "Baile Tango",
+        "profesorName": "María",
+        "category": "Arte y Danza",
+        "description": "Instrucción en los fundamentos del tango argentino, incluyendo pasos básicos, postura y conexión con la pareja. Exploración de la expresión artística y la improvisación en el baile. Enfoque en la elegancia, la musicalidad y la pasión característicos del tango, apta tanto para principiantes como para bailarines con experiencia.",
+        "price": 8000,
+        "commentId": []
+    },
+    {
+        "id": 7,
+        "title": "Castellano Basico",
+        "profesorName": "María",
+        "category": "Literatura",
+        "description": "Introducción a la apreciación literaria, explorando géneros, autores y conceptos clave. Lectura y análisis de obras clásicas y contemporáneas para fomentar la comprensión y el amor por la literatura. Desarrollo de habilidades de lectura crítica y expresión escrita básica.",
+        "price": 2800,
+        "commentId": []
+    },
+    {
+        "id": 8,
+        "title": "Reposteria",
+        "profesorName": "Mauricio",
+        "category": "Cocina",
+        "description": "Iniciación en el mundo de la repostería, aprendiendo técnicas básicas de horneado y decoración. Preparación de deliciosos postres como galletas, pasteles y cupcakes. Exploración de ingredientes, utensilios y consejos para crear dulces caseros satisfactorios.",
+        "price": 10000,
+        "commentId": []
+    },
+    {
+        "id": 9,
+        "title": "Cocina molecular",
+        "profesorName": "Carmen",
+        "category": "Cocina",
+        "description": "Inmersión en la cocina experimental y científica, explorando técnicas vanguardistas como esferificación y gelificación. Creación de platos sorprendentes con ingredientes inusuales y presentaciones innovadoras. Comprender los principios químicos detrás de la cocina molecular y su aplicación en la gastronomía de vanguardia.",
+        "price": 12000,
+        "commentId": []
+    },
+    {
+        "id": 10,
+        "title": "Matemática Simple",
+        "profesorName": "Sofia",
+        "category": "Matemática",
+        "description": "Introducción a conceptos matemáticos básicos, como números, operaciones aritméticas y geometría elemental. Enfoque en ejercicios prácticos para fortalecer habilidades matemáticas esenciales. Diseñada para estudiantes principiantes, brindando una base sólida en matemáticas simples.",
+        "price": 2400,
+        "commentId": []
+    },
+    {
+        "id": 11,
+        "title": "Fotografía Digital Avanzada",
+        "profesorName": "Fernando",
+        "category": "Arte y Danza",
+        "description": "Exploración de técnicas avanzadas de fotografía digital, como la composición, la iluminación y la postproducción. Práctica con equipos profesionales y edición de imágenes para lograr fotografías de alta calidad. Desarrollo de habilidades creativas y narrativas visuales en la fotografía.",
+        "price": 6000,
+        "commentId": []
+    },
+    {
+        "id": 12,
+        "title": "Programación en Python para Principiantes",
+        "profesorName": "Juan",
+        "category": "Programación",
+        "description": "Introducción a la programación utilizando el lenguaje Python, sin experiencia previa requerida. Aprendizaje de conceptos fundamentales, estructuras de control y resolución de problemas con Python. Preparación para desarrollar habilidades de programación básicas y comprender los conceptos de la informática.",
+        "price": 12500,
+        "commentId": []
+    },
+    {
+        "id": 13,
+        "title": "Yoga y Meditación",
+        "profesorName": "María",
+        "category": "Deporte",
+        "description": "Práctica de yoga para mejorar la flexibilidad, el equilibrio y la salud física y mental. Introducción a técnicas de meditación y mindfulness para reducir el estrés y mejorar la concentración. Promoción del bienestar integral a través de la armonización del cuerpo y la mente.",
+        "price": 7000,
+        "commentId": []
+    },
+    {
+        "id": 14,
+        "title": "Marketing Digital para Emprendedores",
+        "profesorName": "Carmen",
+        "category": "Educación avanzada",
+        "description": "Instrucción en estrategias de marketing en línea, publicidad en redes sociales y SEO. Aplicación práctica de herramientas digitales para promocionar negocios y atraer clientes. Capacitación específica para emprendedores que desean mejorar su presencia en línea y aumentar sus ventas.",
+        "price": 5000,
+        "commentId": []
+    }
+]

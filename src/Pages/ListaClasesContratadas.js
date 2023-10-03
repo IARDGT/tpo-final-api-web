@@ -7,7 +7,7 @@ export const ListaClasesContratadas = () => {
     return (
         <>
             <div className="lista-clases-profesor-container">
-                <ListaClases cantidad={3} misClase={true} urlClase="ver-clase-contratada" />
+                <ListaClases cantidadMax={3} misClase={true} urlClase="ver-clase-contratada" />
             </div>
         </>
     )
