@@ -1,25 +1,9 @@
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Search } from './Search';
+import { useState, useEffect } from 'react';
 import { LogInRegisterBtt } from './LogInRegisterBttn';
-import { MenuBttn } from './MenuBttn';
-import { UserIcon } from './UserIcon';
+import { Search } from './Search';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const Navbar = () => {
-
-  const [auth, setAuth] = useState(true);
-
-
-
-  /*   const [anchorEl, setAnchorEl] = useState(null);
-  
-    const handleMenu = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    }; */
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -27,18 +11,8 @@ export const Navbar = () => {
         <a className="navbar-brand" href="/">
           <img src={require('../assets/logo.png')} alt="Logo" width="30" height="24" className="d-inline-block align-text-top"></img>
         </a>
-        {
-          !auth && <Search />
-        }
-        {
-          auth && <MenuBttn />
-        }
-        {
-          !auth && <LogInRegisterBtt />
-        }
-        {
-          auth && <UserIcon />
-        }
+        <Search />
+        <LogInRegisterBtt />
       </div>
     </nav>
   );

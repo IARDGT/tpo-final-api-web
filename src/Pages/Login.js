@@ -1,21 +1,30 @@
 import { useState } from 'react';
+import { Link, useNavigate} from "react-router-dom";
+import { useAuth } from "../components/AuthContext";
 import './style/Login.css';
-
-import { conectarse } from "../helpers/login"
 
 export const Login = ({autenticado}) => {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState(false);
+  const { setAuth, user } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    /* e.preventDefault();
-    alert([email]); */
     e.preventDefault();
-    conectarse(autenticado);
-    console.log(login);
-    
+    const validCred = {
+      email: 'admin',
+      password: 'admin'
+    }
+
+    if ((email === validCred.email) && (password === validCred.password)) {
+      sessionStorage.setItem('auth-token', 'asd123');
+      setAuth(true);
+      navigate('/');
+    } else {
+      alert('Invalid Credentials. Please try again.');
+    }
   }
 
   return (

@@ -20,7 +20,7 @@ export const ContratarClase = () => {
                                 src={require('../assets/guitarra.jpg')}
                                 className="img-fluid"
                                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'cover' }}
-                                alt="Imagen representativa de la clase a crear."
+                                alt="Imagen representativa de la clase a contratar."
                             />
 
                         </div>
