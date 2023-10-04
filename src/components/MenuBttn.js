@@ -1,7 +1,6 @@
-
 export const MenuBttn = () => {
     return (
-        <ul className="nav justify-content-center nav-underline">
+        <ul className="navbar-nav">
             <li className="nav-item">
                 <a className="nav-link " aria-current="page" href="catalogo">Catalogo de Clases</a>
             </li>

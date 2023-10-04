@@ -18,6 +18,7 @@ import { NavbarAuth } from './components/NavbarAuth';
 import { ListaClasesProfesor } from './Pages/ListaClasesProfesor';
 import { ListaClasesContratadas } from './Pages/ListaClasesContratadas';
 import { useAuth } from './components/AuthContext';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 
 export const App = () => {

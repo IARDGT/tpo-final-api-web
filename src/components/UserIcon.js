@@ -15,18 +15,22 @@ export const UserIcon = () => {
     }
 
     return (
-        <div className="d-flex flex-row mb-1" id="navbarSupportedContent">
+       
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <Link to='/'>
+                    <button type="button" className="btn btn-primary">{userName}</button>
+                </Link>
+            </li>
+            <li class="nav-item">
+                <button
+                    type="button"
+                    className="btn btn-outline-primary"
+                    onClick={(e) => handleLogout(e)}
+                >Logout</button>
+            </li>
 
-            <Link to='/'>
-                <button type="button" className="btn btn-primary">{userName}</button>
-            </Link>
-            <button
-                type="button"
-                className="btn btn-outline-primary"
-                style={{ marginLeft: 10 + 'px', marginRight: 10 + 'px' }}
-                onClick={(e) => handleLogout(e)}
-            >Logout</button>
-        </div>
 
+        </ul>
     )
 }
