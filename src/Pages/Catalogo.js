@@ -17,7 +17,7 @@ export const Catalogo = () => {
     <>
       <div className="catalago-container">
         <Filtros categoria={categoriaNormalizada} />
-        <ListaClases cantidadMax={16} urlClase="ver-clase" categoria={categoriaNormalizada} />
+        <ListaClases cantidadMax={16} urlClase="/ver-clase" categoria={categoriaNormalizada} />
       </div>
     </>
   );

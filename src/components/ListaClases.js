@@ -1,7 +1,7 @@
 import { ClaseItem } from "./ClaseItem";
 import data from "../helpers/clases-test.json"
 
-const normalizeCategoria = (categoria) => {
+const normalizeCategoria = (categoria, id) => {
     return categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '-');
   };
 
@@ -23,8 +23,8 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, categoria }) => {
             price={clase.price}
             commentId={clase.commentId}
             url="..."
-            imgUrl="..."
-            urlClase={urlClase}
+            imgUrl={clase.imgUrl}
+            urlClase={urlClase + '/' + clase.id}
             key={clase.id}
           />
         );
@@ -40,7 +40,7 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, categoria }) => {
                     price={clase.price}
                     commentId={clase.commentId}
                     url="..."
-                    imgUrl={clase.imgUrl}
+                    imgUrl="..."
                     misClase={misClase}
                     urlClase={urlClase + '/' + clase.id}
                     key={clase.id}

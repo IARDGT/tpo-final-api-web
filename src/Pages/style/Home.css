@@ -1,3 +1,7 @@
+.body{
+  background-color: black;
+}
+
 .home-container {
   max-width: 75%;
   margin: auto;
@@ -78,7 +82,8 @@
 }
 
 .clases-home,
-.registrar-home {
+.registrar-home,
+.logo-empresas {
   background-color: #F5F5F5;
 }
 
