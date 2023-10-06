@@ -30,15 +30,15 @@ export const App = () => {
             {auth ? <NavbarAuth /> : <Navbar />}
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="catalogo/:categoria" element={<Catalogo />} />
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<Register />} />
-                <Route path="crear-clase" element={<CrearClase />} />
-                <Route path="ver-clase" element={<VerClase />} />
-                <Route path="contratar-clase" element={<ContratarClase />} />
-                <Route path="ver-clase-contratada" element={<VerClaseContratada />} />
-                <Route path="mis-clases" element={<ListaClasesProfesor />} />
-                <Route path="lista-clases-contratada" element={<ListaClasesContratadas />} />
+                <Route path="/catalogo/:categoria" element={<Catalogo />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/crear-clase" element={<CrearClase />} />
+                <Route path="/ver-clase/:id" element={<VerClase />} />
+                <Route path="/contratar-clase" element={<ContratarClase />} />
+                <Route path="/ver-clase-contratada" element={<VerClaseContratada />} />
+                <Route path="/mis-clases" element={<ListaClasesProfesor />} />
+                <Route path="/lista-clases-contratada" element={<ListaClasesContratadas />} />
             </Routes>
             <Footer />
         </BrowserRouter>
