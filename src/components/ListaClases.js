@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ClaseItem } from "./ClaseItem";
 import data from "../helpers/clases-test.json"
 
@@ -19,7 +18,7 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase }) => {
                     url="..."
                     imgUrl="..."
                     misClase={misClase}
-                    urlClase={urlClase}
+                    urlClase={urlClase + '/' + clase.id}
                     key={clase.id}
                 />
                 )
