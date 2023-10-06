@@ -40,7 +40,7 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, categoria }) => {
                     price={clase.price}
                     commentId={clase.commentId}
                     url="..."
-                    imgUrl="..."
+                    imgUrl={clase.imgUrl}
                     misClase={misClase}
                     urlClase={urlClase + '/' + clase.id}
                     key={clase.id}

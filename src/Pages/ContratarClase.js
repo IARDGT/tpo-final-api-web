@@ -1,23 +1,39 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import data from "../helpers/clases-test.json"
 import './style/ContratarClase.css';
 
 export const ContratarClase = () => {
+
+    const { id } = useParams();
+    const [clase, setClase] = useState({});
+    const [imageUrl, setImageUrl] = useState('blackboard.jpg');
+
+    useEffect(() => {
+        const claseNueva = data.filter(clase => clase.id == id);
+        const singleClase = claseNueva[0] || {};
+        setClase(singleClase);
+        setImageUrl(singleClase.imgUrl);
+    }, [id]);
+    
 
     return (
         <>
             <div className="contratar-clase-container">
                 <div className="row d-flex mx-2 my-2 justify-content-center align-items-center" >
                     <div className="col-lg-7">
-                        <h2>Nombre de la clase</h2>
-                        <p>
-                            Instrucciones de como inscribirse a la clase Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        </p>
+                        <h2>{clase.title}</h2>
+                        <h4>Profe: <span>{clase.profesorName}</span></h4>
+                        <h5>Precio: ${clase.price}</h5>
+                        <p>{clase.description}</p>
+                        <p className='btn btn-secondary'>{clase.category}</p>
+
                     </div>
                     <div className="col-lg-5 justify-content-center">
                         <div className="card-img-top d-flex justify-content-center align-items-center">
                             <img
                                 id="cardImage"
-                                src={require('../assets/guitarra.jpg')}
+                                src={require('../assets/'+imageUrl)} 
                                 className="img-fluid"
                                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'cover' }}
                                 alt="Imagen representativa de la clase a contratar."
