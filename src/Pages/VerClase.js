@@ -1,14 +1,18 @@
-import { Comentario } from "../components/Comentario";
+import { ListaComentarios } from "../components/ListaComentarios";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import data from "../helpers/clases-test.json"
 import "./style/VerClases.css";
 
+import dataComentario from "../helpers/comentarios-test.json"
+import {Comentario} from "../components/Comentario";
+
 
 export const VerClase = () => {
     const { id } = useParams();
     const [clase, setClase] = useState({});
+    const [arrComentario, setarrComentario] = useState(["4487fd8a-a1ae-4cca-8302-de1860224a0c", "489f28fb-779e-4930-9913-6fcb7f0ec7a8"]);
     const [imageUrl, setImageUrl] = useState('blackboard.jpg');
     
     useEffect(() => {
@@ -16,19 +20,11 @@ export const VerClase = () => {
         const singleClase = claseNueva[0] || {};
         setClase(singleClase);
         setImageUrl(singleClase.imgUrl);
+        setarrComentario(singleClase.commentId)
+
     }, [id]);
-    
-    
-    /*
-    const comentarios = [];
-    const renderComentarios = () => {
-        {
-            clase.comentarios.map(id => {
-                comentarios.push(<Comentario key={id}/>)
-            })
-        }
-    }
-    */
+
+
 
     return (
         <>
@@ -54,9 +50,24 @@ export const VerClase = () => {
                     </div>
                 </div>
                 <div className="ver-clases-content-2">
-                    <Comentario editar={true} />
-                    <Comentario editar={true} />
-                    <Comentario editar={true} />
+                    {console.log("clase.commentId",clase.commentId)}
+                    {/* <ListaComentarios editar={true} comentarioID={arrComentario} nombreClase={clase.title} /> */}
+                    <Comentario
+                      nombreClase={clase.title}
+                      description="El profesor demuestra un profundo conocimiento del tema y su pasión por enseñar es evidente en cada clase. Siempre está dispuesto a responder preguntas y brindar apoyo adicional cuando los estudiantes lo necesitan. Su estilo de enseñanza hace que el material sea fácil de entender y atractivo para todos en el aula."
+                      autor="Franco"
+                      creationDate="23/05/2023"
+                      editar={false}
+                      key="4487fd8a-a1ae-4cca-8302-de1860224a0c"
+                  />
+                  <Comentario
+                      nombreClase={clase.title}
+                      description="Este profesor es increíblemente comprometido con el éxito de sus estudiantes. Va más allá de lo esperado para proporcionar recursos adicionales, sesiones de tutoría y retroalimentación constructiva. Sus clases son dinámicas y participativas, lo que hace que aprender sea una experiencia agradable. Realmente es un modelo a seguir en la educación."
+                      autor="Iván"
+                      creationDate="23/05/2023"
+                      editar={false}
+                      key="489f28fb-779e-4930-9913-6fcb7f0ec7a8"
+                  />
                 </div>
             </div >
         </>

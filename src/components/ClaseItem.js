@@ -1,11 +1,13 @@
 export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, misClase, urlClase }) => {
 
+    console.log("imgUrl",imgUrl);
+
     return (
         <>
             {
                 !misClase &&
                 <div className="card" style={{ width: "18rem", margin: "15px auto" }} category={ category }>
-                    <img src={require('../assets/'+imgUrl)}
+                    <img src={require(`../assets/${imgUrl}`)} 
                     style={{ height: "12rem", objectFit: "cover"}}
                     className="card-img-top" alt="..." />
                     <div className="card-body">
@@ -21,7 +23,7 @@ export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, m
                 <div className="card mb-3 card-lista-clases-contratadas" category={ category }>
                     <div className="row g-0">
                         <div className="col-md-4">
-                            <img src={require('../assets/'+imgUrl)} 
+                            <img src={require(`../assets/${imgUrl}`)} 
                             style={{ height: "12rem", objectFit: "cover"}}
                             className="img-fluid rounded-start" alt="..." />
                         </div>

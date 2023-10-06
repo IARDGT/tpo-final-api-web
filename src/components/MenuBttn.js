@@ -1,17 +1,19 @@
+import { Link } from 'react-router-dom';
+
 export const MenuBttn = () => {
     return (
         <ul className="navbar-nav">
             <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="catalogo">Catalogo de Clases</a>
+                <Link className="nav-link" to="/catalogo/todo">Catalogo de Clases</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link " href="mis-clases">Mis Clases</a>
+                <Link className="nav-link" to="/mis-clases">Mis Clases</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link " href="lista-clases-contratada">Clases Contratadas</a>
+                <Link className="nav-link" to="/lista-clases-contratada">Clases Contratadas</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link " href="crear-clase">Crear Clase</a>
+                <Link className="nav-link" to="/crear-clase">Crear Clase</Link>
             </li>
         </ul>
     )

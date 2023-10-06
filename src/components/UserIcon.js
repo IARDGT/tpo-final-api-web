@@ -16,13 +16,13 @@ export const UserIcon = () => {
 
     return (
        
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
+        <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
                 <Link to='/'>
                     <button type="button" className="btn btn-primary">{userName}</button>
                 </Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
                 <button
                     type="button"
                     className="btn btn-outline-primary"
