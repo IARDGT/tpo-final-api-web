@@ -34,7 +34,7 @@ export const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/crear-clase" element={<CrearClase />} />
                 <Route path="/ver-clase/:id" element={<VerClase />} />
-                <Route path="/contratar-clase" element={<ContratarClase />} />
+                <Route path="/ver-clase/contratar/:id" element={<ContratarClase />} />
                 <Route path="/ver-clase-contratada" element={<VerClaseContratada />} />
                 <Route path="/mis-clases" element={<ListaClasesProfesor />} />
                 <Route path="/lista-clases-contratada" element={<ListaClasesContratadas />} />
