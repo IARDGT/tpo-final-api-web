@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { PasosClase } from '../components/PasosClase';
+import {register} from "../controller/user.controller";
+
 import './style/Register.css';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export const Register = () => {
@@ -8,10 +12,26 @@ export const Register = () => {
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert([nombre, apellido, email]);
+    console.log(e);
+    let datos = {
+      name: nombre,
+      lastName: apellido,
+      email: email,
+      password: password,
+    }
+    let response = await register(datos);
+    console.log("response.ok ",response.ok)
+    if (!response.ok) {
+      alert("Error creating user.")
+    } else {
+      alert("User created. Please login now.")
+      return navigate("/login");
+    }
+
   }
 
   return (

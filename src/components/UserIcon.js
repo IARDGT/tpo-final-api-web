@@ -5,7 +5,7 @@ export const UserIcon = () => {
 
     const navigate = useNavigate();
     const { setAuth, user } = useAuth();
-    const userName = 'Profe';
+    const userName = user;
 
 
     const handleLogout = () => {
@@ -18,7 +18,7 @@ export const UserIcon = () => {
        
         <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-                <Link to='/'>
+                <Link to='/mi-perfil'>
                     <button type="button" className="btn btn-primary">{userName}</button>
                 </Link>
             </li>
