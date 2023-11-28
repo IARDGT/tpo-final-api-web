@@ -1,41 +1,23 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-
-const AuthContext = createContext({
-  auth: null,
-  setAuth: () => {},
-  user: null,
-});
-
-export const useAuth = () => useContext(AuthContext);
+import { createContext, useContext, useState } from 'react';
 
 const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState(false);
-  const [user, setUser] = useState("null");
-
-  useEffect(() => {
-    const isAuth = async () => {
-      try {
-        if (sessionStorage.getItem('auth-token')) {
-          setAuth(true);
-          setUser("Admin");
-        }
-        else {
-          setAuth(false);
-          setUser(null);
-        }
-      } catch(error) {
-        setUser(null);
-      };
-    };
-
-    isAuth();
-  }, [auth]);
+  const [auth, setAuth] = useState(!!sessionStorage.getItem("x"));
+  const [user, setUser] = useState(!!sessionStorage.getItem("name"));
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, user }}>
+    <AuthContext.Provider value={{ auth, setAuth, user, setUser}}>
       {children}
     </AuthContext.Provider>
   );
 };
 
+const AuthContext = createContext({
+  auth: false,
+  setAuth: () => {},
+  user: "null",
+  setUser: () => {},
+});
+
+export const useAuth = () => useContext(AuthContext);
 export default AuthProvider;
+

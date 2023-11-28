@@ -1,34 +1,63 @@
-import { useState } from 'react';
-import { Link, useNavigate} from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../components/AuthContext";
 import './style/Login.css';
 
-export const Login = ({autenticado}) => {
-  
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { setAuth, user } = useAuth();
+//importo llamada a endpoint
+import { login } from "../controller/user.controller";
 
+
+export const Login = () => {
+  
+  const [email,setEmail] = React.useState('');
+  const [password,setPassword] = React.useState('');
+  const { setAuth, setUser } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleEmail = (event) => {
+      setEmail(event.target.value);
+  }
+  const handlePassword = (event) => {    
+      setPassword(event.target.value);
+  }
+  
+  const validate_login = () => {    
+    return true;
+  }
+  
+  
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const validCred = {
-      email: 'admin',
-      password: 'admin'
-    }
+    console.log(e);
 
-    if ((email === validCred.email) && (password === validCred.password)) {
+    console.log("email ", email);
+    console.log("password ", password);
+    let isValid = validate_login();
+    console.log("isValid ",isValid);
+
+    // Call login endpoint
+    let response = await login(email, password); 
+
+    if (response.ok) {
       sessionStorage.setItem('auth-token', 'asd123');
       setAuth(true);
-      navigate('/');
+      setUser(sessionStorage.getItem("name"));
+      navigate("/");
     } else {
-      alert('Invalid Credentials. Please try again.');
+      alert("El usuario no es válido");
     }
-  }
+
+  } 
+
 
   return (
-    <>
+    <div 
+      style={{
+        backgroundImage: "url(../assets/01.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "top center"
+      }}
+      >
       <div className="row d-flex justify-content-center border rounded login-container" >
         <div className="col-lg-7 login-vitrina text-white" >
           <h2>¡Bienvenido de nuevo!</h2>
@@ -49,7 +78,7 @@ export const Login = ({autenticado}) => {
                 className="form-control form-control-lg"
                 placeholder="Correo electrónico"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => handleEmail(e)}
               />
             </div>
 
@@ -59,7 +88,7 @@ export const Login = ({autenticado}) => {
                 className="form-control form-control-lg"
                 placeholder="Contraseña"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => handlePassword(e)}
               />
             </div>
 
@@ -68,8 +97,11 @@ export const Login = ({autenticado}) => {
             </div>
 
             <div className="js mt-4 pt-2">
-              <button type="submit" className="btn btn-primary btn-lg"
-                onClick={(e) => handleSubmit(e)}>Continuar</button>
+              <button type="submit" 
+                className="btn btn-primary btn-lg"
+                onClick={(e) => handleLogin(e)}>
+                  Continuar
+              </button>
 
               <p className="small fw-bold mt-2 pt-1 mb-4">¿No tenés una cuenta? <a href="/register"
                 className="link-danger">¡Registrate!</a></p>
@@ -78,7 +110,7 @@ export const Login = ({autenticado}) => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
   
