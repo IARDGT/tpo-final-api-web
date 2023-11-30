@@ -13,7 +13,7 @@ export const Search = () => {
 
     const routeChange = (value) => {
         /* logica del buscador */
-        const path = value? `catalogo/${value}` : `catalogo/todo`;
+        const path = value? `catalogo/${value}` : `catalogo`;
         navigate(path);
     }
 

@@ -1,4 +1,4 @@
-import { ListaClases } from "../components/ListaClases";
+import { ListaClasesHome } from "../components/ListaClasesHome";
 import { Search } from "../components/Search";
 import { Comentario } from "../components/Comentario";
 import { PasosClase } from "../components/PasosClase";
@@ -21,7 +21,7 @@ export const Home = () => {
                 <div className="clases-home">
                     <h2>Aqui te mostramos algunas de nuestras clases</h2>
                     <h3>En línea o presencial, elige entre más de 100 clases disponibles.</h3>
-                    <ListaClases cantidadMax={8} misClase={false} urlClase="ver-clase" />
+                    <ListaClasesHome cantidadMax={8} misClase={false} urlClase="ver-clase" />
                 </div>
                 <div className="comentarios-home">
                     <h2>Comentarios de Nuestros Alumnos</h2>

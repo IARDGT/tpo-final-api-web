@@ -1,7 +1,5 @@
 export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, misClase, urlClase }) => {
 
-    console.log("imgUrl",imgUrl);
-
     return (
         <>
             {
@@ -12,7 +10,8 @@ export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, m
                     className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
-                        <p className="card-text">{'Profe: '+profesorName}</p>
+                        <p className="card-text">{'Profesor: '+profesorName}</p>
+                        <p className="card-text">{'Categoria: '+category}</p>
                         <p className="card-text">{'$'+price}</p>
                         <a href={ urlClase } className="btn btn-primary">Ver Clase</a>
                     </div>

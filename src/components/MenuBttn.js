@@ -4,7 +4,7 @@ export const MenuBttn = () => {
     return (
         <ul className="navbar-nav">
             <li className="nav-item">
-                <Link className="nav-link" to="/catalogo/todo">Catalogo de Clases</Link>
+                <Link className="nav-link" to="/catalogo">Catalogo de Clases</Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link" to="/mis-clases">Mis Clases</Link>
