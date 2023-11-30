@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import { ProfileCard } from "../components/ProfileCard";
+import "./style/MiPerfil.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const MiPerfil = () => {
@@ -7,24 +9,29 @@ export const MiPerfil = () => {
   const profesor = {
     id: id,
     name: 'Juan Pérez',
+    email: 'juan@gmail.com',
     subject: 'Matemáticas',
     bio: 'Apasionado por enseñar matemáticas y ayudar a los estudiantes a entender conceptos complejos. Con experiencia tanto en aplicaciones teóricas como prácticas de las matemáticas.',
-    imageUrl: './assets/math-simple.jpg'
+    imageUrl: 'https://res.cloudinary.com/dtjbknm5h/image/upload/v1701308009/samples/people/smiling-man.jpg'
   };
 
   return (
-    <div className="container mt-5">
-      <div className="card">
-        <img src={profesor.imageUrl} alt={profesor.name} className="card-img-top" />
-        <div className="card-body">
-          <h2 className="card-title">{profesor.name}</h2>
-          <p className="card-text">Materias: {profesor.subject}</p>
+    <div className="container bg-light">
+        <div className="row">
+            <div className="col-lg-12 mb-4 mb-sm-5">
+              <ProfileCard 
+                name={profesor.name}
+                email={profesor.email}
+                imageUrl={profesor.imageUrl}
+                />
+            </div>
+            <div className="col-lg-12 mb-4 mb-sm-5">
+                <div>
+                    <span className="section-title text-primary mb-3 mb-sm-4">Biografía</span>
+                    <p>{profesor.bio}</p>
+                </div>
+            </div>
         </div>
-      </div>  
-      <div className="mt-4">
-        <h3>Bio</h3>
-        <p>{profesor.bio}</p>
-      </div>
     </div>
   );
 };

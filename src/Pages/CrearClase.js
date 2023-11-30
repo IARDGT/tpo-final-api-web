@@ -85,7 +85,7 @@ export const CrearClase = () => {
 
                                 <div className="input-group mb-3">
                                     <input type="file" accept="image/*" className="form-control" id="imageUpload" onChange={(e) => handleImageUpload(e)}/>
-                                    <label className="input-group-text" for="imageUpload"> <FontAwesomeIcon icon={faUpload}/></label>
+                                    <label className="input-group-text" htmlFor="imageUpload"> <FontAwesomeIcon icon={faUpload}/></label>
                                 </div>
 
                             </div>

@@ -1,19 +1,5 @@
 export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, misClase, urlClase }) => {
-
-    console.log("imgUrl",imgUrl);
-
-    return (
-        <>
-            {
-                !misClase &&
-                <div className="card" style={{ width: "18rem", margin: "15px auto" }} category={ category }>
-                    <img src={require(`../assets/${imgUrl}`)} 
-                    style={{ height: "12rem", objectFit: "cover"}}
-                    className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{title}</h5>
-                        <p className="card-text">{'Profe: '+profesorName}</p>
-                        <p className="card-text">{'$'+price}</p>
+{'$'+price}</p>
                         <a href={ urlClase } className="btn btn-primary">Ver Clase</a>
                     </div>
                 </div>
@@ -30,6 +16,20 @@ export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, m
                         <div className="col-md-8">
                             <div className="card-body">
                                 <h5 className="card-title">{title}</h5>
+                                console.log("imgUrl",imgUrl);
+
+                                return (
+                                <>
+                                    {
+                                        !misClase &&
+                                        <div className="card" style={{ width: "18rem", margin: "15px auto" }} category={ category }>
+                                            <img src={require(`../assets/${imgUrl}`)}
+                                                 style={{ height: "12rem", objectFit: "cover"}}
+                                                 className="card-img-top" alt="..." />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{title}</h5>
+                                                <p className="card-text">{'Profe: '+profesorName}</p>
+                                                <p className="card-text">
                                 <p className="card-text">{profesorName}</p>
                                 <p className="card-text">{'$'+price}</p>
                                 <a href={ urlClase } className="btn btn-primary">Ver Clase</a>
