@@ -1,18 +1,23 @@
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from "../components/AuthContext";
 
 export const UserIcon = () => {
 
     const navigate = useNavigate();
-    const { setAuth, user } = useAuth();
-    const userName = user;
-
+    const { setAuth } = useAuth();
+    const [userName,setUserName] = useState('');
 
     const handleLogout = () => {
         sessionStorage.clear();
         setAuth(false);
         navigate('/');
     }
+
+    useEffect(() => {
+        setUserName(sessionStorage.getItem("userName"));
+    }, []);
+    
 
     return (
        

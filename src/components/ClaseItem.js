@@ -5,7 +5,7 @@ export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, m
             {
                 !misClase &&
                 <div className="card" style={{ width: "18rem", margin: "15px auto" }} category={ category }>
-                    <img src={require(`../assets/${imgUrl}`)} 
+                    <img src={require(`../assets/${imgUrl}`)}
                     style={{ height: "12rem", objectFit: "cover"}}
                     className="card-img-top" alt="..." />
                     <div className="card-body">
