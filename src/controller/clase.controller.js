@@ -12,13 +12,13 @@ export const getClase = async function (idClase) {
               'Content-Type': 'application/json'
             },
           });
-        let res = await response.json();
+        let data = await response.json();
         console.log('url',url);
         console.log('response',res)
         if (response.ok) {
             console.log('salio bien')
         }
-        return res;
+        return data.clase;
     }
     catch (error) {
         console.log("error", error);

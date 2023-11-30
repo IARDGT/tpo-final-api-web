@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PasosClase } from '../components/PasosClase';
-import {register} from "../controller/user.controller";
+import { register } from "../controller/user.controller";
 
 import './style/Register.css';
 import { useNavigate } from 'react-router-dom';
@@ -17,13 +17,7 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(e);
-    let datos = {
-      name: nombre,
-      lastName: apellido,
-      email: email,
-      password: password,
-    }
-    let response = await register(datos);
+    let response = await register(nombre,apellido,email,password);
     console.log("response.ok ",response.ok)
     if (!response.ok) {
       alert("Error creating user.")
