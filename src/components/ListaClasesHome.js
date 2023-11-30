@@ -1,25 +1,18 @@
 import { ClaseItem } from "./ClaseItem";
-import dataTest from "../helpers/clases-test.json"
+import data from "../helpers/clases-test.json"
 
 const normalizeCategoria = (categoria) => {
     return categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '-');
   };
 
 
-export const ListaClases = ({ cantidadMax, misClase, urlClase, listaCatalogo, onCategoriaChange, onTipoClaseChange, onFrecuenciaChange, onCalificacionChange, filtros }) => {
+export const ListaClasesHome = ({ cantidadMax, misClase, urlClase, categoria }) => {
 
     const contenido = [];
 
-
-    const clasesFiltradas = listaCatalogo.filter((clase) => {
-      return (
-        (!filtros.categoria || normalizeCategoria(clase.category) === filtros.categoria) &&
-        (!filtros.tipoClase || clase.tipoClase === filtros.tipoClase) &&
-        (!filtros.frecuencia || clase.frecuencia === filtros.frecuencia) &&
-        (!filtros.calificacion || clase.calificacion === filtros.calificacion)
-        // Agrega más condiciones para otros filtros
-      );
-    });
+    const clasesFiltradas = categoria && categoria !== "todo"
+  ? data.filter((clase) => normalizeCategoria(clase.category) === categoria)
+  : data;
 
     clasesFiltradas.slice(0, cantidadMax).forEach((clase) => {
         contenido.push(
@@ -31,8 +24,8 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, listaCatalogo, on
             commentId={clase.commentId}
             url="..."
             imgUrl={clase.imgUrl}
-            urlClase={urlClase + '/' + clase._id}
-            key={clase._id}
+            urlClase={urlClase + '/' + clase.id}
+            key={clase.id}
           />
         );
       });

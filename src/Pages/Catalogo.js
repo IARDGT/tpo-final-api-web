@@ -1,23 +1,109 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Filtros } from '../components/Filtros';
 import { ListaClases } from '../components/ListaClases';
-
 import "./style/Catalogo.css";
+import { geCatalogo } from '../controller/clase.controller';
 
 const normalizeCategoria = (categoria) => {
-    return categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '-');
-  };
+  return categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '-');
+};
 
 export const Catalogo = () => {
-  const { categoria } = useParams();
-  const categoriaNormalizada = normalizeCategoria(categoria);
+  //const { categoria } = useParams();
+  //const categoriaNormalizada = normalizeCategoria(categoria);
+  const [datos, setDatos] = useState([]);
+  const [filtros, setFiltros] = useState({
+    categoria: '',
+    tipoClase: '',
+    frecuencia: '',
+    calificacion: '',
+
+  });
+
+  const handleCategoriaChange = (categoria) => {
+    setFiltros({ ...filtros, categoria });
+  };
+
+  const handleTipoClaseChange = (tipoClase) => {
+    setFiltros({ ...filtros, tipoClase });
+  };
+
+  const handleFrecuenciaChange = (frecuencia) => {
+    setFiltros({ ...filtros, frecuencia });
+  };
+
+  const handleCalificacionChange = (calificacion) => {
+    setFiltros({ ...filtros, calificacion });
+  };
+
+  useEffect(() => {
+    const handleCatalogo = async () => {
+      try {
+        const res = await geCatalogo();
+        setDatos(res);
+      } catch (error) {
+        console.error('Error al obtener datos del catálogo:', error);
+        setDatos([]);
+      }
+    };
+
+    handleCatalogo();
+  }, []);
+
+  const categoriasUnicas = Array.from(new Set(datos.map(clase => clase.category)));
+  const tipoClase = Array.from(new Set(datos.map(clase => clase.tipoClase)));
+  const frecuencia = Array.from(new Set(datos.map(clase => clase.frecuencia)));
+  const calificacion = Array.from(new Set(datos.map(clase => clase.category)));
+
 
 
   return (
     <>
       <div className="catalago-container">
-        <Filtros categoria={categoriaNormalizada} />
-        <ListaClases cantidadMax={16} urlClase="/ver-clase" categoria={categoriaNormalizada} />
+        {/* <Filtros categoria={categoriaNormalizada} /> */}
+        {/* Dropdown para seleccionar la categoría */}
+        <select class="form-select" aria-label="Default select example" onChange={(e) => handleCategoriaChange(e.target.value)}>
+          <option value="">Categorías</option>
+          {categoriasUnicas.map((categoriaUnica) => (
+            <option key={categoriaUnica} value={normalizeCategoria(categoriaUnica)}>
+              {categoriaUnica}
+            </option>
+          ))}
+        </select>
+        <select class="form-select" aria-label="Default select example" onChange={(e) => handleTipoClaseChange(e.target.value)}>
+          <option value="">Tipos de Clase</option>
+          {tipoClase.map((tipoClase) => (
+            <option key={tipoClase} value={normalizeCategoria(tipoClase)}>
+              {tipoClase}
+            </option>
+          ))}
+        </select>
+        <select class="form-select" aria-label="Default select example" onChange={(e) => handleFrecuenciaChange(e.target.value)}>
+          <option value="">Frecuencias</option>
+          {frecuencia.map((frecuencia) => (
+            <option key={frecuencia} value={normalizeCategoria(frecuencia)}>
+              {frecuencia}
+            </option>
+          ))}
+        </select>
+        <select class="form-select" aria-label="Default select example" onChange={(e) => handleCalificacionChange(e.target.value)}>
+          <option value="">Calificacion</option>
+          {categoriasUnicas.map((calificacion) => (
+            <option key={calificacion} value={normalizeCategoria(calificacion)}>
+              {calificacion}
+            </option>
+          ))}
+        </select>
+        <ListaClases cantidadMax={16}
+          urlClase="/ver-clase"
+          /* categoria={categoriaNormalizada} */
+          listaCatalogo={datos}
+          onCategoriaChange={handleCategoriaChange}
+          onTipoClaseChange={handleTipoClaseChange}
+          onFrecuenciaChange={handleFrecuenciaChange}
+          onCalificacionChange={handleCalificacionChange}
+          filtros={filtros} />
       </div>
     </>
   );

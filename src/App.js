@@ -31,7 +31,7 @@ export const App = () => {
             {auth ? <NavbarAuth /> : <Navbar />}
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/catalogo/:categoria" element={<Catalogo />} />
+                <Route path="/catalogo" element={<Catalogo />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/crear-clase" element={<CrearClase />} />

@@ -38,6 +38,15 @@ export const Filtros = ({ categoria }) => {
                     <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         Categoria
                     </button>
+                    <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tipo de clase
+                    </button>
+                    <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Frecuencia
+                    </button>
+                    <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Calificación
+                    </button>
                     <ul className="dropdown-menu">
                         {contenido}
                     </ul>
