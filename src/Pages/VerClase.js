@@ -16,7 +16,7 @@ export const VerClase = () => {
   const { id } = useParams();
   const [clase, setClase] = useState({
     claseId: '',
-    title: 'Test',
+    title: '',
     statusClase: false,
     profesorId: '',
     profesorName: '',
@@ -62,9 +62,13 @@ export const VerClase = () => {
         <div className="row d-flex mx-5 my-2 py-5 justify-content-center align-items-start ver-clases-content-1" >
           <div className="col-lg-6 order-2 order-lg-1">
             <h2>{clase.title}</h2>
-            <h4>Profesor: <span>{clase.profesorName}</span></h4>
             <h5>Calificacion: <span>{clase.calificacion}</span></h5>
             <h5>Precio: ${clase.price}</h5>
+            <h5>Duracion: {clase.duracion}</h5>
+            <h5>Profesor: <span>{clase.profesorName}</span></h5>
+            <p><strong>Experiencia: </strong>{clase.profesorExp} años</p>
+            <p><strong>Titulos: </strong>{clase.profesorTitulo}</p>
+            <p><strong>Infromacion del profesor: </strong>{clase.profesorBio}</p>
             <p>{clase.description}</p>
             <a href={"contratar/" + id}>
               <button type="button" className="btn btn-primary btn-lg mt-2">Inscribirse</button>

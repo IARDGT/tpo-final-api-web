@@ -1,5 +1,4 @@
-import { ComentarioHome } from "./ComentarioHome";
-import dataComentario from "../helpers/comentarios-test.json"
+import { ComentarioClase } from "./ComentarioClase";
 
 
 export const ListaComentariosClase = ({ comments = [], editar }) => {
@@ -23,7 +22,7 @@ export const ListaComentariosClase = ({ comments = [], editar }) => {
         const comentariosFiltrados = comments.filter(comentario => comentario.statusComentario == true);
         comentariosFiltrados.forEach((comentario) => {
             contenido.push(
-                <ComentarioHome
+                <ComentarioClase
                     key={comentario.commentId}
                     commentId={comentario.commentId}
                     description={comentario.comentarioInfo}
@@ -37,7 +36,7 @@ export const ListaComentariosClase = ({ comments = [], editar }) => {
     } else {
         comments.forEach((comentario) => {
             contenido.push(
-                <ComentarioHome
+                <ComentarioClase
                     key={comentario.commentId}
                     commentId={comentario.commentId}
                     description={comentario.comentarioInfo}

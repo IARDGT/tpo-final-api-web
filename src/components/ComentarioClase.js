@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { updateStatusComentario } from '../controller/clase.controller';
 
-export const ComentarioHome = ({ commentId, nombreClase, description, autor, creationDate, editar, statusComentario }) => {
+export const ComentarioClase = ({ commentId, nombreClase, description, autor, creationDate, editar, statusComentario }) => {
     const [toggleState, setToggleState] = useState(statusComentario);
 
     const handleToggleChange = async () => {
@@ -34,7 +34,7 @@ export const ComentarioHome = ({ commentId, nombreClase, description, autor, cre
                                 <span className={`react-switch-button`} />
                             </span>
                         </label>
-                        <p>{toggleState ? 'Toggle activado' : 'Toggle desactivado'}</p>
+                        <p>{toggleState ? 'Comentario activado' : 'Comentario desactivado'}</p>
                     </div>
                 )}
             </div>
@@ -42,4 +42,4 @@ export const ComentarioHome = ({ commentId, nombreClase, description, autor, cre
     );
 };
 
-export default ComentarioHome;
+export default ComentarioClase;

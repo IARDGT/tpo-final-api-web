@@ -1,5 +1,11 @@
-export const ClaseItem = ({ title, profesorName, price, category, calificacion, url, imgUrl, misClase, urlClase }) => {
+import { Link } from 'react-router-dom';
 
+export const ClaseItem = ({ title, profesorName, price, tipoClase, frecuencia, category, calificacion, url, imgUrl, misClase, urlClase }) => {
+
+
+    console.log("URL de la clase:", urlClase);
+
+    
     return (
         <>
             {
@@ -10,11 +16,13 @@ export const ClaseItem = ({ title, profesorName, price, category, calificacion, 
                     className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
-                        <p className="card-text">{'Profesor: '+profesorName}</p>
-                        <p className="card-text">{'Categoria: '+category}</p>
-                        <p className="card-text">{'Calificacion: '+calificacion}</p>
+                        <p className="card-text texto-clase-item"><strong>Profesor:</strong> {profesorName}</p>
+                        <p className="card-text texto-clase-item"><strong>Categoria:</strong> {category}</p>
+                        <p className="card-text texto-clase-item"><strong>Tipo de Clase:</strong> {tipoClase}</p>
+                        <p className="card-text texto-clase-item"><strong>Frecuencia:</strong> {frecuencia}</p>
+                        <p className="card-text texto-clase-item"><strong>Calificacion:</strong> {calificacion}</p>
                         <p className="card-text">{'$'+price}</p>
-                        <a href={ urlClase } className="btn btn-primary">Ver Clase</a>
+                        <Link className="btn btn-primary" to={urlClase}>Ver Clase</Link>
                     </div>
                 </div>
             }
@@ -32,7 +40,7 @@ export const ClaseItem = ({ title, profesorName, price, category, calificacion, 
                                 <h5 className="card-title">{title}</h5>
                                 <p className="card-text">{profesorName}</p>
                                 <p className="card-text">{'$'+price}</p>
-                                <a href={ urlClase } className="btn btn-primary">Ver Clase</a>
+                                <Link className="btn btn-primary" to={urlClase}>Ver Clase</Link>
                             </div>
                         </div>
                     </div>

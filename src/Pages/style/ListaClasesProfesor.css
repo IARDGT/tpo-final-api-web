@@ -1,10 +1,11 @@
 .lista-clases-profesor-container {
-    max-width: 75%;
+    width: 80%;
     margin: auto;
+    justify-content: center;
 }
 
 .card-lista-clases-contratadas {
-    max-width: 45%;
+    width: 460px;
     margin: 10px;
 }
 
