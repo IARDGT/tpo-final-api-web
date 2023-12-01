@@ -31,7 +31,7 @@ export const Register = () => {
   return (
     <>
       <div className="signup-container">
-        <div className="row d-flex justify-content-center align-items-center border rounded ">
+        <div className="row d-flex justify-content-center align-items-center border rounded bg-body-tertiary">
           <div className="col-lg-7 signup-vitrina text-white">
             {/* <img src={require('../assets/login_img2.jpg')} className="img-fluid" alt="Sample image" />  */}
             <h2>¡Comparte al mundo tu conocimiento!</h2>

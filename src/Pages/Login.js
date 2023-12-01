@@ -43,7 +43,7 @@ export const Login = () => {
 
 
   return (
-    <div className="row d-flex justify-content-center border rounded login-container" >
+    <div className="row d-flex justify-content-center border rounded bg-body-tertiary login-container" >
       <div className="col-lg-7 login-vitrina text-white" >
         <h2>¡Bienvenido de nuevo!</h2>
         <p>

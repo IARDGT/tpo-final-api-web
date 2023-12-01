@@ -7,3 +7,7 @@
     margin-right: 0.1rem;
 }
 
+footer {
+    box-shadow: 0 50vh 0 50vh rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity));
+    margin-bottom: 20px;
+}
