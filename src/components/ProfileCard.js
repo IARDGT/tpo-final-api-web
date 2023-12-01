@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Image, Transformation } from 'cloudinary-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload,faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { uploadProfileImage } from "../controller/user.controller";
+import { uploadProfileImage, updateProfileImage } from "../controller/user.controller";
 
-export const ProfileCard = ({name, email, imageUrl}) => {
+export const ProfileCard = ({userId, name, email, imageUrl}) => {
     const [uploadedImage, setUploadedImage] = useState(imageUrl);
     const [file, setFile] = useState(imageUrl);
     const [loading, setLoading] = useState(false);
@@ -16,10 +16,16 @@ export const ProfileCard = ({name, email, imageUrl}) => {
         setLoading(true);
         console.log("file",  file)
         const data = new FormData();
-        data.append("my_file", file);
-        let response = await uploadProfileImage(data); 
-        //let response = await axios.post("http://localhost:4000/api/users/image-upload", data);
-        setRes(response.data);
+        data.append("my_img", file);
+        data.append("userId", userId);
+        console.log("data to send: ",  data);
+        console.log("userId: ",  userId);
+        let uploadRes = await uploadProfileImage(data); 
+        let secureUrl = uploadRes.data.secure_url
+        let updateRes = await updateProfileImage(userId, secureUrl); 
+        console.log("uploadRes", uploadRes);
+        console.log("updateRes", updateRes);
+        setUploadedImage(secureUrl);
       } catch (error) {
         alert(error.message);
       } finally {
@@ -27,19 +33,7 @@ export const ProfileCard = ({name, email, imageUrl}) => {
       }
     };
 
-    
-    const handleImageUpload = (e) => {
-      const file = e.target.files[0];
 
-      if (file) {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-              const imageSrc = e.target.result;
-              document.getElementById('cardImage').src = imageSrc;
-          };
-          reader.readAsDataURL(file);
-      }
-  };
     
     return (
         <div className="card card-style1 border-0">
