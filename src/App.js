@@ -24,7 +24,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 
 
 export const App = () => {
-    const { auth } = useAuth();
+    const { auth, userId } = useAuth();
 
     return (
         <BrowserRouter >

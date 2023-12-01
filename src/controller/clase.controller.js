@@ -14,7 +14,7 @@ export const getClase = async function (idClase) {
           });
         let data = await response.json();
         console.log('url',url);
-        console.log('response',res)
+        console.log('response',data)
         if (response.ok) {
             console.log('salio bien')
         }
