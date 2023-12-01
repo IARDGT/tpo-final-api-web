@@ -15,8 +15,8 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, listaCatalogo, on
       const claseCalificacion = parseFloat(clase.calificacion);
       return (
         (!filtros.categoria || normalizeCategoria(clase.category) === filtros.categoria) &&
-        (!filtros.tipoClase || clase.tipoClase === filtros.tipoClase) &&
-        (!filtros.frecuencia || clase.frecuencia === filtros.frecuencia) &&
+        (!filtros.tipoClase || normalizeCategoria(clase.tipoClase) === filtros.tipoClase) &&
+        (!filtros.frecuencia || normalizeCategoria(clase.frecuencia) === filtros.frecuencia) &&
         (isNaN(filtroCalificacion) || isNaN(claseCalificacion) || claseCalificacion === filtroCalificacion)
       );
     });
@@ -28,6 +28,8 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, listaCatalogo, on
             profesorName={clase.profesorName}
             category={clase.category}
             calificacion={clase.calificacion}
+            tipoClase={clase.tipoClase}
+            frecuencia={clase.frecuencia}
             price={clase.price}
             commentId={clase.commentId}
             url="..."

@@ -13,6 +13,11 @@
     margin: 5px;
 }
 
+.texto-clase-item{
+    margin: 2px 0px;
+    font-size: 15px;
+}
+
 @media screen and (max-width: 1080px) {
     .catalago-container {
         max-width: 100%;

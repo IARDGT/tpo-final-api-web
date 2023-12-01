@@ -25,9 +25,35 @@ export const getClase = async function (idClase) {
     };
 }
 
-export const geCatalogo = async function () {
+export const getCatalogo = async function () {
     let url = urlWebServices.catalogo;
 
+    try {
+        let response = await fetch(url, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+        });
+        let data = await response.json();
+
+        if (response.ok) {
+            console.log('salio bien')
+        }
+        return data.clases;
+
+        
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
+export const getMisClases = async function (idProfesor) {
+    let url = `${urlWebServices.misClases}${idProfesor}`;
+    
     try {
         let response = await fetch(url, {
             method: 'GET',

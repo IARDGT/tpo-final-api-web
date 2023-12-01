@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ListaClases } from '../components/ListaClases';
 import "./style/Catalogo.css";
-import { geCatalogo } from '../controller/clase.controller';
+import { getCatalogo } from '../controller/clase.controller';
 
 const normalizeCategoria = (categoria) => {
   return categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '-');
@@ -36,7 +36,7 @@ export const Catalogo = () => {
   useEffect(() => {
     const handleCatalogo = async () => {
       try {
-        const res = await geCatalogo();
+        const res = await getCatalogo();
         setDatos(res);
       } catch (error) {
         console.error('Error al obtener datos del catálogo:', error);
