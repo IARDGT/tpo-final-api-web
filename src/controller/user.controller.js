@@ -42,6 +42,11 @@ export const register = async function (register) {
         lastName: register.lastName,
         email: register.email,
         password: register.password,
+        titulo: "Profe",
+        telefono: "1122222222",
+        bio: "Profe",
+        exp: 0,
+        imgUrl: "https://res.cloudinary.com/dtjbknm5h/image/upload/v1701456977/basic-teacher_fojod3.png",
     };
 
     try {
@@ -69,6 +74,7 @@ export const getUserDetails = async function (userId) {
         id: userId,
     };
 
+    console.log('url', url);
     try {
         let response = await fetch(url, {
             method: 'GET',
