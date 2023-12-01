@@ -21,6 +21,7 @@ import { Navbar } from './components/Navbar';
 import { NavbarAuth } from './components/NavbarAuth';
 import { useAuth } from './components/AuthContext';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import '../src/styles.css';
 
 
 export const App = () => {

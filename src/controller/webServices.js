@@ -9,6 +9,8 @@ const urlWebServices = {
     updateProfileImage:urlApi +"api/users/update",
     catalogo:urlApi+"api/clase/catalogo",
     verClase:urlApi+"api/clase/ver-clase/",
+    updateComentario:urlApi+"api/clase/actualizar-comment/",
+
 }
 
 export default urlWebServices;
