@@ -1,4 +1,4 @@
-export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, misClase, urlClase }) => {
+export const ClaseItem = ({ title, profesorName, price, category, calificacion, url, imgUrl, misClase, urlClase }) => {
 
     return (
         <>
@@ -12,6 +12,7 @@ export const ClaseItem = ({ title, profesorName, price, category, url, imgUrl, m
                         <h5 className="card-title">{title}</h5>
                         <p className="card-text">{'Profesor: '+profesorName}</p>
                         <p className="card-text">{'Categoria: '+category}</p>
+                        <p className="card-text">{'Calificacion: '+calificacion}</p>
                         <p className="card-text">{'$'+price}</p>
                         <a href={ urlClase } className="btn btn-primary">Ver Clase</a>
                     </div>

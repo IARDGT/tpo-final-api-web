@@ -3,6 +3,10 @@
     margin: auto;
   }
 
+  .comentario {
+    width: 90%
+}
+
 @media screen and (max-width: 1080px) {
     .ver-clases-container {
       max-width: 100%;

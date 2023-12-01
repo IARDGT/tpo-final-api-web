@@ -5,7 +5,7 @@ export const Comentario = ({nombreClase, description, autor, creationDate, edita
     
 
     return (
-        <div className="card mx-5 my-2 px-3">
+        <div className="card mx-5 my-2 px-3 comentario">
             <div className="card-body">
                 <h5 className="card-title">{nombreClase}</h5>
                 <p className="card-text">{description}</p>

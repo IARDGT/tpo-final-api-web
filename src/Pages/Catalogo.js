@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Filtros } from '../components/Filtros';
 import { ListaClases } from '../components/ListaClases';
 import "./style/Catalogo.css";
 import { geCatalogo } from '../controller/clase.controller';
@@ -10,8 +8,6 @@ const normalizeCategoria = (categoria) => {
 };
 
 export const Catalogo = () => {
-  //const { categoria } = useParams();
-  //const categoriaNormalizada = normalizeCategoria(categoria);
   const [datos, setDatos] = useState([]);
   const [filtros, setFiltros] = useState({
     categoria: '',
@@ -54,16 +50,14 @@ export const Catalogo = () => {
   const categoriasUnicas = Array.from(new Set(datos.map(clase => clase.category)));
   const tipoClase = Array.from(new Set(datos.map(clase => clase.tipoClase)));
   const frecuencia = Array.from(new Set(datos.map(clase => clase.frecuencia)));
-  const calificacion = Array.from(new Set(datos.map(clase => clase.category)));
+  const calificacion = Array.from(new Set(datos.map(clase => clase.calificacion)));
 
-
+  console.log('datos',datos)
 
   return (
     <>
       <div className="catalago-container">
-        {/* <Filtros categoria={categoriaNormalizada} /> */}
-        {/* Dropdown para seleccionar la categoría */}
-        <select class="form-select" aria-label="Default select example" onChange={(e) => handleCategoriaChange(e.target.value)}>
+        <select className="form-select" aria-label="Default select example" onChange={(e) => handleCategoriaChange(e.target.value)}>
           <option value="">Categorías</option>
           {categoriasUnicas.map((categoriaUnica) => (
             <option key={categoriaUnica} value={normalizeCategoria(categoriaUnica)}>
@@ -71,7 +65,7 @@ export const Catalogo = () => {
             </option>
           ))}
         </select>
-        <select class="form-select" aria-label="Default select example" onChange={(e) => handleTipoClaseChange(e.target.value)}>
+        <select className="form-select" aria-label="Default select example" onChange={(e) => handleTipoClaseChange(e.target.value)}>
           <option value="">Tipos de Clase</option>
           {tipoClase.map((tipoClase) => (
             <option key={tipoClase} value={normalizeCategoria(tipoClase)}>
@@ -79,7 +73,7 @@ export const Catalogo = () => {
             </option>
           ))}
         </select>
-        <select class="form-select" aria-label="Default select example" onChange={(e) => handleFrecuenciaChange(e.target.value)}>
+        <select className="form-select" aria-label="Default select example" onChange={(e) => handleFrecuenciaChange(e.target.value)}>
           <option value="">Frecuencias</option>
           {frecuencia.map((frecuencia) => (
             <option key={frecuencia} value={normalizeCategoria(frecuencia)}>
@@ -87,17 +81,16 @@ export const Catalogo = () => {
             </option>
           ))}
         </select>
-        <select class="form-select" aria-label="Default select example" onChange={(e) => handleCalificacionChange(e.target.value)}>
+        <select className="form-select" aria-label="Default select example" onChange={(e) => handleCalificacionChange(e.target.value)}>
           <option value="">Calificacion</option>
-          {categoriasUnicas.map((calificacion) => (
-            <option key={calificacion} value={normalizeCategoria(calificacion)}>
+          {calificacion.map((calificacion) => (
+            <option key={calificacion} value={calificacion}>
               {calificacion}
             </option>
           ))}
         </select>
-        <ListaClases cantidadMax={16}
+        <ListaClases cantidadMax={30}
           urlClase="/ver-clase"
-          /* categoria={categoriaNormalizada} */
           listaCatalogo={datos}
           onCategoriaChange={handleCategoriaChange}
           onTipoClaseChange={handleTipoClaseChange}
