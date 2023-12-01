@@ -11,7 +11,7 @@ const urlWebServices = {
     verClase:urlApi+"api/clase/ver-clase/",
     updateComentario:urlApi+"api/clase/actualizar-comment/",
     misClases:urlApi+"api/clase/mis-clases/",
-
+    crearClase:urlApi+"api/clase/crear-clase",
 }
 
 export default urlWebServices;

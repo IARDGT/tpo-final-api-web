@@ -101,4 +101,41 @@ export const updateStatusComentario = async function (commentId, statusComentari
     catch (error) {
         console.log("error", error);
     };
+
+    
+}
+
+export const crearClase = async function (clase) {
+    let url = urlWebServices.crearClase;
+
+    const jsonData = { 
+            title: clase.title,
+            profesorId: clase.profesorId,
+            category: clase.category,
+            tipoClase: clase.tipoClase,
+            frecuencia: clase.frecuencia,
+            duracion: clase.duracion,
+            description: clase.description,
+            price: clase.price,
+            imgUrl: clase.imgUrl,
+//            commentId: clase.commentId,
+        };
+
+    try {
+        let response = await fetch(url, {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                // 'x-access-token': WebToken.webToken,
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData), // Convert JSON data to a string
+        });
+
+        return response;
+    }
+    catch (error) {
+        console.log("error", error);
+    };
 }
