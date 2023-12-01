@@ -1,23 +1,23 @@
 .login-vitrina {
-    display: flex;
-    background-image: url("/src/assets/blackboard.jpg");
-    background-size: cover;
-    height: 50vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  background-image: url("/src/assets/blackboard.jpg");
+  background-size: cover;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-container {
-    max-width: 75%;
-    margin: auto;
-    margin-top: 50px;
-  }
+  max-width: 70%;
+  margin: auto;
+  margin-top: 50px;
+}
 
 @media screen and (max-width: 1080px) {
-    .login-container {
-      max-width: 100%;
-      margin: 0px;
-      text-align: center;
-    }
+  .login-container {
+    max-width: 100%;
+    margin: 0px;
+    text-align: center;
+  }
 }
