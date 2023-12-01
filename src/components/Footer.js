@@ -8,9 +8,9 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export const Footer = () => {
     return (
-      <footer>
-        <hr className="mt-5 mb-4" />
-        <div className="container mx-auto">
+      <footer className="bg-body-tertiary">
+        <hr className="mt-5 mb-4 " />
+        <div className="container mx-auto ">
           <div className="row">
             <div className="col d-flex justify-content-center">
               <a href="/">
