@@ -64,7 +64,7 @@ export const register = async function (register) {
 }
 
 export const getUserDetails = async function (userId) {
-    let url = urlWebServices.getUserById;
+    let url = urlWebServices.getUserById+"/"+userId;
     const jsonData = {
         id: userId,
     };
@@ -77,8 +77,7 @@ export const getUserDetails = async function (userId) {
                 // 'x-access-token': WebToken.webToken,
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(jsonData), // Convert JSON data to a string
+            } 
         });
         
         let data = await response.json();
@@ -89,22 +88,42 @@ export const getUserDetails = async function (userId) {
     };
 }
 
-export const uploadProfileImage = async function (data) {
+export const uploadProfileImage = async function (img) {
     let url = urlWebServices.uploadProfileImage;
+    console.log("url ", url);
 
     try {
-        /*let response = await fetch(url, {
-            method: 'POST',
+        console.log("img ", img);
+        let response = await axios.post(url, img);
+        return response;
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
+export const updateProfileImage = async function (userId, imgUrl) {
+    let url = urlWebServices.updateProfileImage;
+    let jsonData = {
+        id: userId,
+        imgUrl: imgUrl,
+    };
+    console.log("updateProfileImage: ");
+    console.log("url ", url);
+    console.log("jsonData ", jsonData);
+
+    try {
+        let response = await fetch(url, {
+            method: 'PUT',
             mode: "cors",
             headers: {
                 // 'x-access-token': WebToken.webToken,
-                'Origin': 'http://localhost:3000'
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
             },
-            body: data, // Convert JSON data to a string
-        });*/
-        let response = await axios.post(url, data);
-        let data = await response.json();
-        return data;
+            body: JSON.stringify(jsonData), // Convert JSON data to a string
+        });
+        return response;
     }
     catch (error) {
         console.log("error", error);
