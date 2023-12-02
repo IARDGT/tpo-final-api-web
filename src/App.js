@@ -38,7 +38,7 @@ export const App = () => {
                 <Route path="/crear-clase" element={<CrearClase />} />
                 <Route path="/ver-clase/:id" element={<VerClase />} />
                 <Route path="/ver-clase/contratar/:id" element={<ContratarClase />} />
-                <Route path="/ver-clase-contratada" element={<VerClaseContratada />} />
+                <Route path="/ver-clase-contratada/:id" element={<VerClaseContratada />} />
                 <Route path="/mis-clases/:id" element={<ListaClasesProfesor />} />
                 <Route path="/mi-perfil" element={<MiPerfil />} />
                 <Route path="/lista-clases-contratada" element={<ListaClasesContratadas />} />

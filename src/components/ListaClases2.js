@@ -1,4 +1,4 @@
-import { ClaseItem } from "./ClaseItem";
+import { ClaseItemContratada } from "./ClaseItemContratada";
 import data from "../helpers/clases-test.json"
 
 const normalizeCategoria = (categoria, id) => {
@@ -6,57 +6,35 @@ const normalizeCategoria = (categoria, id) => {
   };
 
 
-export const ListaClases2 = ({ cantidadMax, misClase, urlClase, categoria }) => {
+export const ListaClases2 = ({ listaClases, misClase, urlClase, listaCatalogo  }) => {
 
-    const contenido = [];
+  const contenido = [];
 
-    const clasesFiltradas = categoria && categoria !== "todo"
-  ? data.filter((clase) => normalizeCategoria(clase.category) === categoria)
-  : data;
+  console.log('listaclase2')
 
-    clasesFiltradas.slice(0, cantidadMax).forEach((clase) => {
-        contenido.push(
-          <ClaseItem
-            title={clase.title}
-            profesorName={clase.profesorName}
-            category={clase.category}
-            price={clase.price}
-            commentId={clase.commentId}
-            url="..."
-            imgUrl={clase.imgUrl}
-            urlClase={urlClase}
-            key={clase.id}
-          />
-        );
-      });
+  listaClases.forEach((clase) => {
+      contenido.push(
+        <ClaseItemContratada
+          title={clase.title}
+          profesorName={clase.profesorName}
+          category={clase.category}
+          tipoClase={clase.tipoClase}
+          frecuencia={clase.frecuencia}
+          price={clase.price}
+          url="..."
+          imgUrl={clase.imgUrl}
+          urlClase={urlClase + '/' + clase.claseContratadaId}
+          key={clase.claseContratadaId}
+          //misClase={misClase}
+        />
+      );
+    });
 
-/*     const repetir = () => {
-        {
-            data.map(clase => {
-                contenido.push(<ClaseItem
-                    title={clase.title}
-                    profesorName={clase.profesorName}
-                    category={clase.category}
-                    price={clase.price}
-                    commentId={clase.commentId}
-                    url="..."
-                    imgUrl="..."
-                    misClase={misClase}
-                    urlClase={urlClase + '/' + clase.id}
-                    key={clase.id}
-                />
-                )
-            })
-        }
-    }
-
-    repetir(); */
-
-    return (
-        <>
-            <div style={{ border: "0px", display: "flex", margin: "15px", flexWrap: "wrap" }}>
-                {contenido}
-            </div>
-        </>
-    )
+  return (
+      <>
+          <div style={{ border: "0px", display: "flex", margin: "15px", flexWrap: "wrap" }}>
+              {contenido}
+          </div>
+      </>
+  )
 }

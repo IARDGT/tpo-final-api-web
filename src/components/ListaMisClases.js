@@ -6,7 +6,7 @@ export const ListaMisClases = ({ cantidadMax, listaClases, misClase, urlClase, l
 
     const contenido = [];
 
-    listaClases.slice(0, cantidadMax).forEach((clase) => {
+    listaClases.forEach((clase) => {
         contenido.push(
           <ClaseItem
             title={clase.title}
