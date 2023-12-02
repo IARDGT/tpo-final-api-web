@@ -12,6 +12,9 @@ const urlWebServices = {
     updateComentario:urlApi+"api/clase/actualizar-comment/",
     misClases:urlApi+"api/clase/mis-clases/",
     crearClase:urlApi+"api/clase/crear-clase",
+    misClasesContratadas:urlApi+"api/clase-contratada/lista-clases-contratada/",
+    verClaseContratada:urlApi+"api/clase-contratada/ver-clase-contratada/",
+
 }
 
 export default urlWebServices;
