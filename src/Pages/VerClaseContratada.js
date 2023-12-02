@@ -1,23 +1,53 @@
 import './style/ContratarClase.css';
 
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { getClaseContratada } from '../controller/claseContratada.controller';
+
 export const VerClaseContratada = () => {
+
+    const { id } = useParams();
+    const [clase, setClase] = useState({
+        claseId: '',
+        title: '',
+        statusCompletada: false,
+        statusAceptada: false,
+        telefono: '',
+        mail: '',
+        horario: '',
+        mensaje: '',
+        imgUrl: 'blackboard.jpg',
+        nombreAlumno: '',
+        urlClase: ''
+    });
+
+    useEffect(() => {
+        const handleClase = async () => {
+            try {
+                const res = await getClaseContratada(id);
+                setClase(res);
+            } catch (error) {
+                console.error('Error al obtener datos del catálogo:', error);
+                setClase({});
+            }
+        };
+
+        handleClase();
+    }, [id]);
 
     return (
         <>
             <div className="contratar-clase-container">
                 <div className="row d-flex mx-2 my-2 justify-content-center align-items-center" >
                     <div className="col-lg-7">
-                        <h2>Nombre de la clase</h2>
-                        <p> 
-                            Instrucciones de como inscribirse a la clase Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        </p>
+                        <h2>{clase.title}</h2>
                     </div>
                     <div className="col-lg-5 justify-content-center">
                         <div className="card-img-top d-flex justify-content-center align-items-center">
                             <img
                                 id="cardImage"
-                                src={require('../assets/guitarra.jpg')}
+                                src={require(`../assets/${clase.imgUrl}`)}
                                 className="img-fluid"
                                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'cover' }}
                                 alt="Imagen representativa de la clase a contratar."
@@ -27,51 +57,26 @@ export const VerClaseContratada = () => {
                 </div>
                 <div className="row d-flex mx-2 my-2 py-2 justify-content-center align-items-center">
                     <div>
-                        <form>
+                        <div>
                             <h3 className="d-flex mt-4">Datos del alumno:</h3>
-
-                            <div className="form-outline mb-3">
-                                <input type="text" className="form-control form-control-lg"
-                                    value="Nombre" disabled readonly />
-                            </div>
-
-
-                            <div className="form-outline mb-3">
-                                <input type="text" className="form-control form-control-lg"
-                                    value="Apellido" disabled readonly />
-                            </div>
-
-                            <div className="form-outline mb-3">
-                                <input type="text" className="form-control form-control-lg"
-                                    value="Telefono" disabled readonly />
-                            </div>
-
-                            <div className="form-outline mb-3">
-                                <input type="text" className="form-control form-control-lg"
-                                    value="Email" disabled readonly />
-                            </div>
-
-                            <div className="form-outline mb-3">
-                                <input type="text" className="form-control form-control-lg"
-                                    value="Horario" disabled readonly />
-                            </div>
-
-                            <textarea className="form-control form-control-lg mb-3" value="Descripción" disabled readonly></textarea>
-
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
-                                    Aceptar términos y condiciones
-                                </label>
-                            </div>
-
-                            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button className="btn btn-primary me-md-2" type="button">Confirmar Clase</button>
-                                <button className="btn btn-warning" type="button">Cancelar Clase</button>
-                            </div>
-
-
-                        </form>
+                            <p>Nombre del alumno: {clase.nombreAlumno}</p>
+                            <p>Telefono del alumno: {clase.telefono}</p>
+                            <p>Email del alumno: {clase.mail}</p>
+                            <p>Horario: {clase.horario}</p>
+                            <p>Mensaje: {clase.mensaje}</p>
+                            <form class="form-acpetar">
+                                <div>
+                                    <input className="form-check-input constent-form" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label constent-form" htmlFor="flexCheckDefault">
+                                        Aceptar términos y condiciones
+                                    </label>
+                                </div>
+                                <div class="button-container">
+                                    <button className="btn btn-primary constent-form" type="button">Confirmar Clase</button>
+                                    <button className="btn btn-warning constent-form" type="button">Cancelar Clase</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
