@@ -16,6 +16,7 @@ import { VerClaseContratada } from './Pages/VerClaseContratada';
 import { ListaClasesProfesor } from './Pages/ListaClasesProfesor';
 import { ListaClasesContratadas } from './Pages/ListaClasesContratadas';
 import { MiPerfil } from './Pages/MiPerfil';
+import { MiPerfilEditar } from './Pages/MiPerfilEditar';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { NavbarAuth } from './components/NavbarAuth';
@@ -40,7 +41,8 @@ export const App = () => {
                 <Route path="/ver-clase/contratar/:id" element={<ContratarClase />} />
                 <Route path="/ver-clase-contratada/:id" element={<VerClaseContratada />} />
                 <Route path="/mis-clases/:id" element={<ListaClasesProfesor />} />
-                <Route path="/mi-perfil" element={<MiPerfil />} />
+                <Route path="/mi-perfil/:id" element={<MiPerfil />} />
+                <Route path="/mi-perfil/editar/:id" element={<MiPerfilEditar />} />
                 <Route path="/lista-clases-contratada" element={<ListaClasesContratadas />} />
             </Routes>
             <Footer />

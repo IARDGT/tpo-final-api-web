@@ -5,7 +5,7 @@ import { useAuth } from "../components/AuthContext";
 export const UserIcon = () => {
 
     const navigate = useNavigate();
-    const { setAuth } = useAuth();
+    const { setAuth, userId } = useAuth();
     const [userName,setUserName] = useState('');
 
     const handleLogout = () => {
@@ -23,7 +23,7 @@ export const UserIcon = () => {
        
         <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-                <Link to='/mi-perfil'>
+                <Link to={'/mi-perfil/'+userId}>
                     <button type="button" className="btn btn-primary">{userName}</button>
                 </Link>
             </li>

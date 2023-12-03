@@ -1,9 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import "./style/CrearClase.css";
+import { useState } from 'react';
 
 
 export const CrearClase = () => {
+    const [title, setTitle] = useState("");
+    const [category, setCategory] = useState("");
+    const [tipoClase, setTipoClase] = useState("");
+    const [frecuencia, setFrecuencia] = useState("");
+    const [duracion, setDuracion] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [imgUrl, setImgUrl] = useState("");
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
@@ -18,43 +27,63 @@ export const CrearClase = () => {
         }
     };
 
+
     return (
         <>
-            <div className="crear-clase-container ">
+            <div className="crear-clase-container bg-body-tertiary px-5">
                 <div className="row d-flex my-2 py-2 justify-content-center align-items-center" >
                     <div className="col-lg-6 justify-content-center order-2 order-lg-1 px-5 px-lg-0">
 
                         <h2>Crear una clase</h2>
                         <p>
-                            Instrucciones de como crear la clase
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore
+                            Asegúrate de tener un título atractivo, una descripción detallada y un precio justo. 
+                            No olvides proporcionar material de apoyo, fomentar la interacción con los estudiantes durante la clase, y animarte a recibir feedback. 
+                            Promociona esta clase en redes sociales y actualiza regularmente tu perfil y la información de la clase para atraer a más estudiantes. 
+                            ¡Listo para inspirar y enseñar!
                         </p>
 
                         <form>
                             <h4 className="d-flex mt-4">Datos de la clase:</h4>
 
                             <div className="form-outline mb-3">
-                                <input type="text" id="formEmail" className="form-control form-control-lg"
+                                <input type="text" id="formNombre" className="form-control form-control-lg"
                                     placeholder="Nombre" />
                             </div>
 
                             <div className="form-outline mb-3">
-                                <input type="text" id="formPassword" className="form-control form-control-lg"
+                                <input type="text" id="formCategoria" className="form-control form-control-lg"
                                     placeholder="Categoria" />
                             </div>
 
                             <div className="form-outline mb-3">
-                                <input type="text" id="formPassword" className="form-control form-control-lg"
-                                    placeholder="Nivel" />
+                                    <select className="form-control form-control-lg">
+                                    <option selected>Tipo de Clase</option>
+                                    <option value="Individual">Individual</option>
+                                    <option value="Grupal">Grupal</option>
+                                </select>
                             </div>
 
                             <div className="form-outline mb-3">
-                                <input type="text" id="formPassword" className="form-control form-control-lg"
-                                    placeholder="Objetivo" />
+                                <select className="form-control form-control-lg">
+                                    <option selected>Frecuencia de la clase</option>
+                                    <option value="Unica">Unica</option>
+                                    <option value="Semanal">Semanal</option>
+                                    <option value="Mensual">Mensual</option>
+                                </select>
                             </div>
 
+                            <div className="form-outline mb-3">
+
+                                <input type="number" id="formDuracion" className="form-control form-control-lg" min="0"
+                                    placeholder="Duracion"
+                                />
+
+                            </div>
+
+                            <div className="form-outline mb-3">
+                                <input type="number" id="formPrecio" className="form-control form-control-lg"
+                                    placeholder="Precio" />
+                            </div> 
 
                         </form>
                     </div>

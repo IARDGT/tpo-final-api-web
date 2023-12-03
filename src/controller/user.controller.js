@@ -108,15 +108,11 @@ export const uploadProfileImage = async function (img) {
     };
 }
 
-export const updateProfileImage = async function (userId, imgUrl) {
-    let url = urlWebServices.updateProfileImage;
-    let jsonData = {
-        id: userId,
-        imgUrl: imgUrl,
-    };
-    console.log("updateProfileImage: ");
+export const updateProfile = async function (req) {
+    let url = urlWebServices.updateProfile;
+    console.log("updateProfile: ");
     console.log("url ", url);
-    console.log("jsonData ", jsonData);
+    console.log("jsonData ", req);
 
     try {
         let response = await fetch(url, {
@@ -127,7 +123,7 @@ export const updateProfileImage = async function (userId, imgUrl) {
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(jsonData), // Convert JSON data to a string
+            body: JSON.stringify(req), // Convert JSON data to a string
         });
         return response;
     }
