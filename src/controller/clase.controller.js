@@ -1,4 +1,5 @@
 import urlWebServices from './webServices.js';
+import axios from "axios";
 
 export const getClase = async function (idClase) {
     let url = `${urlWebServices.verClase}${idClase}`;
@@ -105,7 +106,20 @@ export const updateStatusComentario = async function (commentId, statusComentari
     
 }
 
-export const crearClase = async function (clase) {
+export const uploadClaseImage = async function (img) {
+    let url = urlWebServices.uploadClaseImage;
+    console.log("url ", url);
+    try {
+        console.log("img ", img);
+        let response = await axios.post(url, img);
+        return response;
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
+export const createClase = async function (clase) {
     let url = urlWebServices.crearClase;
 
     const jsonData = { 
@@ -122,6 +136,8 @@ export const crearClase = async function (clase) {
         };
 
     try {
+        console.log("URL de crear clase ", url);
+        console.log("jsonData ", jsonData);
         let response = await fetch(url, {
             method: 'POST',
             mode: "cors",
