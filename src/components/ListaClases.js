@@ -32,7 +32,6 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, listaCatalogo, on
             frecuencia={clase.frecuencia}
             price={clase.price}
             commentId={clase.commentId}
-            url="..."
             imgUrl={clase.imgUrl}
             urlClase={urlClase + '/' + clase.claseId}
             key={clase.claseId}

@@ -62,7 +62,7 @@ export const MiPerfilEditar = () => {
   const [email, setEmail] = useState(null);
   const [telefono, setTelefono] = useState(null);
   const [bio, setBio] = useState(null);
-  const [uploadedImage, setUploadedImage] = useState(null); 
+  const [uploadedImage, setUploadedImage] = useState(null);
   const navigate = useNavigate();
 
 
@@ -94,13 +94,12 @@ export const MiPerfilEditar = () => {
       // Upload Image to Cloudinary
       let secureUrl;
       if (uploadedImage) {
-        let uploadRes = await uploadImage(file,userId);
+        let uploadRes = await uploadImage(file, userId);
         secureUrl = uploadRes.data.secure_url
       }
 
-
       // Update User
-      let req = {id : userId};
+      let req = { id: userId };
       if (titulo) req.titulo = titulo;
       if (exp) req.exp = exp;
       if (email) req.email = email;
@@ -111,7 +110,7 @@ export const MiPerfilEditar = () => {
       console.log("tu request ES: ", req);
       let updateRes = await updateUser(req);
       console.log("updateRes", updateRes);
-      navigate("/mi-perfil/"+userId);
+      navigate("/mi-perfil/" + userId);
     } catch (error) {
       alert(error.message);
     } finally {
@@ -146,27 +145,27 @@ export const MiPerfilEditar = () => {
                 <div className="col-lg-6 px-xl-10">
 
                   <div className="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                    <h3 className="h2 text-white mb-0">{profesor.name + ' '+ profesor.lastName}</h3>
+                    <h3 className="h2 text-white mb-0">{profesor.name + ' ' + profesor.lastName}</h3>
                     <span className="text-primary">{profesor.titulo}</span>
                   </div>
 
                   <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="floatingTitulo" placeholder="Profesor" onChange={(e) => setTitle(e.target.value)}/>
+                    <input type="text" class="form-control" id="floatingTitulo" placeholder="Profesor" onChange={(e) => setTitle(e.target.value)} />
                     <label for="floatingTitulo">Titulo</label>
                   </div>
 
                   <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="floatingExp" placeholder="0" onChange={(e) => setExp(e.target.value)}/>
+                    <input type="number" class="form-control" id="floatingExp" placeholder="0" onChange={(e) => setExp(e.target.value)} />
                     <label for="floatingExp">Experiencia</label>
                   </div>
 
                   <div class="form-floating mb-2">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" onChange={(e) => setEmail(e.target.value)}/>
+                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" onChange={(e) => setEmail(e.target.value)} />
                     <label for="floatingEmail">Email</label>
                   </div>
 
                   <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="floatingTelefono" placeholder="1155559999" onChange={(e) => setTelefono(e.target.value)}/>
+                    <input type="text" class="form-control" id="floatingTelefono" placeholder="1155559999" onChange={(e) => setTelefono(e.target.value)} />
                     <label for="floatingTelefono">Telefono</label>
                   </div>
                 </div>
