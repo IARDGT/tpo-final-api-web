@@ -33,7 +33,7 @@ export const ContratarClase = () => {
                         <div className="card-img-top d-flex justify-content-center align-items-center">
                             <img
                                 id="cardImage"
-                                src={require('../assets/'+imageUrl)} 
+                                src={imageUrl} 
                                 className="img-fluid"
                                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'cover' }}
                                 alt="Imagen representativa de la clase a contratar."

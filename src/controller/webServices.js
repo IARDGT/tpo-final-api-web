@@ -15,6 +15,7 @@ const urlWebServices = {
     misClasesContratadas:urlApi+"api/clase-contratada/lista-clases-contratada/",
     verClaseContratada:urlApi+"api/clase-contratada/ver-clase-contratada/",
     uploadClaseImage:urlApi+"api/clase/image-upload",
+    updatestatusClaseContratada:urlApi+"api/clase-contratada/lista-clases-contratada-status/",
 }
 
 export default urlWebServices;

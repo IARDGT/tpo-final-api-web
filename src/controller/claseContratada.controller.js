@@ -14,10 +14,7 @@ export const getClaseContratada = async function (idClase) {
           });
         let data = await response.json();
         
-        console.log('response',data)
-        if (response.ok) {
-            console.log('salio bien')
-        }
+        //console.log('response',data)
         return data.claseContratada        ;
     }
     catch (error) {
@@ -28,7 +25,7 @@ export const getClaseContratada = async function (idClase) {
 export const getListaClaseContratada = async function (idProfesor) {
     let url = `${urlWebServices.misClasesContratadas}${idProfesor}`;
     
-    console.log('url----------------->',url)
+    //console.log('url----------------->',url)
     try {
         let response = await fetch(url, {
             method: 'GET',
@@ -40,10 +37,8 @@ export const getListaClaseContratada = async function (idProfesor) {
         });
         let data = await response.json();
 
-        if (response.ok) {
-            console.log('salio bien')
-        }
-        console.log('data.claseContratadas---------------->',data.claseContratadas)
+
+        //console.log('data.claseContratadas---------------->',data.claseContratadas)
         return data.claseContratadas;
 
         
@@ -56,8 +51,8 @@ export const getListaClaseContratada = async function (idProfesor) {
 export const updateStatusComentario = async function (commentId, statusComentario) {
     let url = `${urlWebServices.updateComentario}${commentId}`;
 
-    console.log('url comentario',url);
-    console.log('statusComentario comentario',statusComentario);
+    /* console.log('url comentario',url);
+    console.log('statusComentario comentario',statusComentario); */
 
     try {
         let response = await fetch(url, {
@@ -71,7 +66,31 @@ export const updateStatusComentario = async function (commentId, statusComentari
         });
         let data = await response.json();
         return data.clases;
+        
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
 
+export const updateStatusClase = async function (claseContratada, statusClaseContratada) {
+    let url = `${urlWebServices.updatestatusClaseContratada}${claseContratada}`;
+
+    //console.log('url claseContratada status',url);
+    //console.log('statusClaseContratada claseContratada status',statusClaseContratada);
+
+    try {
+        let response = await fetch(url, {
+            method: 'PUT',
+            mode: 'cors',
+            headers: {
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({statusClaseContratada: statusClaseContratada})
+        });
+        let data = await response.json();
+        return data.clases;
         
     }
     catch (error) {

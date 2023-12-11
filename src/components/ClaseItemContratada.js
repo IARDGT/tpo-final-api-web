@@ -1,55 +1,67 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { updateStatusClase } from '../controller/claseContratada.controller';
 
-export const ClaseItemContratada = ({ title, profesorName, price, tipoClase, frecuencia, category, calificacion, url, imgUrl, misClase, urlClase }) => {
+export const ClaseItemContratada = ({ clase, actualizarEstado }) => {
+    const defaultImage = "https://res.cloudinary.com/dtjbknm5h/image/upload/v1701724404/logo_c21cbs.png";
+    const [statusAceptada, setStatusAceptada] = useState(clase.statusAceptada);
 
+    const onImageError = (error) => {
+        console.log("ERROR WHILE LOADING IMG...");
+        error.target.src = defaultImage;
+    }
 
-    console.log("URL de la clase:", urlClase);
-    console.log("profesorName:", profesorName);
-    console.log("category:", category);
-    console.log("tipoClasee:", tipoClase);
-    console.log("frecuenciafrecuencia:", frecuencia);
-    console.log("URL de la clase:", urlClase);
+    const claseContratadaID = clase.claseContratadaId;
 
-    
+    useEffect(() => {
+        if (statusAceptada !== null) {
+            if (clase.statusAceptada) {
+                setStatusAceptada('Clase aceptada');
+            } else {
+                setStatusAceptada('Clase rechazada');
+            }
+        }
+    }, [statusAceptada, clase.statusAceptada]);
+
+    const handleStatusClase = async (statusClaseContratada) => {
+        try {
+            await updateStatusClase(claseContratadaID, statusClaseContratada);
+            setStatusAceptada(statusClaseContratada ? 'Clase aceptada' : 'Clase rechazada');
+            await actualizarEstado();
+            window.location.reload();
+        } catch (error) {
+            console.error('Error al actualizar el estado de la clase:', error);
+        }
+    }
+
     return (
         <>
-            {
-                !misClase &&
-                <div className="card" style={{ width: "18rem", margin: "15px auto" }} category={ category }>
-                    <img src={require(`../assets/${imgUrl}`)}
-                    style={{ height: "12rem", objectFit: "cover"}}
-                    className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{title}</h5>
-                        <p className="card-text texto-clase-item"><strong>Profesor:</strong> {profesorName}</p>
-                        <p className="card-text texto-clase-item"><strong>Categoria:</strong> {category}</p>
-                        <p className="card-text texto-clase-item"><strong>Tipo de Clase:</strong> {tipoClase}</p>
-                        <p className="card-text texto-clase-item"><strong>Frecuencia:</strong> {frecuencia}</p>
-                        <p className="card-text">{'$'+price}</p>
-                        <Link className="btn btn-primary" to={urlClase}>Ver Clase</Link>
-                    </div>
+            <div className="card" style={{ width: "18rem", margin: "15px auto" }} category={clase.category}>
+                <img src={clase.imgUrl}
+                    style={{ height: "12rem", objectFit: "cover" }}
+                    className="card-img-top" alt="..."
+                    onError={e => onImageError(e)} />
+                <div className="card-body">
+                    <h5 className="card-title">{clase.title}</h5>
+                    <p className="card-text texto-clase-item"><strong>Alumno:</strong> {clase.nombreAlumno}</p>
+                    <p className="card-text texto-clase-item"><strong>Telefono:</strong> {clase.telefono}</p>
+                    <p className="card-text texto-clase-item"><strong>Mail:</strong> {clase.mail}</p>
+                    <p className="card-text texto-clase-item"><strong>Horario:</strong> {clase.horario}</p>
+                    <p className="card-text"><strong>Mensaje:</strong> {clase.mensaje}</p>
+                    {statusAceptada === null && (
+                        <>
+                            <button className="btn btn-primary" onClick={(e) => handleStatusClase(true)}>Aceptar Clase</button>
+                            <button className="btn btn-danger" onClick={(e) => handleStatusClase(false)}>Rechazar Clase</button>
+
+                        </>
+                    )}
+                    {statusAceptada != null && (
+                        <>
+                            {statusAceptada === 'Clase aceptada' && (<p className="card-text"><strong>Estado: </strong>{clase.statusCompletada? "Clase Finalizada":"Clase Pendiente"}</p>)}
+                            <p className="card-text"><strong>{statusAceptada}</strong></p>
+                        </>
+                    )}
                 </div>
-            }
-            {
-                misClase &&
-                <div className="card mb-3 card-lista-clases-contratadas" category={ category }>
-                    <div className="row g-0">
-                        <div className="col-md-4">
-                            <img src={require(`../assets/${imgUrl}`)} 
-                            style={{ height: "12rem", objectFit: "cover"}}
-                            className="img-fluid rounded-start" alt="..." />
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body">
-                                <h5 className="card-title">{title}</h5>
-                                <p className="card-text">{profesorName}</p>
-                                <p className="card-text">{'$'+price}</p>
-                                <Link className="btn btn-primary" to={urlClase}>Ver Clase</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
+            </div>
         </>
     )
 }
