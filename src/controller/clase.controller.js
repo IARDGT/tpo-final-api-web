@@ -155,3 +155,30 @@ export const createClase = async function (clase) {
         console.log("error", error);
     };
 }
+
+
+export const listaComentariosGet = async function () {
+    let url = urlWebServices.listaComentarios;
+
+    try {
+        let response = await fetch(url, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+        });
+        let data = await response.json();
+
+        if (response.ok) {
+            console.log('salio bien')
+        }
+        return data.comentariosData;
+
+        
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}

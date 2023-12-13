@@ -1,4 +1,4 @@
-import { Search } from './Search';
+import { Link } from 'react-router-dom';
 import { LogInRegisterBtt } from './LogInRegisterBttn';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -30,7 +30,7 @@ export const Navbar = () => {
 
 
         <div className="navbar-collapse collapse" id="navbarContent">
-          <Search />
+        <Link className="d-flex me-auto p-2 nav-link" to="/catalogo">Catalogo de Clases</Link>
           <LogInRegisterBtt />
         </div>
       </div>

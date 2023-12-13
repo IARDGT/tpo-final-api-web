@@ -5,7 +5,7 @@
     height: 100%;
 }
 
-.form-acpetar{
+.form-acpetar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,16 +17,42 @@
 .form-acpetar input,
 .form-acpetar label {
     display: inline-block;
-    margin-right: 10px; /* Ajusta según sea necesario */
+    margin-right: 10px;
+    /* Ajusta según sea necesario */
 }
 
-.constent-form{
+.constent-form {
     margin: 5px
 }
 
 .form-acpetar .button-container {
     display: flex;
     justify-content: center;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 40%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.modal-contratar-clase {
+    width: 100px;
+    margin: auto;
 }
 
 @media screen and (max-width: 1080px) {
