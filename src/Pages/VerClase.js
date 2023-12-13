@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../components/AuthContext';
 
 
@@ -71,7 +71,7 @@ export const VerClase = () => {
             <h5>Calificacion: <span>{clase.calificacion}</span></h5>
             <h5>Precio: ${clase.price}</h5>
             <h5>Duracion: {clase.duracion}</h5>
-            <h5>Profesor: <span>{clase.profesorName}</span></h5>
+            <h5>Profesor: <Link className="link-info" to={"/mi-perfil/" + clase.profesorId}> <span>{clase.profesorName}</span> </Link> </h5> 
             <p><strong>Experiencia: </strong>{clase.profesorExp} años</p>
             <p><strong>Titulos: </strong>{clase.profesorTitulo}</p>
             <p><strong>Infromacion del profesor: </strong>{clase.profesorBio}</p>
