@@ -39,6 +39,11 @@ export const MiPerfil = () => {
     );
   }, [id]);
 
+  const isEditEnabled = () => {
+    return (auth && userId == id) 
+  }
+
+
 
   const navigateToEdit = () => {
     navigate('/mi-perfil/editar/' + id);
@@ -82,14 +87,18 @@ export const MiPerfil = () => {
             <p>{profesor.bio}</p>
           </div>
         </div>
-        <div className="col-lg-12 text-center mb-4 mb-sm-5">
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={(e) => navigateToEdit(e)}>
-            Editar Perfil
-          </button>
-        </div>
+        { 
+          isEditEnabled() && 
+          <div className="col-lg-12 text-center mb-4 mb-sm-5">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={(e) => navigateToEdit(e)}>
+              Editar Perfil
+            </button>
+          </div>        
+        }
+
 
       </div>
     </div>

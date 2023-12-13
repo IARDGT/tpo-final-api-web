@@ -4,6 +4,7 @@ const urlApi = "http://localhost:4000/";
 const urlWebServices = {
     login:urlApi +"api/users/login",
     register:urlApi +"api/users/registration",
+    recuperar:urlApi +"api/users/reset-password",
     getUserById:urlApi +"api/users/userById",
     uploadProfileImage:urlApi +"api/users/image-upload",
     updateProfile:urlApi +"api/users/update",

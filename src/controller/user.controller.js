@@ -68,6 +68,32 @@ export const register = async function (register) {
     };
 }
 
+export const recuperar = async function (emailToRecover) {
+    let url = urlWebServices.recuperar;
+    const jsonData = {
+        email: emailToRecover,
+    };
+
+    try {
+        let response = await fetch(url, {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                // 'x-access-token': WebToken.webToken,
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData), // Convert JSON data to a string
+        });
+
+        return response;
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
+
 export const getUserDetails = async function (userId) {
     let url = urlWebServices.getUserById+"/"+userId;
     const jsonData = {
@@ -119,7 +145,7 @@ export const updateProfile = async function (req) {
             method: 'PUT',
             mode: "cors",
             headers: {
-                // 'x-access-token': WebToken.webToken,
+                //'x-access-token': WebToken.webToken,
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
             },
