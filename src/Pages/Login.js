@@ -78,7 +78,7 @@ export const Login = () => {
           </div>
 
           <div className="d-flex justify-content-end">
-            <a href="#!" className="text-body">¿Olvidaste tu contraseña?</a>
+            <a href="/recuperar" className="text-body">¿Olvidaste tu contraseña?</a>
           </div>
 
           <div className="js mt-4 pt-2">

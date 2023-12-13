@@ -9,6 +9,7 @@ import { Home } from "./Pages/Home";
 import { Catalogo } from "./Pages/Catalogo";
 import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
+import { Recuperar } from "./Pages/Recuperar";
 import { CrearClase } from './Pages/CrearClase';
 import { VerClase } from './Pages/VerClase';
 import { ContratarClase } from './Pages/ContratarClase';
@@ -36,6 +37,7 @@ export const App = () => {
                 <Route path="/catalogo" element={<Catalogo />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/recuperar" element={<Recuperar />} />
                 <Route path="/crear-clase" element={<CrearClase />} />
                 <Route path="/ver-clase/:id" element={<VerClase />} />
                 <Route path="/ver-clase/contratar/:id" element={<ContratarClase />} />
