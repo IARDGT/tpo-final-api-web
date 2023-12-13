@@ -8,17 +8,14 @@ export const getClaseContratada = async function (idClase) {
             method: 'GET',
             mode: 'cors',
             headers: {
-              'Origin': 'http://localhost:3000',
-              'Content-Type': 'application/json'
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
             },
-          });
+        });
         let data = await response.json();
-        
-        console.log('response',data)
-        if (response.ok) {
-            console.log('salio bien')
-        }
-        return data.claseContratada        ;
+
+        //console.log('response',data)
+        return data.claseContratada;
     }
     catch (error) {
         console.log("error", error);
@@ -27,8 +24,8 @@ export const getClaseContratada = async function (idClase) {
 
 export const getListaClaseContratada = async function (idProfesor) {
     let url = `${urlWebServices.misClasesContratadas}${idProfesor}`;
-    
-    console.log('url----------------->',url)
+
+    //console.log('url----------------->',url)
     try {
         let response = await fetch(url, {
             method: 'GET',
@@ -40,13 +37,11 @@ export const getListaClaseContratada = async function (idProfesor) {
         });
         let data = await response.json();
 
-        if (response.ok) {
-            console.log('salio bien')
-        }
-        console.log('data.claseContratadas---------------->',data.claseContratadas)
+
+        //console.log('data.claseContratadas---------------->',data.claseContratadas)
         return data.claseContratadas;
 
-        
+
     }
     catch (error) {
         console.log("error", error);
@@ -56,8 +51,8 @@ export const getListaClaseContratada = async function (idProfesor) {
 export const updateStatusComentario = async function (commentId, statusComentario) {
     let url = `${urlWebServices.updateComentario}${commentId}`;
 
-    console.log('url comentario',url);
-    console.log('statusComentario comentario',statusComentario);
+    /* console.log('url comentario',url);
+    console.log('statusComentario comentario',statusComentario); */
 
     try {
         let response = await fetch(url, {
@@ -67,12 +62,68 @@ export const updateStatusComentario = async function (commentId, statusComentari
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({statusComentario: !statusComentario})
+            body: JSON.stringify({ statusComentario: !statusComentario })
         });
         let data = await response.json();
         return data.clases;
 
-        
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
+export const updateStatusClase = async function (claseContratada, statusClaseContratada) {
+    let url = `${urlWebServices.updatestatusClaseContratada}${claseContratada}`;
+
+    //console.log('url claseContratada status',url);
+    //console.log('statusClaseContratada claseContratada status',statusClaseContratada);
+
+    try {
+        let response = await fetch(url, {
+            method: 'PUT',
+            mode: 'cors',
+            headers: {
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ statusClaseContratada: statusClaseContratada })
+        });
+        let data = await response.json();
+        return data.clases;
+
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
+export const contratarClase = async function (clase) {
+    let url = `${urlWebServices.contratarClase}${clase.claseId}`;
+
+    const jsonData = {
+        nombreAlumno: `${clase.formNombre} ${clase.formApellido}`,
+        telefono: clase.formTelefono,
+        mail: clase.formEmail,
+        horario: clase.formHorario,
+        mensaje: clase.formDescripcion,
+    };
+
+    try {
+        console.log("URL de contratar clase ", url);
+        console.log("jsonData ", jsonData);
+        let response = await fetch(url, {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                // 'x-access-token': WebToken.webToken,
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData), // Convert JSON data to a string
+        });
+
+        return response;
     }
     catch (error) {
         console.log("error", error);

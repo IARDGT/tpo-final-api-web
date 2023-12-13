@@ -25,7 +25,7 @@ export const VerClase = () => {
     frecuencia: '',
     description: '',
     price: '',
-    imgUrl: 'https://res.cloudinary.com/dtjbknm5h/image/upload/v1701724404/logo_c21cbs.pn',
+    imgUrl: 'https://res.cloudinary.com/dtjbknm5h/image/upload/v1701724404/logo_c21cbs.png',
     comments: [],
     calificacion: 0,
   });
@@ -34,12 +34,12 @@ export const VerClase = () => {
   const defaultImage = "https://res.cloudinary.com/dtjbknm5h/image/upload/v1701724404/logo_c21cbs.png";
 
   const onImageError = (error) => {
-      console.log("ERROR WHILE LOADING IMG...");
-      error.target.src = defaultImage;
+    console.log("ERROR WHILE LOADING IMG...");
+    error.target.src = defaultImage;
   }
 
-  const editarComentario = () => {
-    if (auth && userId == clase?.profesorId) {
+  const autorClase = () => {
+    if (auth && userId === clase?.profesorId) {
       return true;
     } else {
       return false;
@@ -60,7 +60,7 @@ export const VerClase = () => {
     handleClase();
   }, [id]);
 
-  console.log('editarComentario', editarComentario());
+  console.log('autorClase', autorClase());
 
   return (
     <>
@@ -76,9 +76,10 @@ export const VerClase = () => {
             <p><strong>Titulos: </strong>{clase.profesorTitulo}</p>
             <p><strong>Infromacion del profesor: </strong>{clase.profesorBio}</p>
             <p>{clase.description}</p>
-            <a href={"contratar/" + id}>
-              <button type="button" className="btn btn-primary btn-lg mt-2">Inscribirse</button>
-            </a>
+            {!autorClase() &&
+              <a href={"contratar/" + id}>
+                <button type="button" className="btn btn-primary btn-lg mt-2">Inscribirse</button>
+              </a>}
           </div>
           <div className="col-lg-6 order-1 order-lg-2">
             <div className="card-img-top d-flex justify-content-center align-items-center">
@@ -86,14 +87,14 @@ export const VerClase = () => {
                 src={clase.imgUrl}
                 className="img-fluid"
                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'fill' }}
-                alt="Imagen representativa de la clase a crear." 
+                alt="Imagen representativa de la clase a crear."
                 onError={e => onImageError(e)}
-                />
+              />
             </div>
           </div>
         </div>
         <div className="ver-clases-content-2">
-          <ListaComentariosClase editar={editarComentario()} comments={clase.comments} />
+          <ListaComentariosClase editar={autorClase()} comments={clase.comments} />
         </div>
       </div >
     </>
