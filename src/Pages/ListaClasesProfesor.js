@@ -10,29 +10,30 @@ import "./style/ListaClasesProfesor.css";
 
 export const ListaClasesProfesor = () => {
 
-    const [datos, setDatos] = useState([]);
+  const [datos, setDatos] = useState([]);
 
-    const { userId } = useAuth();
+  const { userId } = useAuth();
 
-    useEffect(() => {
-        const handleCatalogo = async () => {
-          try {
-            const res = await getMisClases(userId);
-            setDatos(res);
-          } catch (error) {
-            console.error('Error al obtener datos del catálogo:', error);
-            setDatos([]);
-          }
-        };
-    
-        handleCatalogo();
-      }, []);
+  useEffect(() => {
+    const handleCatalogo = async () => {
+      try {
+        const res = await getMisClases(userId);
+        setDatos(res);
+      } catch (error) {
+        console.error('Error al obtener datos del catálogo:', error);
+        setDatos([]);
+      }
+    };
 
-    return (
-        <>
-            <div className="lista-clases-profesor-container">
-                <ListaMisClases listaClases={datos} cantidadMax={7} misClase={ true } urlClase="/ver-clase"/>
-            </div>
-        </>
-    )
+    handleCatalogo();
+  }, []);
+
+  return (
+    <>
+      <div className="lista-clases-profesor-container">
+        <h2>Mis Clases</h2>
+        <ListaMisClases listaClases={datos} cantidadMax={7} misClase={true} urlClase="/ver-clase" />
+      </div>
+    </>
+  )
 }

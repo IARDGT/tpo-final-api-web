@@ -17,7 +17,13 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(e);
-    let response = await register(nombre,apellido,email,password);
+    const data = {
+      name: nombre,
+      lastName: apellido,
+      email: email,
+      password: password
+    }
+    let response = await register(data);
     console.log("response.ok ",response.ok)
     if (!response.ok) {
       alert("Error creating user.")

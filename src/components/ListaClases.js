@@ -24,6 +24,7 @@ export const ListaClases = ({ cantidadMax, misClase, urlClase, listaCatalogo, on
     clasesFiltradas.slice(0, cantidadMax).forEach((clase) => {
         contenido.push(
           <ClaseItem
+            clase={clase}
             title={clase.title}
             profesorName={clase.profesorName}
             category={clase.category}

@@ -176,3 +176,28 @@ export const listaComentariosGet = async function () {
         console.log("error", error);
     };
 }
+
+export const eliminarClase = async function (idClase) {
+    let url = `${urlWebServices.eliminarClase}${idClase}`;
+
+    try {
+        let response = await fetch(url, {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {
+              'Origin': 'http://localhost:3000',
+              'Content-Type': 'application/json'
+            },
+          });
+        let data = await response.json();
+        
+        console.log('response',data)
+        if (response.ok) {
+            console.log('salio bien')
+        }
+        return response;
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}

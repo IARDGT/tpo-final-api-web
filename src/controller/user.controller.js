@@ -49,6 +49,8 @@ export const register = async function (register) {
         imgUrl: "https://res.cloudinary.com/dtjbknm5h/image/upload/v1701456977/basic-teacher_fojod3.png",
     };
 
+    console.log('jsonData --->',jsonData);
+
     try {
         let response = await fetch(url, {
             method: 'POST',

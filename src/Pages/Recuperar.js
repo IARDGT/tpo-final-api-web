@@ -2,11 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { recuperar } from "../controller/user.controller";
 import './style/Recuperar.css';
-
+import { useState } from 'react';
 
 export const Recuperar = () => {
   
   const [email,setEmail] = React.useState('');
+  const [mostrarModal, setMostrarModal] = useState(false);
   const navigate = useNavigate();
 
   const handleEmail = (event) => {
@@ -15,14 +16,24 @@ export const Recuperar = () => {
   
   const handleRecuperar = async (e) => {
     e.preventDefault();
-    let response = await recuperar(email); 
+    console.log('email ====>',email);
+    let response = await recuperar(email);
     if (response.ok) {
-      navigate("/login");
+      setMostrarModal(true);
     } else {
       alert("El usuario no es válido");
     }
 
   } 
+
+  const Modal = ({ onClose }) => (
+    <div className="modal">
+      <div className="modal-content">
+        <p>Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña. Por favor, verifica tu bandeja de entrada y sigue los pasos proporcionados.</p>
+        <button className="modal-contratar-clase" onClick={() =>{navigate("/login")}}>Cerrar</button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="d-flex justify-content-center border rounded bg-body-tertiary recuperar-container" >
@@ -52,6 +63,7 @@ export const Recuperar = () => {
         </div>
 
       </form>
+      {mostrarModal && <Modal onClose={() => setMostrarModal(false)} />}
     </div>
   );
 };
