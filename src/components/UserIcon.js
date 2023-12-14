@@ -5,12 +5,14 @@ import { useAuth } from "../components/AuthContext";
 export const UserIcon = () => {
 
     const navigate = useNavigate();
-    const { setAuth, userId } = useAuth();
+    const { setToken, setAuth, setUserId, userId } = useAuth();
     const [userName,setUserName] = useState('');
 
     const handleLogout = () => {
         sessionStorage.clear();
         setAuth(false);
+        setUserId(null);
+        setToken(null);
         navigate('/');
     }
 

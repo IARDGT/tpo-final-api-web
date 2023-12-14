@@ -4,6 +4,8 @@ import { getUserDetails } from "../controller/user.controller";
 const AuthContext = createContext({
   auth: false,
   setAuth: () => {},
+  token: "null",
+  setToken: () => {},
   userId: "null",
   setUserId: () => {},
   fetchUserDetails: () => Promise.resolve(), // Placeholder function
@@ -11,12 +13,13 @@ const AuthContext = createContext({
 
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(!!sessionStorage.getItem("x-access-token"));
+  const [token, setToken] = useState(sessionStorage.getItem("x-access-token") !== null ? sessionStorage.getItem("x-access-token") : null);
   const [userId, setUserId] = useState(sessionStorage.getItem("userId") !== null ? sessionStorage.getItem("userId") : null);
   const fetchUserDetails = async () => {
     try {
       console.log("Inside fetch user details: ")
       console.log("userId ", userId)
-      let data = await getUserDetails(userId);
+      let data = await getUserDetails(userId, token);
       console.log("data ", data)
 
       return data; 
@@ -27,7 +30,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ 
-      auth, setAuth, userId, setUserId, fetchUserDetails}}>
+      auth, setAuth, token, setToken, userId, setUserId, fetchUserDetails}}>
       {children}
     </AuthContext.Provider>
   );

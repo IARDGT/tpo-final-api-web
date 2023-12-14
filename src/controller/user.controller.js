@@ -79,7 +79,6 @@ export const recuperar = async function (emailToRecover) {
             method: 'POST',
             mode: "cors",
             headers: {
-                // 'x-access-token': WebToken.webToken,
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
             },
@@ -93,45 +92,15 @@ export const recuperar = async function (emailToRecover) {
     };
 }
 
-export const updatePassword = async function (userId, newPassword) {
-    let url = urlWebServices.updatePassword;
-    const jsonData = {
-        id: userId,
-        password: newPassword,
-    };
 
-    try {
-        let response = await fetch(url, {
-            method: 'POST',
-            mode: "cors",
-            headers: {
-                // 'x-access-token': WebToken.webToken,
-                'Origin': 'http://localhost:3000',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(jsonData), // Convert JSON data to a string
-        });
-
-        return response;
-    }
-    catch (error) {
-        console.log("error", error);
-    };
-}
-
-export const getUserDetails = async function (userId) {
+export const getUserDetails = async function (userId, token) {
     let url = urlWebServices.getUserById+"/"+userId;
-    const jsonData = {
-        id: userId,
-    };
-
-    console.log('url', url);
     try {
         let response = await fetch(url, {
             method: 'GET',
             mode: "cors",
             headers: {
-                // 'x-access-token': WebToken.webToken,
+                'x-access-token': token,
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
             } 
@@ -145,13 +114,15 @@ export const getUserDetails = async function (userId) {
     };
 }
 
-export const uploadProfileImage = async function (img) {
+export const uploadProfileImage = async function (img, token) {
     let url = urlWebServices.uploadProfileImage;
-    console.log("url ", url);
-
     try {
-        console.log("img ", img);
-        let response = await axios.post(url, img);
+        let response = await axios.post(url, img, {
+            headers: {
+                'x-access-token': token,
+                'Origin': 'http://localhost:3000',
+            }
+        });
         return response;
     }
     catch (error) {
@@ -159,18 +130,14 @@ export const uploadProfileImage = async function (img) {
     };
 }
 
-export const updateProfile = async function (req) {
+export const updateProfile = async function (req, token) {
     let url = urlWebServices.updateProfile;
-    console.log("updateProfile: ");
-    console.log("url ", url);
-    console.log("jsonData ", req);
-
     try {
         let response = await fetch(url, {
             method: 'PUT',
             mode: "cors",
             headers: {
-                //'x-access-token': WebToken.webToken,
+                'x-access-token': token,
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
             },

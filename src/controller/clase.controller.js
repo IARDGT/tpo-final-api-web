@@ -14,11 +14,6 @@ export const getClase = async function (idClase) {
             },
           });
         let data = await response.json();
-        
-        console.log('response',data)
-        if (response.ok) {
-            console.log('salio bien')
-        }
         return data.clase;
     }
     catch (error) {
@@ -39,13 +34,7 @@ export const getCatalogo = async function () {
             },
         });
         let data = await response.json();
-
-        if (response.ok) {
-            console.log('salio bien')
-        }
         return data.clases;
-
-        
     }
     catch (error) {
         console.log("error", error);
@@ -106,12 +95,17 @@ export const updateStatusComentario = async function (commentId, statusComentari
     
 }
 
-export const uploadClaseImage = async function (img) {
+export const uploadClaseImage = async function (img, token) {
     let url = urlWebServices.uploadClaseImage;
     console.log("url ", url);
     try {
         console.log("img ", img);
-        let response = await axios.post(url, img);
+        let response = await axios.post(url, img, {
+            headers: {
+                'x-access-token': token,
+                'Origin': 'http://localhost:3000',
+            }
+        });
         return response;
     }
     catch (error) {

@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../components/AuthContext";
-import './style/Recuperar.css';
 import { recuperar } from "../controller/user.controller";
+import './style/Recuperar.css';
 
 
 export const Recuperar = () => {

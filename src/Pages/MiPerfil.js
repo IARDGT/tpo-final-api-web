@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Get User Info from MongoDB
-const getInfoProfesor = async (profId) => {
+const getInfoProfesor = async (profId, token) => {
   try {
-    const res = await getUserDetails(profId);
+    const res = await getUserDetails(profId, token);
     return res.data;
   } catch (error) {
     console.error('Error al obtener datos del catálogo:', error);
@@ -26,23 +26,22 @@ const formatISODateToDDMMYYYY = (isoDateString) => {
 
 export const MiPerfil = () => {
   const { id } = useParams();
-  const { auth, userId } = useAuth();
-  const [profesor, setProfesor] = useState(getInfoProfesor(id));
+  const { auth, token, userId } = useAuth();
+  const [profesor, setProfesor] = useState(getInfoProfesor(id, token));
   const navigate = useNavigate();
 
   useEffect(() => {
-    getInfoProfesor(id).then(user => {
+    getInfoProfesor(id, token).then(user => {
       console.log(user);
       setProfesor(user);
     }).catch(err =>
       console.error(err)
     );
-  }, [id]);
+  }, [id, token]);
 
   const isEditEnabled = () => {
-    return (auth && userId == id) 
+    return (auth && userId === id) 
   }
-
 
 
   const navigateToEdit = () => {

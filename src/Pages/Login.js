@@ -9,7 +9,7 @@ export const Login = () => {
   
   const [email,setEmail] = React.useState('');
   const [password,setPassword] = React.useState('');
-  const { setAuth, setUserId } = useAuth();
+  const { setAuth, setUserId, setToken } = useAuth();
   const navigate = useNavigate();
 
   const handleEmail = (event) => {
@@ -32,8 +32,8 @@ export const Login = () => {
     let response = await login(email, password); 
     if (response.ok) {
       setAuth(true);
-      console.log("sessionStorage.getItem(userId) ",sessionStorage.getItem("userId"))
       setUserId(sessionStorage.getItem("userId"));
+      setToken(sessionStorage.getItem("x-access-token"));
       navigate("/");
     } else {
       alert("El usuario no es válido");
