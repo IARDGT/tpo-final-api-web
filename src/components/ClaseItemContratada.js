@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { updateStatusClase } from '../controller/claseContratada.controller';
 
-export const ClaseItemContratada = ({ clase, actualizarEstado }) => {
+export const ClaseItemContratada = ({ clase }) => {
     const defaultImage = "https://res.cloudinary.com/dtjbknm5h/image/upload/v1701724404/logo_c21cbs.png";
     const [statusAceptada, setStatusAceptada] = useState(clase.statusAceptada);
 
@@ -24,10 +24,10 @@ export const ClaseItemContratada = ({ clase, actualizarEstado }) => {
 
     const handleStatusClase = async (statusClaseContratada) => {
         try {
-            await updateStatusClase(claseContratadaID, statusClaseContratada);
-            setStatusAceptada(statusClaseContratada ? 'Clase aceptada' : 'Clase rechazada');
-            await actualizarEstado();
-            window.location.reload();
+            let updateResponse = await updateStatusClase(claseContratadaID, statusClaseContratada);
+            if (updateResponse.ok) {
+                setStatusAceptada(statusClaseContratada ? 'Clase aceptada' : 'Clase rechazada');
+            }
         } catch (error) {
             console.error('Error al actualizar el estado de la clase:', error);
         }

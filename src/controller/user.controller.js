@@ -93,6 +93,31 @@ export const recuperar = async function (emailToRecover) {
     };
 }
 
+export const updatePassword = async function (userId, newPassword) {
+    let url = urlWebServices.updatePassword;
+    const jsonData = {
+        id: userId,
+        password: newPassword,
+    };
+
+    try {
+        let response = await fetch(url, {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                // 'x-access-token': WebToken.webToken,
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData), // Convert JSON data to a string
+        });
+
+        return response;
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
 
 export const getUserDetails = async function (userId) {
     let url = urlWebServices.getUserById+"/"+userId;

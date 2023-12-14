@@ -1,0 +1,13 @@
+.recuperar-container {
+  max-width: 40%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 1080px) {
+  .recuperar-container {
+    max-width: 100%;
+    margin: 0px;
+    text-align: center;
+  }
+}

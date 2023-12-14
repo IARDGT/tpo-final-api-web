@@ -13,7 +13,7 @@ export const MenuBttn = () => {
                 <Link className="nav-link" to={`/mis-clases/${userId}`}>Mis Clases</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/lista-clases-contratada">Clases Contratadas</Link>
+                <Link className="nav-link" to="/mis-clases-contratadas">Clases Contratadas</Link>
             </li>
             <li className="nav-item">
                 <Link className="nav-link" to="/crear-clase">Crear Clase</Link>

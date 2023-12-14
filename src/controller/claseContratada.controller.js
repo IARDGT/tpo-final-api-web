@@ -76,7 +76,7 @@ export const updateStatusComentario = async function (commentId, statusComentari
 export const updateStatusClase = async function (claseContratada, statusClaseContratada) {
     let url = `${urlWebServices.updatestatusClaseContratada}${claseContratada}`;
 
-    //console.log('url claseContratada status',url);
+    console.log('url claseContratada status',url);
     //console.log('statusClaseContratada claseContratada status',statusClaseContratada);
 
     try {
@@ -89,8 +89,8 @@ export const updateStatusClase = async function (claseContratada, statusClaseCon
             },
             body: JSON.stringify({ statusClaseContratada: statusClaseContratada })
         });
-        let data = await response.json();
-        return data.clases;
+        console.log('url claseContratada status',response);
+        return response;
 
     }
     catch (error) {
@@ -116,11 +116,10 @@ export const contratarClase = async function (clase) {
             method: 'POST',
             mode: "cors",
             headers: {
-                // 'x-access-token': WebToken.webToken,
                 'Origin': 'http://localhost:3000',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(jsonData), // Convert JSON data to a string
+            body: JSON.stringify(jsonData),
         });
 
         return response;

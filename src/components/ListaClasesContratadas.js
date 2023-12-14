@@ -1,6 +1,6 @@
 import { ClaseItemContratada } from "./ClaseItemContratada";
 
-export const ListaClases2 = ({ listaClases, urlClase, actualizarEstado }) => {
+export const ListaClasesContratadas = ({ listaClases, urlClase }) => {
 
   const contenido = [];
 
@@ -10,7 +10,6 @@ export const ListaClases2 = ({ listaClases, urlClase, actualizarEstado }) => {
           urlClase={urlClase + '/' + clase.claseContratadaId}
           key={clase.claseContratadaId}
           clase={clase}
-          actualizarEstado={actualizarEstado}
         />
       );
     });
