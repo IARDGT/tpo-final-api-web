@@ -207,6 +207,7 @@ export const CrearClase = () => {
                                 onClick={e => handleSubmit(e)}
                             >Crear Clase</button>
                         </div>
+                        <br></br>
                     </div>
                 </div>
 
