@@ -2,11 +2,12 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import './style/RecuperarForm.css';
 import { updatePassword, updateProfile } from "../controller/user.controller";
-
+import { useState } from 'react';
 
 export const RecuperarForm = () => {
   const { id } = useParams();
   const [password, setPassword] = React.useState('');
+  const [mostrarModal, setMostrarModal] = useState(false);
   const navigate = useNavigate();
 
   const handlePassword = (event) => {
@@ -22,13 +23,23 @@ export const RecuperarForm = () => {
     console.log(req)
     let response = await updateProfile(req); 
     if (response.ok) {
-      navigate("/login");
+      setMostrarModal(true);
+      //navigate("/login");
     } else {
       console.log(response)
       alert("El usuario no es válido");
     }
 
   } 
+
+  const Modal = ({ onClose }) => (
+    <div className="modal">
+      <div className="modal-content">
+        <p>Su contraseña se ha cambiado con exito.</p>
+        <button className="modal-contratar-clase" onClick={() =>{navigate("/login")}}>Cerrar</button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="d-flex justify-content-center border rounded bg-body-tertiary recuperar-container" >
@@ -52,12 +63,11 @@ export const RecuperarForm = () => {
             onClick={(e) => handleUpdatePassword(e)}>
               Cambiar Contraseña
           </button>
-
-          <p className="small fw-bold mt-2 pt-1 mb-4">¿No tenés una cuenta? <a href="/register"
-            className="link-danger">¡Registrate!</a></p>
         </div>
+        <br></br>
 
       </form>
+      {mostrarModal && <Modal onClose={() => setMostrarModal(false)} />}
     </div>
   );
 };

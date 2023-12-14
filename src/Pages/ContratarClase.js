@@ -12,14 +12,36 @@ function esCorreoElectronicoValido(email) {
     return regexCorreoElectronico.test(email);
 }
 
+const generarOpcionesDeHorario = () => {
+    const opciones = [
+        <option key="placeholder" value="" disabled>
+            Seleccione un horario
+        </option>
+    ];
+    for (let hora = 8; hora < 21; hora++) {
+        const horaInicio = `${hora}:00`;
+        const horaFin = `${hora + 1}:00`;
+        const opcion = `${horaInicio} - ${horaFin}`;
+        opciones.push(
+            <option key={opcion} value={opcion}>
+                {opcion}
+            </option>
+        );
+    }
+
+    return opciones;
+};
+
+const opcionesDeHorario = generarOpcionesDeHorario();
+
 const ModalEmail = ({ onClose }) => (
     <div className="modal">
-      <div className="modal-content">
-        <p>El correo electrónico no es válido.</p>
-        <button className="modal-contratar-clase" onClick={onClose}>Cerrar</button>
-      </div>
+        <div className="modal-content">
+            <p>El correo electrónico no es válido.</p>
+            <button className="modal-contratar-clase" onClick={onClose}>Cerrar</button>
+        </div>
     </div>
-  );
+);
 
 
 
@@ -47,7 +69,7 @@ export const ContratarClase = () => {
     const [formApellido, setFormApellido] = useState(null);
     const [formTelefono, setFormTelefono] = useState('');
     const [formEmail, setFormEmail] = useState(null);
-    const [formHorario, setFormHorario] = useState(null);
+    const [formHorario, setFormHorario] = useState('');
     const [formDescripcion, setFormDescripcion] = useState(null);
     const [aceptarTerminos, setAceptarTerminos] = useState(false);
     const [mostrarModalEmail, setMostrarModalEmail] = useState(false);
@@ -88,13 +110,13 @@ export const ContratarClase = () => {
         error.target.src = defaultImage;
     }
 
-    const handleSubmit = async() => {
-        
+    const handleSubmit = async () => {
+
         if (!esCorreoElectronicoValido(formEmail)) {
             console.log('El email no es valido', formEmail);
             setMostrarModalEmail(true);
             return;
-        } 
+        }
         const req = {
             formNombre,
             formApellido,
@@ -114,13 +136,13 @@ export const ContratarClase = () => {
 
     const ModalInscripcion = ({ onClose }) => (
         <div className="modal">
-          <div className="modal-content">
-            <p>Su inscripción a {clase.title} ha sido exitosa, se le notificará al profesor. Por favor, espere a que este confirme su clase.</p>
-            <Link className="btn btn-primary modal-contratar-clase"  to="/catalogo">Cerrar</Link>
-            
-          </div>
+            <div className="modal-content">
+                <p>Su inscripción a {clase.title} ha sido exitosa, se le notificará al profesor. Por favor, espere a que este confirme su clase.</p>
+                <Link className="btn btn-primary modal-contratar-clase" to="/catalogo">Cerrar</Link>
+
+            </div>
         </div>
-      );
+    );
 
     return (
         <>
@@ -175,7 +197,6 @@ export const ContratarClase = () => {
                                     placeholder="Telefono"
                                     value={formTelefono}
                                     onChange={(e) => {
-                                        // Filtrar la entrada para permitir solo números
                                         const numericValue = e.target.value.replace(/\D/g, '');
                                         setFormTelefono(numericValue);
                                     }}
@@ -196,11 +217,13 @@ export const ContratarClase = () => {
                             </div>
 
                             <div className="form-outline mb-3">
-                                <input type="text"
+                                <select
                                     id="formHorario"
                                     className="form-control form-control-lg"
-                                    placeholder="Horario"
-                                    onChange={(e) => setFormHorario(e.target.value)} />
+                                    value={formHorario}
+                                    onChange={(e) => setFormHorario(e.target.value)} >
+                                    {opcionesDeHorario}
+                                </select>
                             </div>
                             <textarea className="form-control form-control-lg mb-3"
                                 placeholder="Comentario"
@@ -217,13 +240,15 @@ export const ContratarClase = () => {
                                     Aceptar términos y condiciones
                                 </label>
                             </div>
-                            <button type="button"
-                                className="btn btn-primary btn-lg mt-3"
-                                onClick={() => handleSubmit()}
-                                disabled={!isSubmitDisabled()}>Contratar Clase</button>
+                            <div className="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button"
+                                    className="btn btn-primary me-md-2"
+                                    onClick={() => handleSubmit()}
+                                    disabled={!isSubmitDisabled()}>Contratar Clase</button>
+                            </div>
                         </form>
+                        <br></br>
                     </div>
-
                 </div>
             </div>
             {mostrarModalEmail && <ModalEmail onClose={() => setMostrarModalEmail(false)} />}
