@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpload, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../components/AuthContext';
 import { getUserDetails } from '../controller/user.controller';
 import { uploadProfileImage, updateProfile } from "../controller/user.controller";
@@ -67,7 +67,6 @@ export const MiPerfilEditar = () => {
 
 
   useEffect(() => {
-    console.log("RENDER DE PAGINA DE USE EFFECT");
     getInfoProfesor(id).then(user => {
       setProfesor(user);
     }).catch(err =>

@@ -1,18 +1,13 @@
-import { ListaClases2 } from "../components/ListaClases2";
 import { useEffect, useState } from 'react';
 import { useAuth } from '../components/AuthContext';
-
-
+import { ListaClasesContratadas } from "../components/ListaClasesContratadas";
 import { getListaClaseContratada } from '../controller/claseContratada.controller';
 import "./style/ListaClasesProfesor.css";
 
-export const ListaClasesContratadas = () => {
+export const MisClasesContratadas = () => {
   const [datos, setDatos] = useState([]);
   const { userId } = useAuth();
 
-  const actualizarEstado = () => {
-    window.location.reload();
-  };
 
   useEffect(() => {
     const handleCatalogo = async () => {
@@ -28,11 +23,11 @@ export const ListaClasesContratadas = () => {
     handleCatalogo();
   }, [userId]);
 
-    return (
-        <>
-            <div className="lista-clases-profesor-container">
-                <ListaClases2 listaClases={datos} misClase={ true } urlClase="/ver-clase-contratada" actualizarEstado={actualizarEstado} />
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="lista-clases-profesor-container">
+        <ListaClasesContratadas listaClases={datos} urlClase="/ver-clase-contratada"  />
+      </div>
+    </>
+  )
 }

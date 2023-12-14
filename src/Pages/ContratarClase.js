@@ -115,7 +115,7 @@ export const ContratarClase = () => {
     const ModalInscripcion = ({ onClose }) => (
         <div className="modal">
           <div className="modal-content">
-            <p>Tu inscribcion a {clase.title} a sido exitosa, se le notificara al profesor y espera a que este confirme tu clase.</p>
+            <p>Su inscripción a {clase.title} ha sido exitosa, se le notificará al profesor. Por favor, espere a que este confirme su clase.</p>
             <Link className="btn btn-primary modal-contratar-clase"  to="/catalogo">Cerrar</Link>
             
           </div>
@@ -203,7 +203,7 @@ export const ContratarClase = () => {
                                     onChange={(e) => setFormHorario(e.target.value)} />
                             </div>
                             <textarea className="form-control form-control-lg mb-3"
-                                placeholder="Descripción"
+                                placeholder="Comentario"
                                 onChange={(e) => setFormDescripcion(e.target.value)}></textarea>
 
                             <div className="form-check">
