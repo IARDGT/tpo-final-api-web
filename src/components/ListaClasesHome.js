@@ -26,18 +26,12 @@ export const ListaClasesHome = ({ cantidadMax, urlClase }) => {
       handleCatalogo();
     }, []);
 
+    console.log('datos ----->', datos);
+
   datos.slice(0, cantidadMax).forEach((clase) => {
     contenido.push(
       <ClaseItem
-        title={clase.title}
-        profesorName={clase.profesorName}
-        category={clase.category}
-        calificacion={clase.calificacion}
-        tipoClase={clase.tipoClase}
-        frecuencia={clase.frecuencia}
-        price={clase.price}
-        commentId={clase.commentId}
-        imgUrl={clase.imgUrl}
+      clase={clase}
         urlClase={urlClase + '/' + clase.claseId}
         key={clase.claseId}
       />
