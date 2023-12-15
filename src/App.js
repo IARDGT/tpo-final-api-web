@@ -2,8 +2,7 @@ import React from 'react';
 import {
   BrowserRouter,
   Routes,
-  Route,
-  useParams 
+  Route
 } from "react-router-dom";
 import { Home } from "./Pages/Home";
 import { Catalogo } from "./Pages/Catalogo";
@@ -28,8 +27,7 @@ import '../src/styles.css';
 
 
 export const App = () => {
-    const { auth, userId } = useAuth();
-
+    const { auth } = useAuth();
     return (
         <BrowserRouter >
             {auth ? <NavbarAuth /> : <Navbar />}

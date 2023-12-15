@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../components/AuthContext";
-import './style/Recuperar.css';
 import { recuperar } from "../controller/user.controller";
+import './style/Recuperar.css';
 import { useState } from 'react';
 
 export const Recuperar = () => {
@@ -18,7 +17,7 @@ export const Recuperar = () => {
   const handleRecuperar = async (e) => {
     e.preventDefault();
     console.log('email ====>',email);
-    let response = await recuperar(email); 
+    let response = await recuperar(email);
     if (response.ok) {
       setMostrarModal(true);
     } else {

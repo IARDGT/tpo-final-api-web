@@ -10,9 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Get User Info from MongoDB
-const getInfoProfesor = async (id) => {
+const getInfoProfesor = async (id, token) => {
   try {
-    const res = await getUserDetails(id);
+    const res = await getUserDetails(id, token);
     return res.data;
   } catch (error) {
     console.error('Error al obtener datos del catálogo:', error);
@@ -20,19 +20,17 @@ const getInfoProfesor = async (id) => {
 };
 
 // Upload Image to Cloudinary
-const uploadImage = async (file, userId) => {
+const uploadImage = async (file, userId, token) => {
   const data = new FormData();
   data.append("my_img", file);
   data.append("userId", userId);
-  let uploadRes = await uploadProfileImage(data);
-  console.log("uploadRes", uploadRes);
+  let uploadRes = await uploadProfileImage(data, token);
   return uploadRes;
 }
 
 // Update imgUrl in User
-const updateUser = async (req) => {
-  let updateRes = await updateProfile(req);
-  console.log("updateUser response", updateRes);
+const updateUser = async (req, token) => {
+  let updateRes = await updateProfile(req, token);
   return updateRes;
 }
 
@@ -53,7 +51,7 @@ const defaultProfesor = {
 
 export const MiPerfilEditar = () => {
   const { id } = useParams();
-  const { auth, userId } = useAuth();
+  const { token, userId } = useAuth();
   const [profesor, setProfesor] = useState(defaultProfesor);
   const [file, setFile] = useState('');
   const [loading, setLoading] = useState(false);
@@ -67,12 +65,12 @@ export const MiPerfilEditar = () => {
 
 
   useEffect(() => {
-    getInfoProfesor(id).then(user => {
+    getInfoProfesor(id, token).then(user => {
       setProfesor(user);
     }).catch(err =>
       console.error(err)
     );
-  }, [id]);
+  }, [id, token]);
 
 
   const navigateToPerfil = () => {
@@ -93,7 +91,7 @@ export const MiPerfilEditar = () => {
       // Upload Image to Cloudinary
       let secureUrl;
       if (uploadedImage) {
-        let uploadRes = await uploadImage(file, userId);
+        let uploadRes = await uploadImage(file, userId, token);
         secureUrl = uploadRes.data.secure_url
       }
 
@@ -107,7 +105,7 @@ export const MiPerfilEditar = () => {
       if (uploadedImage) req.imgUrl = secureUrl;
 
       console.log("tu request ES: ", req);
-      let updateRes = await updateUser(req);
+      let updateRes = await updateUser(req, token);
       console.log("updateRes", updateRes);
       navigate("/mi-perfil/" + userId);
     } catch (error) {
