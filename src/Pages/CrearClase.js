@@ -68,8 +68,14 @@ export const CrearClase = () => {
         try {
             setLoading(true);
             // Upload Image to Cloudinary
-            let uploadRes = await uploadImage(file, userId, token);
-            let secureUrl = uploadRes.data.secure_url
+            let secureUrl;
+            if (file !== '') {
+                let uploadRes = await uploadImage(file, userId, token);
+                secureUrl = uploadRes.data.secure_url;
+            } else{
+                secureUrl = imgUrl;
+            }
+
             // Create Clase
             let req = {
                 title: titulo,
