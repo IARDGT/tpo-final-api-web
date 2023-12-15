@@ -13,11 +13,9 @@ export const ClaseItemContratada = ({ clase }) => {
     const claseContratadaID = clase.claseContratadaId;
 
     useEffect(() => {
-        if (statusAceptada !== null) {
+        if (statusAceptada != null) {
             if (clase.statusAceptada) {
                 setStatusAceptada('Clase aceptada');
-            } else {
-                setStatusAceptada('Clase rechazada');
             }
         }
     }, [statusAceptada, clase.statusAceptada]);
@@ -26,7 +24,11 @@ export const ClaseItemContratada = ({ clase }) => {
         try {
             let updateResponse = await updateStatusClase(claseContratadaID, statusClaseContratada);
             if (updateResponse.ok) {
-                setStatusAceptada(statusClaseContratada ? 'Clase aceptada' : 'Clase rechazada');
+                if(statusClaseContratada){
+                    setStatusAceptada('Clase aceptada');
+                } else{
+                    setStatusAceptada('Clase rechazada');
+                }
             }
         } catch (error) {
             console.error('Error al actualizar el estado de la clase:', error);

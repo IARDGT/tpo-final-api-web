@@ -70,9 +70,6 @@ export const getMisClases = async function (idProfesor) {
 export const updateStatusComentario = async function (commentId, statusComentario) {
     let url = `${urlWebServices.updateComentario}${commentId}`;
 
-    console.log('url comentario',url);
-    console.log('statusComentario comentario',statusComentario);
-
     try {
         let response = await fetch(url, {
             method: 'PUT',
@@ -97,9 +94,9 @@ export const updateStatusComentario = async function (commentId, statusComentari
 
 export const uploadClaseImage = async function (img, token) {
     let url = urlWebServices.uploadClaseImage;
-    console.log("url ", url);
+    
     try {
-        console.log("img ", img);
+        
         let response = await axios.post(url, img, {
             headers: {
                 'x-access-token': token,
@@ -130,8 +127,7 @@ export const createClase = async function (clase) {
         };
 
     try {
-        console.log("URL de crear clase ", url);
-        console.log("jsonData ", jsonData);
+        
         let response = await fetch(url, {
             method: 'POST',
             mode: "cors",
@@ -195,6 +191,37 @@ export const eliminarClase = async function (idClase) {
         if (response.ok) {
             console.log('salio bien')
         }
+        return response;
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
+export const comentarioCreate = async function (comentario) {
+    let url = urlWebServices.comentarioCreate;
+
+    const jsonData = { 
+        claseContratadaId: comentario.claseContratadaId,
+        claseId: comentario.claseId,
+        comentarioInfo: comentario.comentarioInfo,
+        calificacion: comentario.calificacion,
+        autor: comentario.autor
+        };
+
+    try {
+        
+        let response = await fetch(url, {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                // 'x-access-token': WebToken.webToken,
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData), // Convert JSON data to a string
+        });
+
         return response;
     }
     catch (error) {
