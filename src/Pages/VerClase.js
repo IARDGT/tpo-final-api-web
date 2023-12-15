@@ -56,36 +56,33 @@ export const VerClase = () => {
         setClase({});
       }
     };
-
     handleClase();
   }, [id]);
-
-  console.log('autorClase', autorClase());
 
   return (
     <>
       <div className="ver-clases-container bg-body-secondary pb-3">
         <div className="row d-flex mx-5 my-2 py-5 justify-content-center align-items-start ver-clases-content-1" >
           <div className="col-lg-6 order-2 order-lg-1">
-            <h2>{clase.title}</h2>
-            <h5>Calificacion: <span>{clase.calificacion}</span></h5>
-            <h5>Precio: ${clase.price}</h5>
-            <h5>Duracion: {clase.duracion}</h5>
-            <h5>Profesor: <Link className="link-info" to={"/mi-perfil/" + clase.profesorId}> <span>{clase.profesorName}</span> </Link> </h5> 
-            <p><strong>Experiencia: </strong>{clase.profesorExp} años</p>
-            <p><strong>Titulos: </strong>{clase.profesorTitulo}</p>
-            <p><strong>Infromacion del profesor: </strong>{clase.profesorBio}</p>
-            <p>{clase.description}</p>
+            <h2 className='display-2'>{clase.title}</h2>
+            <p className="lead"><strong>Calificacion: </strong> <span>{clase.calificacion}</span></p>
+            <p className="lead"><strong>Precio: </strong> ${clase.price}</p>
+            <p className="lead"><strong>Duracion: </strong> {clase.duracion}</p>
+            <p className="lead"><strong>Profesor: </strong> <Link className="link-info" to={"/mi-perfil/" + clase.profesorId}> <span>{clase.profesorName}</span> </Link> </p> 
+            <p className="lead"><strong>Experiencia: </strong>{clase.profesorExp} años</p>
+            <p className="lead"><strong>Titulos: </strong>{clase.profesorTitulo}</p>
+            <p className="lead"><strong>Información del profesor: </strong>{clase.profesorBio}</p>
+            <p className="lead">{clase.description}</p>
             {!autorClase() &&
               <a href={"contratar/" + id}>
-                <button type="button" className="btn btn-primary btn-lg mt-2">Inscribirse</button>
+                <button type="button" className="btn btn-primary btn-lg mt-2" >Inscribirse</button>
               </a>}
           </div>
-          <div className="col-lg-6 order-1 order-lg-2">
-            <div className="card-img-top d-flex justify-content-center align-items-center">
+          <div className="col-lg-6 order-1 order-lg-2 ">
+            <div className="card-img-top d-flex justify-content-center ">
               <img
                 src={clase.imgUrl}
-                className="img-fluid"
+                className="img-fluid rounded"
                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'fill' }}
                 alt="Imagen representativa de la clase a crear."
                 onError={e => onImageError(e)}

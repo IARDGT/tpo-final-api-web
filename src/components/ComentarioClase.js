@@ -22,19 +22,16 @@ export const ComentarioClase = ({ commentId, nombreClase, description, autor, cr
                 </div>
                 {editar && (
                     <div>
-                        <label className="react-switch" htmlFor={`react-switch-new`}>
-                            <input
-                                className="react-switch-checkbox"
-                                id={`react-switch-new`}
+                        <div class="form-check form-switch">
+                            <input 
+                                className="form-check-input"
+                                id="flexSwitchCheckDefault"
                                 type="checkbox"
                                 checked={toggleState}
                                 onChange={handleToggleChange}
                             />
-                            <span className={`react-switch-label ${toggleState ? 'react-switch-label-on' : 'react-switch-label-off'}`}>
-                                <span className={`react-switch-button`} />
-                            </span>
-                        </label>
-                        <p>{toggleState ? 'Comentario activado' : 'Comentario desactivado'}</p>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">{toggleState ? 'Comentario activado' : 'Comentario desactivado'}</label>
+                        </div>
                     </div>
                 )}
             </div>

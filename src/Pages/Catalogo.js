@@ -59,7 +59,7 @@ export const Catalogo = () => {
       <div className="catalago-container">
         <select className="form-select" aria-label="Default select example" onChange={(e) => handleCategoriaChange(e.target.value)}>
           <option value="">Categorías</option>
-          {categoriasUnicas.map((categoriaUnica) => (
+          {categoriasUnicas.sort().map((categoriaUnica) => (
             <option key={categoriaUnica} value={normalizeCategoria(categoriaUnica)}>
               {categoriaUnica}
             </option>
@@ -67,7 +67,7 @@ export const Catalogo = () => {
         </select>
         <select className="form-select" aria-label="Default select example" onChange={(e) => handleTipoClaseChange(e.target.value)}>
           <option value="">Tipos de Clase</option>
-          {tipoClase.map((tipoClase) => (
+          {tipoClase.sort().map((tipoClase) => (
             <option key={tipoClase} value={normalizeCategoria(tipoClase)}>
               {tipoClase}
             </option>
@@ -75,7 +75,7 @@ export const Catalogo = () => {
         </select>
         <select className="form-select" aria-label="Default select example" onChange={(e) => handleFrecuenciaChange(e.target.value)}>
           <option value="">Frecuencias</option>
-          {frecuencia.map((frecuencia) => (
+          {frecuencia.sort().map((frecuencia) => (
             <option key={frecuencia} value={normalizeCategoria(frecuencia)}>
               {frecuencia}
             </option>
@@ -83,7 +83,7 @@ export const Catalogo = () => {
         </select>
         <select className="form-select" aria-label="Default select example" onChange={(e) => handleCalificacionChange(e.target.value)}>
           <option value="">Calificacion</option>
-          {calificacion.map((calificacion) => (
+          {calificacion.sort().map((calificacion) => (
             <option key={calificacion} value={calificacion}>
               {calificacion}
             </option>
