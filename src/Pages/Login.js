@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../components/AuthContext";
-import './style/Login.css';
 import { login } from "../controller/user.controller";
+import './style/Login.css';
 
 
 export const Login = () => {
