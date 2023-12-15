@@ -2,37 +2,29 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../components/AuthContext';
 import { getUserDetails } from '../controller/user.controller';
+import { formatISODateToDDMMYYYY } from '../helpers/DateUtils';
 import "./style/MiPerfil.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Get User Info from MongoDB
-const getInfoProfesor = async (profId, token) => {
+const getInfoProfesor = async (profId) => {
   try {
-    const res = await getUserDetails(profId, token);
+    const res = await getUserDetails(profId);
     return res.data;
   } catch (error) {
     console.error('Error al obtener datos del catálogo:', error);
   }
 };
-// Helper Function to parse Date
-const formatISODateToDDMMYYYY = (isoDateString) => {
-  const date = new Date(isoDateString);
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // El mes es indexado desde 0, así que sumamos 1
-  const year = date.getFullYear();
-  return day + "-" + month + "-" + year;
-}
 
 export const MiPerfil = () => {
   const { id } = useParams();
   const { auth, token, userId } = useAuth();
-  const [profesor, setProfesor] = useState(getInfoProfesor(id, token));
+  const [profesor, setProfesor] = useState(getInfoProfesor(id));
   const navigate = useNavigate();
 
   useEffect(() => {
-    getInfoProfesor(id, token).then(user => {
-      console.log(user);
+    getInfoProfesor(id).then(user => {
       setProfesor(user);
     }).catch(err =>
       console.error(err)
@@ -42,7 +34,6 @@ export const MiPerfil = () => {
   const isEditEnabled = () => {
     return (auth && userId === id) 
   }
-
 
   const navigateToEdit = () => {
     navigate('/mi-perfil/editar/' + id);

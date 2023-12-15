@@ -20,7 +20,7 @@ export const Footer = () => {
             <div className="col-8 d-flex justify-content-center">
               <ul className="nav">
                 <li className="nav-item"><a href="#" className="nav-link px-2">Inicio</a></li>
-                <li className="nav-item"><a href="#" className="nav-link px-2">¿Quienes Somos?</a></li>
+                <li className="nav-item"><a className="nav-link px-2">|</a></li>
                 <li className="nav-item"><a href="#" className="nav-link px-2">Encontrá tu clase</a></li>
               </ul>
             </div>

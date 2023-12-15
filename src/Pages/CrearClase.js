@@ -1,19 +1,19 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../components/AuthContext';
-import { faUpload } from '@fortawesome/free-solid-svg-icons';
-import { uploadClaseImage, createClase } from "../controller/clase.controller";
-import "./style/CrearClase.css";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUpload, faSpinner} from '@fortawesome/free-solid-svg-icons';
+import { uploadClaseImage, createClase } from "../controller/clase.controller";
+import { useAuth } from '../components/AuthContext';
+import "./style/CrearClase.css";
+
 
 
 // Upload Image to Cloudinary
-const uploadImage = async (file, userId) => {
+const uploadImage = async (file, userId, token) => {
     const data = new FormData();
     data.append("my_img", file);
     data.append("userId", userId);
-    let uploadRes = await uploadClaseImage(data);
-    console.log("uploadRes", uploadRes);
+    let uploadRes = await uploadClaseImage(data, token);
     return uploadRes;
 }
 
@@ -27,7 +27,7 @@ const createNewClase = async (req) => {
 
 
 export const CrearClase = () => {
-    const { auth, userId } = useAuth();
+    const { token, userId } = useAuth();
     const [titulo, setTitulo] = useState(null);
     const [categoria, setCategoria] = useState(null);
     const [tipoClase, setTipoClase] = useState(null);
@@ -67,13 +67,9 @@ export const CrearClase = () => {
     const handleSubmit = async () => {
         try {
             setLoading(true);
-
             // Upload Image to Cloudinary
-            console.log("VALIDACION OK, SUBIENDO IMAGEN");
-            let uploadRes = await uploadImage(file, userId);
+            let uploadRes = await uploadImage(file, userId, token);
             let secureUrl = uploadRes.data.secure_url
-
-
             // Create Clase
             let req = {
                 title: titulo,
@@ -86,11 +82,9 @@ export const CrearClase = () => {
                 price: precio,
                 imgUrl: secureUrl,
             };
-
-            console.log("tu request ES: ", req);
             let createRes = await createNewClase(req);
             console.log("createNewClase", createRes);
-            //navigate("/mis-clases/" + userId);
+            navigate("/mis-clases/" + userId);
         } catch (error) {
             alert(error.message);
         } finally {
@@ -101,11 +95,11 @@ export const CrearClase = () => {
     return (
         <>
             <div className="crear-clase-container bg-body-tertiary px-5">
-                <div className="row d-flex my-2 py-2 justify-content-center align-items-center" >
+                <div className="row d-flex mx-3 my-2 py-2 justify-content-center align-items-center" >
                     <div className="col-lg-6 justify-content-center order-2 order-lg-1 px-5 px-lg-0">
 
-                        <h2>Crear una clase</h2>
-                        <p>
+                        <h2 className='display-4'>Crear una clase</h2>
+                        <p className='lead'>
                             Asegúrate de tener un título atractivo, una descripción detallada y un precio justo.
                             No olvides proporcionar material de apoyo, fomentar la interacción con los estudiantes durante la clase, y animarte a recibir feedback.
                             Promociona esta clase en redes sociales y actualiza regularmente tu perfil y la información de la clase para atraer a más estudiantes.
@@ -113,7 +107,7 @@ export const CrearClase = () => {
                         </p>
 
                         <form>
-                            <h4 className="d-flex mt-4">Datos de la clase:</h4>
+                            <h4 className="display-6 d-flex mt-4">Datos de la clase:</h4>
 
                             <div className="form-outline mb-3">
                                 <input type="text" id="formNombre" className="form-control form-control-lg"
@@ -144,7 +138,7 @@ export const CrearClase = () => {
 
                             <div className="form-outline mb-3">
                                 <input type="number" id="formDuracion" className="form-control form-control-lg" min="0"
-                                    placeholder="Duracion" onChange={(e) => setDuracion(e.target.value)} />
+                                    placeholder="Duracion en horas" onChange={(e) => setDuracion(e.target.value)} />
                             </div>
 
                             <div className="form-outline mb-3">
@@ -161,7 +155,7 @@ export const CrearClase = () => {
                                 <img
                                     id="cardImage"
                                     src={imgUrl}
-                                    className="img-fluid img-crear-clase"
+                                    className="img-fluid img-crear-clase rounded"
                                     alt="Imagen representativa de la clase a crear."
                                 />
 
@@ -196,7 +190,7 @@ export const CrearClase = () => {
 
 
                         <div className="col-lg-12 form-outline mb-3">
-                            <h4 className="d-flex my-3">Descripción de la clase:</h4>
+                            <h4 className="display-6 d-flex my-3">Descripción de la clase:</h4>
                             <textarea className="form-control form-control-lg" placeholder="Descripción" onChange={(e) => setDescripcion(e.target.value)} />
                         </div>
 
@@ -205,7 +199,8 @@ export const CrearClase = () => {
                             <button className="btn btn-primary me-md-2" type="button"
                                 disabled={!isSubmitDisabled()}
                                 onClick={e => handleSubmit(e)}
-                            >Crear Clase</button>
+                            >{loading ? <FontAwesomeIcon icon={faSpinner} spin />: "Crear Clase" }
+                            </button>
                         </div>
                         <br></br>
                     </div>

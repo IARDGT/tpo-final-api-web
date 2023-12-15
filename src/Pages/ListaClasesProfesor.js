@@ -1,17 +1,11 @@
 import { ListaMisClases } from "../components/ListaMisClases";
 import { useEffect, useState } from 'react';
 import { useAuth } from '../components/AuthContext';
-
-
 import { getMisClases } from '../controller/clase.controller';
-
-
 import "./style/ListaClasesProfesor.css";
 
 export const ListaClasesProfesor = () => {
-
   const [datos, setDatos] = useState([]);
-
   const { userId } = useAuth();
 
   useEffect(() => {
@@ -31,7 +25,7 @@ export const ListaClasesProfesor = () => {
   return (
     <>
       <div className="lista-clases-profesor-container">
-        <h2>Mis Clases</h2>
+        <h2 className='display-2'>Mis Clases</h2>
         <ListaMisClases listaClases={datos} cantidadMax={7} misClase={true} urlClase="/ver-clase" />
       </div>
     </>

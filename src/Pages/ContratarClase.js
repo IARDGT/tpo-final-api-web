@@ -147,19 +147,19 @@ export const ContratarClase = () => {
     return (
         <>
             <div className="contratar-clase-container">
-                <div className="row d-flex mx-2 my-2 justify-content-center align-items-center" >
-                    <div className="col-lg-7">
-                        <h2>{clase.title}</h2>
-                        <h4>Profe: <span>{clase.profesorName}</span></h4>
-                        <h5>Precio: ${clase.price}</h5>
-                        <p>{clase.description}</p>
+                <div className="row d-flex mx-5 my-2 justify-content-center align-items-center" >
+                    <div className="col-lg-7 ">
+                        <h2 className='display-2'>{clase.title}</h2>
+                        <p className="display-6">Profe: <em>{clase.profesorName}</em></p>
+                        <p className="lead">Precio: ${clase.price}</p>
+                        <p className="lead">{clase.description}</p>
                     </div>
-                    <div className="col-lg-5 justify-content-center">
+                    <div className="col-lg-5 mt-5 justify-content-center">
                         <div className="card-img-top d-flex justify-content-center align-items-center">
                             <img
                                 id="cardImage"
                                 src={clase.imgUrl}
-                                className="img-fluid"
+                                className="img-fluid rounded"
                                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'cover' }}
                                 alt="Imagen representativa de la clase a contratar."
                                 onError={e => onImageError(e)}
@@ -168,10 +168,10 @@ export const ContratarClase = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row d-flex mx-2 my-2 py-2 justify-content-center align-items-center">
+                <div className="row d-flex mx-5 my-2 py-2 justify-content-center align-items-center">
                     <div>
                         <form>
-                            <h3 className="d-flex mt-4">Datos del alumno:</h3>
+                            <h3 className="display-6 d-flex mt-4">Datos del alumno:</h3>
 
                             <div className="form-outline mb-3">
                                 <input type="text"
