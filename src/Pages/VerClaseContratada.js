@@ -1,14 +1,17 @@
 import './style/ContratarClase.css';
-
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { getClaseContratada } from '../controller/claseContratada.controller';
-import { comentarioCreate, listaComentariosGet } from '../controller/clase.controller';
+import { comentarioCreate } from '../controller/clase.controller';
 
 export const VerClaseContratada = () => {
 
     const { id } = useParams();
+    const [loading, setLoading] = useState(false);
+    const [comentarioInfo, setComentarioInfo] = useState('')
+    const [calificacion, setCalificacion] = useState('')
     const [clase, setClase] = useState({
         claseId: '',
         title: '',
@@ -20,38 +23,63 @@ export const VerClaseContratada = () => {
         mensaje: '',
         imgUrl: 'blackboard.jpg',
         nombreAlumno: '',
-        urlClase: '',
-        comentarioInfo: '',
-        calificacion: ''
+        urlClase: ''
     });
-
-    const [editable, setEditable] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
     const isSubmitDisabled = () => {
-        return clase.comentarioInfo && clase.calificacion && editable
+        return comentarioInfo && calificacion && !disabled
     };
 
     const handleSubmit = async () => {
+        try{
+        setLoading(true);
         const comentarioNew = {
             claseContratadaId: id,
             claseId: clase.claseId,
-            comentarioInfo: clase.comentarioInfo,
-            calificacion: clase.calificacion,
+            comentarioInfo: comentarioInfo,
+            calificacion: calificacion,
             autor: clase.nombreAlumno
         };
 
-        comentarioCreate(comentarioNew);
-        setEditable(true);
+        let resComment = await comentarioCreate(comentarioNew);
+        console.log(resComment)
+        setDisabled(true);
+        setLoading(false);
+        } catch (error) {
+            alert(error.message);
+        }finally {
+        setLoading(false);
+      }
+    }
+
+    const handleEstado = (statusAceptada, statusCompletada) => {
+        if (statusAceptada != null) {
+            if (statusCompletada) {return "Finalizada"} 
+            if (statusAceptada) {return "Confirmada"}
+            if (!statusAceptada) {return "Rechazada"}
+        } else {
+            return "A Confirmar"
+        }
+
     }
 
     useEffect(() => {
         const handleClase = async () => {
             try {
-                const res = await getClaseContratada(id);
-                setClase(res);
-                if(clase.comentarioInfo != '' || clase.calificacion != '' ){
-                    setEditable(false);
+                const { comentarioInfo, calificacion, ...resClase } = await getClaseContratada(id);
+                setClase(resClase);
+                if(comentarioInfo === null || calificacion === null ){
+                    setComentarioInfo("")
+                    setCalificacion ("")
+                    setDisabled(false);
+                } else {
+                    setComentarioInfo(comentarioInfo)
+                    setCalificacion(calificacion)
+                    setDisabled(true);
                 }
+                console.log(resClase)
+
             } catch (error) {
                 console.error('Error al obtener datos del catálogo:', error);
                 setClase({});
@@ -83,21 +111,22 @@ export const VerClaseContratada = () => {
                                 style={{ maxWidth: '100%', height: '20rem', objectFit: 'cover' }}
                                 alt="Imagen representativa de la clase a contratar."
                             />
-                            <p className="row display-5 justify-content-center">
-                                Estado: {clase.statusAceptada ? (clase.statusCompletada ? "Finalizada" : "Confirmada") : "A confirmar"}</p>
+                            <p className="row display-6 justify-content-center">
+                                Estado: {handleEstado(clase.statusAceptada, clase.statusCompletada)}
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div className="row d-flex mx-2 my-2 py-2 justify-content-center align-items-center">
                     {clase.statusAceptada && clase.statusCompletada && (
                         <div>
-                            <h3>Deja un comentario</h3>
+                            <h3 className='display-6'>Deja un comentario</h3>
                             <textarea
                                 className="form-control form-control-lg mb-3"
                                 placeholder="Comentario"
-                                onChange={(e) => setClase({ ...clase, comentarioInfo: e.target.value })}
-                                value={clase.comentarioInfo}
-                                disabled={!editable}
+                                onChange={(e) => setComentarioInfo(e.target.value)}
+                                value={comentarioInfo}
+                                disabled={disabled}
                             ></textarea>
                             <div>
                                 <label>
@@ -108,23 +137,23 @@ export const VerClaseContratada = () => {
                                             min={0}
                                             max={5}
                                             step={0.5}
-                                            value={clase.calificacion}
-                                            onChange={(e) => setClase({ ...clase, calificacion: e.target.value })}
-                                            disabled={!editable}
+                                            value={calificacion}
+                                            onChange={(e) => setCalificacion(e.target.value)}
+                                            disabled={disabled}
                                         />
-                                        <div className="stars" style={{ width: `${clase.calificacion * 20}%` }}></div>
+                                        <div className="stars" style={{ width: `${calificacion * 20}%` }}></div>
                                     </div>
-                                    {clase.calificacion}
+                                    {calificacion}
                                 </label>
                             </div>
-                            <div className="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div className="col-6 mb-4 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button
                                     type="button"
                                     className="btn btn-primary me-md-2"
                                     onClick={() => handleSubmit()}
                                     disabled={!isSubmitDisabled()}
                                 >
-                                    Contratar Clase
+                                    {loading ? <FontAwesomeIcon icon={faSpinner} spin /> : <span>Subir Comentario</span>}
                                 </button>
                             </div>
                         </div>

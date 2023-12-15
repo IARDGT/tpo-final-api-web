@@ -19,25 +19,25 @@ export const Footer = () => {
             </div>
             <div className="col-8 d-flex justify-content-center">
               <ul className="nav">
-                <li className="nav-item"><a href="#" className="nav-link px-2">Inicio</a></li>
-                <li className="nav-item"><a className="nav-link px-2">|</a></li>
-                <li className="nav-item"><a href="#" className="nav-link px-2">Encontrá tu clase</a></li>
+                <li className="nav-item"><a href="/" className="nav-link px-2">Inicio</a></li>
+                <li className="nav-item"><p className="nav-link px-2">|</p></li>
+                <li className="nav-item"><a href="/catalogo" className="nav-link px-2">Encontrá tu clase</a></li>
               </ul>
             </div>
             <div className="col d-flex justify-content-center">
               <ul className="nav">
               <li className="nav-item">
-                    <a href="#" className="btn btn-outline-dark btn-circle social-fb">
+                    <a href="/" className="btn btn-outline-dark btn-circle social-fb">
                         <FontAwesomeIcon icon={faFacebook} />
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="btn btn-outline-dark btn-circle social-ig">
+                    <a href="/" className="btn btn-outline-dark btn-circle social-ig">
                         <FontAwesomeIcon icon={faInstagram} />
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="btn btn-outline-dark btn-circle social-tw">
+                    <a href="/" className="btn btn-outline-dark btn-circle social-tw">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
                 </li>

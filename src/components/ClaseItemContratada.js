@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { updateStatusClase, updateStatusClaseCompletada } from '../controller/claseContratada.controller';
 
 export const ClaseItemContratada = ({ clase }) => {
