@@ -98,6 +98,31 @@ export const updateStatusClase = async function (claseContratada, statusClaseCon
     };
 }
 
+export const updateStatusClaseCompletada = async function (claseContratada, statusCompletadaClaseContratada) {
+    let url = `${urlWebServices.updateStatusCompletadaClaseContratada}${claseContratada}`;
+
+    console.log('url claseContratada status',url);
+    //console.log('statusClaseContratada claseContratada status',statusClaseContratada);
+
+    try {
+        let response = await fetch(url, {
+            method: 'PUT',
+            mode: 'cors',
+            headers: {
+                'Origin': 'http://localhost:3000',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ statusCompletada: statusCompletadaClaseContratada })
+        });
+        console.log('url claseContratada status',response);
+        return response;
+
+    }
+    catch (error) {
+        console.log("error", error);
+    };
+}
+
 export const contratarClase = async function (clase) {
     let url = `${urlWebServices.contratarClase}${clase.claseId}`;
 

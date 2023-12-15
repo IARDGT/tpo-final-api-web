@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { updateStatusClase } from '../controller/claseContratada.controller';
+import { updateStatusClase, updateStatusClaseCompletada } from '../controller/claseContratada.controller';
 
 export const ClaseItemContratada = ({ clase }) => {
     const defaultImage = "https://res.cloudinary.com/dtjbknm5h/image/upload/v1701724404/logo_c21cbs.png";
     const [statusAceptada, setStatusAceptada] = useState(clase.statusAceptada);
+    const [statusCompletada, setStatusCompletada] = useState(clase.statusCompletada);
 
     const onImageError = (error) => {
         console.log("ERROR WHILE LOADING IMG...");
@@ -12,23 +13,38 @@ export const ClaseItemContratada = ({ clase }) => {
 
     const claseContratadaID = clase.claseContratadaId;
 
-    useEffect(() => {
+/*     useEffect(() => {
         if (statusAceptada != null) {
             if (clase.statusAceptada) {
-                setStatusAceptada('Clase aceptada');
+                setStatusAceptada(true);
+            } else {
+                setStatusAceptada(false)
             }
         }
-    }, [statusAceptada, clase.statusAceptada]);
+    }, [statusCompletada,clase.statusAceptada]); */
 
     const handleStatusClase = async (statusClaseContratada) => {
         try {
             let updateResponse = await updateStatusClase(claseContratadaID, statusClaseContratada);
             if (updateResponse.ok) {
                 if(statusClaseContratada){
-                    setStatusAceptada('Clase aceptada');
+                    setStatusAceptada(true);
                 } else{
-                    setStatusAceptada('Clase rechazada');
+                    setStatusAceptada(false);
                 }
+            }
+        } catch (error) {
+            console.error('Error al actualizar el estado de la clase:', error);
+        }
+    }
+
+    const handleStatusCompletada = async (value) => {
+        console.log('value ====>',value);
+        try {
+            let updateResponse = await updateStatusClaseCompletada(claseContratadaID, value);
+            if (updateResponse.ok) {
+                console.log('Se actualizo correctamente la clase');
+                setStatusCompletada(true);
             }
         } catch (error) {
             console.error('Error al actualizar el estado de la clase:', error);
@@ -58,8 +74,9 @@ export const ClaseItemContratada = ({ clase }) => {
                     )}
                     {statusAceptada != null && (
                         <>
-                            {statusAceptada === 'Clase aceptada' && (<p className="card-text"><strong>Estado: </strong>{clase.statusCompletada? "Clase Finalizada":"Clase Pendiente"}</p>)}
-                            <p className="card-text"><strong>{statusAceptada}</strong></p>
+                            <p className="card-text"><strong>{statusAceptada? "Clase Aceptada":"Clase Rechazada"}</strong></p>
+                            {statusAceptada && (<p className="card-text"><strong>Estado: </strong>{statusCompletada? "Clase Finalizada":"Clase Pendiente"}</p>)}
+                            {!statusCompletada && statusAceptada &&<button className="btn btn-primary" onClick={(e) => handleStatusCompletada(true)}>Completar Clase</button>}
                         </>
                     )}
                 </div>
